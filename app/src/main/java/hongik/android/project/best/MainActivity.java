@@ -1,13 +1,16 @@
 package hongik.android.project.best;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,15 +20,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
@@ -48,5 +42,52 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onClick(View view) {
+        if(view.getId() == R.id.btnsubmit){
+            // Setting URL
+            String url = "http://hello0922.iptime.org/Database/android.php";
+
+            // Setting Method
+            String method = "";
+            RadioButton radget = (RadioButton)findViewById(R.id.radget);
+            RadioButton radpost = (RadioButton)findViewById(R.id.radpost);
+
+            if(radget.isChecked())
+                method = "GET";
+            else if(radpost.isChecked())
+                method = "POST";
+            else{
+                Toast.makeText(this, "Please check method.", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            // Setting Query
+            String query = "";
+            CharSequence txtid = ((EditText)findViewById(R.id.txtid)).getText().toString();
+            CharSequence txtpasswd = ((EditText)findViewById(R.id.txtpasswd)).getText().toString();
+            query = "id=" + txtid + "&passwd=" + txtpasswd;
+
+            // Show Toast Log
+            Toast.makeText(this, "Send to Server id: " + txtid + " password: " + txtpasswd, Toast.LENGTH_LONG).show();
+
+            // Run URLConnector
+            URLConnector test = new URLConnector(url, method, query);
+            test.start();
+
+            // Waiting for Thread
+            try{
+                test.join();
+                Log.i("SampleHTTP","Waiting for result....");
+            }catch(InterruptedException e){}
+
+            // Take Result
+            CharSequence result = test.getResult();
+
+            // Set TextView
+            TextView txtTest = (TextView)findViewById(R.id.txtresult);
+            txtTest.setText(result);
+        }
     }
 }
