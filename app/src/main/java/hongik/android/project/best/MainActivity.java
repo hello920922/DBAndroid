@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             CharSequence result = test.getResult();
 
             // Set TextView
-            TextView txtTest = (TextView)findViewById(R.id.txtresult);
+            TextView txtTest = (TextView)findViewById(R.id.txtResult);
             txtTest.setText(result);
         }
     }
