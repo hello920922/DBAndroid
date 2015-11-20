@@ -3,7 +3,7 @@
     <string name="action_settings">Settings</string>
     <string name="testgit">testgit</string>
 
-    <string-array name="prompt_signarray">
+    <string-array name="array">
         <item>gmail.com</item>
         <item>naver.com</item>
         <item>daum.net</item>

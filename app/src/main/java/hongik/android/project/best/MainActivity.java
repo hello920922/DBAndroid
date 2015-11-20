@@ -23,12 +23,14 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Spinner spinner =(Spinner)findViewById(R.id.countemail);
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.prompt_signarray,android.
+        Spinner spinner_count =(Spinner)findViewById(R.id.countemail);
+        Spinner spinner_sign =(Spinner)findViewById(R.id.signemail);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.array,android.
                 R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        spinner.setAdapter(adapter);
+        spinner_count.setAdapter(adapter);
+        spinner_sign.setAdapter(adapter);
     }
 
     @Override
