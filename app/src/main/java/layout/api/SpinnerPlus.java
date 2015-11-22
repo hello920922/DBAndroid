@@ -9,7 +9,6 @@ import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.View;
 import android.widget.Spinner;
 
 import hongik.android.project.best.R;
@@ -47,10 +46,7 @@ public class SpinnerPlus extends Spinner {
             return false;
         }
 
-        for(int i=0; i<getChildCount(); i++){
-            View v = getChildAt(i);
 
-        }
         return true;
     }
 
