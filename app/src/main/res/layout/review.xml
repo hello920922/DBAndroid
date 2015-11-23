@@ -22,6 +22,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="3"></LinearLayout>
         <layout.api.TextViewPlus
+            android:id="@+id/review_name"
             android:gravity="center"
             android:layout_width="0px"
             android:layout_height="fill_parent"
@@ -46,6 +47,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="3"></LinearLayout>
         <layout.api.TextViewPlus
+            android:id="@+id/review_address"
             android:gravity="center"
             android:layout_width="0px"
             android:layout_height="fill_parent"

@@ -21,7 +21,7 @@
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
             android:text="ID"
-            android:textSize="18dip"
+            android:textSize="16dip"
             foo:customFont="InterparkGothicBold.ttf"
             android:textColor="#750061"
             android:layout_width="0px"
@@ -36,20 +36,16 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="4"
-            android:background="#000000"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="4">
             <layout.api.EditTextPlus
                 android:id="@+id/sign_id"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
-                android:background="#ffffff"/>
+                android:editable="true"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                foo:customFont="InterparkGothicBold.ttf"/>
         </LinearLayout>
 
         <LinearLayout
@@ -71,7 +67,7 @@
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
             android:text="PASSWORD"
-            android:textSize="18dip"
+            android:textSize="16dip"
             foo:customFont="InterparkGothicBold.ttf"
             android:textColor="#750061"
             android:layout_width="0px"
@@ -86,21 +82,16 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="4"
-            android:background="#000000"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="4">
             <layout.api.EditTextPlus
                 android:id="@+id/sign_password"
                 android:gravity="center_vertical"
-                android:layout_width="0px"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
-                android:background="#ffffff"
-                android:layout_weight="4"/>
+                android:editable="true"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                foo:customFont="InterparkGothicBold.ttf"/>
         </LinearLayout>
 
         <LinearLayout
@@ -120,7 +111,7 @@
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
             android:text="NAME"
-            android:textSize="18dip"
+            android:textSize="16dip"
             foo:customFont="InterparkGothicBold.ttf"
             android:textColor="#750061"
             android:layout_width="0px"
@@ -135,21 +126,16 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="4"
-            android:background="#000000"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="4">
             <layout.api.EditTextPlus
                 android:id="@+id/sign_name"
                 android:gravity="center_vertical"
-                android:layout_width="0px"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
-                android:background="#ffffff"
-                android:layout_weight="4"/>
+                android:editable="true"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                foo:customFont="InterparkGothicBold.ttf"/>
         </LinearLayout>
 
         <LinearLayout
@@ -168,7 +154,7 @@
             android:gravity="right|center_vertical"
             android:text="PERSONAL NUMBER"
             android:layout_width="0px"
-            android:textSize="18dip"
+            android:textSize="16dip"
             foo:customFont="InterparkGothicBold.ttf"
             android:textColor="#750061"
             android:layout_height="fill_parent"
@@ -182,21 +168,16 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="3"
-            android:background="#000000"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="3">
             <layout.api.EditTextPlus
                 android:id="@+id/sign_person_h"
                 android:gravity="center_vertical"
-                android:layout_width="0px"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
-                android:background="#ffffff"
-                android:layout_weight="3"/>
+                android:editable="true"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                foo:customFont="InterparkGothicBold.ttf"/>
         </LinearLayout>
 
         <layout.api.TextViewPlus
@@ -212,21 +193,16 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="3"
-            android:background="#000000"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="3">
             <layout.api.EditTextPlus
                 android:id="@+id/sign_person_t"
                 android:gravity="center_vertical"
-                android:layout_width="0px"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
-                android:background="#ffffff"
-                android:layout_weight="4"/>
+                android:editable="true"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                foo:customFont="InterparkGothicBold.ttf"/>
         </LinearLayout>
 
         <LinearLayout
@@ -245,7 +221,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="3"
             android:text="GENDER"
-            android:textSize="18dip"
+            android:textSize="16dip"
             foo:customFont="InterparkGothicBold.ttf"
             android:textColor="#750061"
             android:gravity="right|center_vertical"/>
@@ -266,7 +242,7 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="3"
                 android:text="MALE"
-                android:textSize="18dip"
+                android:textSize="16dip"
                 foo:customFont="InterparkGothicBold.ttf"
                 android:textColor="#750061"/>
 
@@ -275,7 +251,7 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="3"
                 android:text="FEMALE"
-                android:textSize="18dip"
+                android:textSize="16dip"
                 foo:customFont="InterparkGothicBold.ttf"
                 android:textColor="#750061"/>
 
@@ -291,7 +267,7 @@
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
             android:text="PHONE"
-            android:textSize="18dip"
+            android:textSize="16dip"
             foo:customFont="InterparkGothicBold.ttf"
             android:textColor="#750061"
             android:layout_width="0px"
@@ -306,21 +282,16 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="1.7"
-            android:background="#000000"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="1.7">
             <layout.api.EditTextPlus
                 android:id="@+id/sign_phone_h"
                 android:gravity="center_vertical"
-                android:layout_width="0px"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
-                android:background="#ffffff"
-                android:layout_weight="1.7"/>
+                android:editable="true"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                foo:customFont="InterparkGothicBold.ttf"/>
         </LinearLayout>
 
         <layout.api.TextViewPlus
@@ -336,21 +307,16 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="1.7"
-            android:background="#000000"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="1.7">
             <layout.api.EditTextPlus
                 android:id="@+id/sign_phone_m"
                 android:gravity="center_vertical"
-                android:layout_width="0px"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
-                android:background="#ffffff"
-                android:layout_weight="1.8"/>
+                android:editable="true"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                foo:customFont="InterparkGothicBold.ttf"/>
         </LinearLayout>
 
         <layout.api.TextViewPlus
@@ -366,21 +332,16 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="1.7"
-            android:background="#000000"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="1.7">
             <layout.api.EditTextPlus
                 android:id="@+id/sign_phone_t"
                 android:gravity="center_vertical"
-                android:layout_width="0px"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
-                android:background="#ffffff"
-                android:layout_weight="1.8"/>
+                android:editable="true"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                foo:customFont="InterparkGothicBold.ttf"/>
         </LinearLayout>
 
         <LinearLayout
@@ -398,7 +359,7 @@
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
             android:text="EMAIL"
-            android:textSize="18dip"
+            android:textSize="16dip"
             foo:customFont="InterparkGothicBold.ttf"
             android:textColor="#750061"
             android:layout_width="0px"
@@ -413,21 +374,16 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="2.5"
-            android:background="#000000"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="2.5">
             <layout.api.EditTextPlus
                 android:id="@+id/sign_email_h"
                 android:gravity="center_vertical"
-                android:layout_width="0px"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
-                android:background="#ffffff"
-                android:layout_weight="3"/>
+                android:editable="true"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                foo:customFont="InterparkGothicBold.ttf"/>
         </LinearLayout>
 
         <layout.api.TextViewPlus
@@ -444,14 +400,13 @@
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="3.8"
-            android:background="#000000"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="8dp">
             <Spinner
                 android:id="@+id/sign_email_t"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="#ffffff"></Spinner>
+                android:entries="@array/array"></Spinner>
         </LinearLayout>
 
         <LinearLayout
@@ -483,7 +438,7 @@
             foo:customFont="InterparkGothicBold.ttf"
             android:textColor="#ffffff"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"           />
+            android:layout_marginBottom="8dp"/>
 
         <LinearLayout
             android:layout_width="0px"

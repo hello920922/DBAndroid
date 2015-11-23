@@ -11,6 +11,7 @@
         <item>test</item>
         <item>test</item>
     </string-array>
+
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
