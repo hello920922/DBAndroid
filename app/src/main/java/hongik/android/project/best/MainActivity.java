@@ -84,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
         }
         Toast.makeText(this, "Nice to meet you " + result, Toast.LENGTH_SHORT).show();
 
-        Intent intent = new Intent(this, HistoryActivity.class);
+        Intent historyIntent = new Intent(this, HistoryActivity.class);
+        historyIntent.putExtra("CID", viewId.getText().toString());
+        startActivity(historyIntent);
     }
 }
