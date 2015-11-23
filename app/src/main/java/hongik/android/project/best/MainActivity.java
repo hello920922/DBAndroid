@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -25,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
         Spinner spinner_count =(Spinner)findViewById(R.id.countemail);
 
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.array,android.
+        /*ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.array,android.
                 R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        spinner_count.setAdapter(adapter);
+        spinner_count.setAdapter(adapter);*/
 
     }
 
