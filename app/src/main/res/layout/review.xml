@@ -15,7 +15,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="0.5"
+        android:layout_weight="1"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="0px"
@@ -29,6 +29,7 @@
             android:text="Store Name"
             foo:customFont="InterparkGothicBold.ttf"
             android:textSize="25dp"
+            android:textColor="#750061"
             ></layout.api.TextViewPlus>
         <LinearLayout
             android:layout_width="0px"
@@ -38,7 +39,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="0.5"
+        android:layout_weight="1"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="0px"
@@ -52,6 +53,7 @@
             android:text="Address"
             foo:customFont="InterparkGothicBold.ttf"
             android:textSize="25dp"
+            android:textColor="#750061"
             ></layout.api.TextViewPlus>
         <LinearLayout
             android:layout_width="0px"
@@ -61,22 +63,38 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="0.5"
-        android:orientation="horizontal"></LinearLayout>
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <layout.api.TextViewPlus
+            android:gravity="right|center_vertical"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="3"
+            android:text="Grade"
+            foo:customFont="InterparkGothicBold.ttf"
+            android:textSize="25dp"
+            android:textColor="#750061">
+        </layout.api.TextViewPlus>
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.5"></LinearLayout>
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="7">
+        <RatingBar
+            android:id="@+id/reviewid"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:numStars="5"
+            android:stepSize="0.5"></RatingBar></LinearLayout>
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="0.5"
-        android:orientation="horizontal"></LinearLayout>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0px"
-        android:layout_weight="0.5"
-        android:orientation="horizontal"></LinearLayout>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0px"
-        android:layout_weight="0.5"
+        android:layout_weight="1"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="0px"
@@ -90,6 +108,7 @@
             android:text="Review"
             foo:customFont="InterparkGothicBold.ttf"
             android:textSize="25dp"
+            android:textColor="#750061"
             ></layout.api.TextViewPlus>
         <LinearLayout
             android:layout_width="0px"
@@ -99,12 +118,57 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="2"
-        android:orientation="horizontal"></LinearLayout>
+        android:layout_weight="3"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"></LinearLayout>
+        <layout.api.TextViewPlus
+            android:gravity="left|center_vertical"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="8"
+            android:background="#FFD9EC"
+            foo:customFont="InterparkGothicBold.ttf"
+            android:textSize="25dp"
+            ></layout.api.TextViewPlus>
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"></LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
         android:layout_weight="1"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"></LinearLayout>
+        <layout.api.ButtonPlus
+            android:gravity="center"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:text="Submit"
+            android:textColor="#ffffff"
+            android:layout_weight="6"
+            foo:customFont="InterparkGothicBold.ttf"
+            android:textSize="25dp"
+            android:background="#750061"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            ></layout.api.ButtonPlus>
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"></LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="2"
         android:orientation="horizontal"></LinearLayout>
 </LinearLayout>
