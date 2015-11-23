@@ -116,9 +116,6 @@
                         android:background="#750061"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.TextViewPlus
-                        android:layout_weight="0.1"
-                        android:background="#ffffff"/>
-                    <layout.api.TextViewPlus
                         android:id="@+id/history_table_grade"
                         android:layout_weight="1"
                         android:text="Grade"
@@ -126,10 +123,8 @@
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
                         android:background="#750061"
+                        android:layout_marginLeft="1dip"
                         foo:customFont="InterparkGothicBold.ttf"/>
-                    <layout.api.TextViewPlus
-                        android:layout_weight="0.1"
-                        android:background="#ffffff"/>
                     <layout.api.TextViewPlus
                         android:id="@+id/history_table_review"
                         android:layout_weight="2"
@@ -138,10 +133,8 @@
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
                         android:background="#750061"
+                        android:layout_marginLeft="1dip"
                         foo:customFont="InterparkGothicBold.ttf"/>
-                    <layout.api.TextViewPlus
-                        android:layout_weight="0.1"
-                        android:background="#ffffff"/>
                     <layout.api.TextViewPlus
                         android:id="@+id/history_table_date"
                         android:layout_weight="1"
@@ -150,7 +143,14 @@
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
                         android:background="#750061"
+                        android:layout_marginLeft="1dip"
                         foo:customFont="InterparkGothicBold.ttf"/>
+                </TableRow>
+                <TableRow>
+                    <layout.api.TextViewPlus/>
+                    <layout.api.TextViewPlus/>
+                    <layout.api.TextViewPlus/>
+                    <layout.api.TextViewPlus/>
                 </TableRow>
             </TableLayout>
         </LinearLayout>

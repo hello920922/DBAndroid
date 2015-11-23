@@ -52,13 +52,13 @@ public class MainActivity extends AppCompatActivity {
             Signin();
         }
     }
+
     public void Signin(){
         EditTextPlus viewId = (EditTextPlus)findViewById(R.id.main_id);
         EditTextPlus viewpasswd = (EditTextPlus)findViewById(R.id.main_passwd);
 
         String query = "func=signin&cid=" + viewId.getText().toString() + "&passwd=" + viewpasswd.getText().toString();
-        //Toast.makeText(this, query, Toast.LENGTH_LONG).show();
-        URLConnector conn = new URLConnector(Constant.SERVER + "android.php", "POST", query);
+        URLConnector conn = new URLConnector(Constant.SERVER, "POST", query);
         conn.start();
 
         try{
