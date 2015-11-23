@@ -7,10 +7,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/repeat">
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="1"
+        android:layout_weight="0.5"
         android:orientation="horizontal"/>
 
     <LinearLayout
@@ -23,7 +30,7 @@
             android:gravity="right|center_vertical"
             android:text="ID"
             android:textColor="#750061"
-            android:textSize="16dip"
+            android:textSize="13dip"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="3"
@@ -39,7 +46,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="4">
             <layout.api.EditTextPlus
-                android:id="@+id/count_id"
+                android:id="@+id/account_id"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -68,7 +75,7 @@
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
             android:text="PASSWORD"
-            android:textSize="16dip"
+            android:textSize="13dip"
             android:textColor="#750061"
             android:layout_width="0px"
             android:layout_height="fill_parent"
@@ -85,7 +92,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="4">
             <layout.api.EditTextPlus
-                android:id="@+id/count_passwd"
+                android:id="@+id/account_passwd"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -112,7 +119,7 @@
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
             android:text="NAME"
-            android:textSize="16dip"
+            android:textSize="13dip"
             android:textColor="#750061"
             android:layout_width="0px"
             android:layout_height="fill_parent"
@@ -129,7 +136,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="4">
             <layout.api.EditTextPlus
-                android:id="@+id/count_name"
+                android:id="@+id/account_name"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -155,7 +162,7 @@
             android:gravity="right|center_vertical"
             android:text="PERSONAL NUMBER"
             android:layout_width="0px"
-            android:textSize="16dip"
+            android:textSize="13dip"
             android:textColor="#750061"
             android:layout_height="fill_parent"
             android:layout_weight="3"
@@ -171,7 +178,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="3">
             <layout.api.EditTextPlus
-                android:id="@+id/count_person_h"
+                android:id="@+id/account_person_h"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -195,7 +202,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="3">
             <layout.api.EditTextPlus
-                android:id="@+id/count_person_t"
+                android:id="@+id/account_person_t"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -221,7 +228,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="3"
             android:text="GENDER"
-            android:textSize="16dip"
+            android:textSize="13dip"
             android:textColor="#750061"
             android:gravity="right|center_vertical"
             foo:customFont="InterparkGothicBold.ttf"/>
@@ -237,22 +244,22 @@
             android:layout_weight="7"
             android:orientation="horizontal">
             <layout.api.RadioPlus
-                android:id="@+id/count_radio_h"
+                android:id="@+id/account_radio_h"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="3"
                 android:text="MALE"
-                android:textSize="16dip"
+                android:textSize="13dip"
                 android:textColor="#750061"
                 foo:customFont="InterparkGothicBold.ttf"/>
 
             <layout.api.RadioPlus
-                android:id="@+id/count_radio_t"
+                android:id="@+id/account_radio_t"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="3"
                 android:text="FEMALE"
-                android:textSize="16dip"
+                android:textSize="13dip"
                 android:textColor="#750061"
                 foo:customFont="InterparkGothicBold.ttf"/>
 
@@ -268,7 +275,7 @@
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
             android:text="PHONE"
-            android:textSize="16dip"
+            android:textSize="13dip"
             android:textColor="#750061"
             android:layout_width="0px"
             android:layout_height="fill_parent"
@@ -285,7 +292,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1.7">
             <layout.api.EditTextPlus
-                android:id="@+id/count_phone_h"
+                android:id="@+id/account_phone_h"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -310,7 +317,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1.7">
             <layout.api.EditTextPlus
-                android:id="@+id/count_phone_m"
+                android:id="@+id/account_phone_m"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -335,7 +342,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1.7">
             <layout.api.EditTextPlus
-                android:id="@+id/count_phone_t"
+                android:id="@+id/account_phone_t"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -360,7 +367,7 @@
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
             android:text="EMAIL"
-            android:textSize="16dip"
+            android:textSize="13dip"
             android:textColor="#750061"
             android:layout_width="0px"
             android:layout_height="fill_parent"
@@ -377,7 +384,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="2.5">
             <layout.api.EditTextPlus
-                android:id="@+id/count_email_h"
+                android:id="@+id/account_email_h"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -400,14 +407,12 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="3.8"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="3.8">
             <Spinner
-                android:id="@+id/sign_email_t"
+                android:id="@+id/account_email_t"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:entries="@array/array"></Spinner>
+                ></Spinner>
         </LinearLayout>
 
         <LinearLayout
@@ -430,7 +435,7 @@
         </LinearLayout>
 
         <layout.api.ButtonPlus
-            android:id="@+id/count_btnchanges"
+            android:id="@+id/account_btnchanges"
             android:text="Save Changes"
             android:layout_width="0px"
             android:layout_height="fill_parent"
@@ -464,7 +469,7 @@
         </LinearLayout>
 
         <layout.api.ButtonPlus
-            android:id="@+id/count_btncountup"
+            android:id="@+id/account_btnaccountup"
             android:text="Delete Account"
             android:layout_width="0px"
             android:layout_height="fill_parent"
@@ -488,7 +493,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="2"
+        android:layout_weight="0.5"
         android:orientation="horizontal">
 
     </LinearLayout>
