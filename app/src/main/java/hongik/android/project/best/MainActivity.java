@@ -1,5 +1,6 @@
 package hongik.android.project.best;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -82,5 +83,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         Toast.makeText(this, "Nice to meet you " + result, Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this, HistoryActivity.class);
     }
 }

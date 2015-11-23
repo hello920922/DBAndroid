@@ -100,6 +100,7 @@
             android:layout_weight="13"
             android:orientation="vertical">
             <TableLayout
+                android:id="@+id/history_table"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:orientation="vertical"
