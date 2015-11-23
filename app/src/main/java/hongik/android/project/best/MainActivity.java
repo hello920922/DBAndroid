@@ -58,9 +58,9 @@ public class MainActivity extends AppCompatActivity {
         EditTextPlus viewId = (EditTextPlus)findViewById(R.id.main_id);
         EditTextPlus viewpasswd = (EditTextPlus)findViewById(R.id.main_passwd);
 
-        String query = "query=select * from CUSTOMER where CID='" + viewId.getText().toString() + "'and PASSWORD='" + viewpasswd.getText().toString() + "'";
+        String query = "func=signin&cid=" + viewId.getText().toString() + "&passwd=" + viewpasswd.getText().toString();
         //Toast.makeText(this, query, Toast.LENGTH_LONG).show();
-        URLConnector conn = new URLConnector(Constant.SERVER + "signin.php", "POST", query);
+        URLConnector conn = new URLConnector(Constant.SERVER + "android.php", "POST", query);
         conn.start();
 
         try{

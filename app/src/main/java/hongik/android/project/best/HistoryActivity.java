@@ -6,12 +6,14 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TableLayout;
 
 /**
  * Created by Mingyu Park on 2015-11-23.
  */
 public class HistoryActivity extends AppCompatActivity {
     private BackPressCloseHandler backHandler;
+    private TableLayout historyTable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,12 @@ public class HistoryActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        historyTable = (TableLayout)findViewById(R.id.history_table);
+    }
+
+    public void drawHistory(){
+        URLConnector conn = new URLConnector(Constant.SERVER+"history.php","POST","select ");
     }
 
     @Override
