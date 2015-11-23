@@ -37,19 +37,12 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="4"
-
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="4">
             <layout.api.EditTextPlus
                 android:id="@+id/count_id"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
                 android:editable="true"
                 android:inputType="text"
                 android:imeOptions="actionNext"
@@ -90,18 +83,12 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="4"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="4">
             <layout.api.EditTextPlus
                 android:id="@+id/count_passwd"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
                 android:editable="true"
                 android:inputType="text"
                 android:imeOptions="actionNext"
@@ -140,18 +127,12 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="4"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="4">
             <layout.api.EditTextPlus
                 android:id="@+id/count_name"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
                 android:editable="true"
                 android:inputType="text"
                 android:imeOptions="actionNext"
@@ -188,18 +169,12 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="3"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="3">
             <layout.api.EditTextPlus
                 android:id="@+id/count_person_h"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
                 android:editable="true"
                 android:inputType="text"
                 android:imeOptions="actionNext"
@@ -218,18 +193,12 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="3"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="3">
             <layout.api.EditTextPlus
                 android:id="@+id/count_person_t"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
                 android:editable="true"
                 android:inputType="text"
                 android:imeOptions="actionNext"
@@ -314,18 +283,12 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="1.7"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="1.7">
             <layout.api.EditTextPlus
                 android:id="@+id/count_phone_h"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
                 android:editable="true"
                 android:inputType="text"
                 android:imeOptions="actionNext"
@@ -345,18 +308,12 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="1.7"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="1.7">
             <layout.api.EditTextPlus
                 android:id="@+id/count_phone_m"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
                 android:editable="true"
                 android:inputType="text"
                 android:imeOptions="actionNext"
@@ -376,18 +333,12 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="1.7"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="1.7">
             <layout.api.EditTextPlus
                 android:id="@+id/count_phone_t"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
                 android:editable="true"
                 android:inputType="text"
                 android:imeOptions="actionNext"
@@ -424,18 +375,12 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="2.5"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_weight="2.5">
             <layout.api.EditTextPlus
                 android:id="@+id/count_email_h"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
                 android:editable="true"
                 android:inputType="text"
                 android:imeOptions="actionNext"
@@ -455,15 +400,14 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="3.15"
-
-            android:layout_marginTop="8dp"
+            android:layout_weight="3.8"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="8dp">
-
             <Spinner
-            android:id="@+id/countemail"
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"></Spinner>
+                android:id="@+id/sign_email_t"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:entries="@array/array"></Spinner>
         </LinearLayout>
 
         <LinearLayout

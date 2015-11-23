@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final RatingBar ratingbar = (RatingBar)findViewById(R.id.reviewid);
+        final RatingBar ratingbar = (RatingBar)findViewById(R.id.review_grade);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
