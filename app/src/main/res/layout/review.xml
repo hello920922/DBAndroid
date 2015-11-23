@@ -84,7 +84,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="7">
         <RatingBar
-            android:id="@+id/reviewid"
+            android:id="@+id/review_grade"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:numStars="5"
@@ -125,6 +125,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"></LinearLayout>
         <layout.api.TextViewPlus
+            android:id="@+id/review_review"
             android:gravity="left|center_vertical"
             android:layout_width="0px"
             android:layout_height="fill_parent"
@@ -149,6 +150,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="2"></LinearLayout>
         <layout.api.ButtonPlus
+            android:id="@+id/review_submit"
             android:gravity="center"
             android:layout_width="0px"
             android:layout_height="fill_parent"
