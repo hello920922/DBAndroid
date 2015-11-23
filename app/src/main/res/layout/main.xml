@@ -106,21 +106,21 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="0.5"
+        android:layout_weight="1"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:orientation="vertical"></LinearLayout>
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
             android:text="ID"
             android:textColor="#74406C"
-            android:textSize="12dip"
+            android:textSize="16dip"
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="2.5"
+            android:layout_weight="3.5"
             foo:customFont="InterparkGothicBold.ttf"/>
         <LinearLayout
             android:layout_width="0px"
@@ -134,7 +134,7 @@
             android:layout_marginBottom="8dp">
 
             <layout.api.EditTextPlus
-                android:id="@+id/mainid"
+                android:id="@+id/main_id"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -142,6 +142,7 @@
                 android:layout_marginBottom="1dp"
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
+                android:editable="true"
                 foo:customFont="InterparkGothicBold.ttf"/>
         </LinearLayout>
 
@@ -155,21 +156,21 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="0.5"
+        android:layout_weight="1"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:orientation="vertical"></LinearLayout>
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
             android:text="PASSWORD"
             android:textColor="#74406C"
-            android:textSize="12dip"
+            android:textSize="16dip"
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="2.5"
+            android:layout_weight="3.5"
             foo:customFont="InterparkGothicBold.ttf"/>
 
         <LinearLayout
@@ -183,7 +184,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/mainpasswd"
+                android:id="@+id/main_passwd"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -191,6 +192,7 @@
                 android:layout_marginBottom="1dp"
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
+                android:inputType="textPassword"
                 foo:customFont="InterparkGothicBold.ttf"/>
         </LinearLayout>
         <LinearLayout
@@ -209,7 +211,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="0.6"
+        android:layout_weight="0.8"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="0px"
@@ -227,6 +229,7 @@
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="2.5"
+            android:onClick="onClick"
             foo:customFont="InterparkGothicBold.ttf"/>
 
         <LinearLayout
