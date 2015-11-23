@@ -9,12 +9,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RatingBar;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import layout.api.EditTextPlus;
 
 public class MainActivity extends AppCompatActivity {
+    private BackPressCloseHandler backHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +24,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Spinner spinner_count =(Spinner)findViewById(R.id.countemail);
-
-        /*ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.array,android.
-                R.layout.simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner_count.setAdapter(adapter);*/
-
+        backHandler = new BackPressCloseHandler(this);
     }
 
     @Override
@@ -87,5 +80,10 @@ public class MainActivity extends AppCompatActivity {
         Intent historyIntent = new Intent(this, HistoryActivity.class);
         historyIntent.putExtra("CID", viewId.getText().toString());
         startActivity(historyIntent);
+    }
+
+    @Override
+    public void onBackPressed(){
+        backHandler.onBackPressed();
     }
 }
