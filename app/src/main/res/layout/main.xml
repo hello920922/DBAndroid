@@ -12,12 +12,15 @@
         android:layout_width="fill_parent"
         android:layout_height="0px"
         android:layout_weight="1"
-        android:orientation="horizontal"></LinearLayout>
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -29,38 +32,38 @@
         <layout.api.TextViewPlus
                 android:gravity="center|center_vertical"
                 android:text="B"
-                android:textColor="#750061"
-                android:textSize="100dip"
+                android:textColor="#74406C"
+                android:textSize="80dip"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
-                android:layout_weight="1.5"
+                android:layout_weight="1"
                 foo:customFont="InterparkGothicBold.ttf"/>
         <layout.api.TextViewPlus
             android:gravity="center|center_vertical"
             android:text="e"
-            android:textColor="#4F4F4F"
-            android:textSize="100dip"
+            android:textColor="#604B71"
+            android:textSize="80dip"
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="1.5"
+            android:layout_weight="1"
             foo:customFont="InterparkGothicBold.ttf"/>
         <layout.api.TextViewPlus
             android:gravity="center|center_vertical"
             android:text="S"
-            android:textColor="#750061"
-            android:textSize="100dip"
+            android:textColor="#74406C"
+            android:textSize="80dip"
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="1.5"
+            android:layout_weight="1"
             foo:customFont="InterparkGothicBold.ttf"/>
         <layout.api.TextViewPlus
             android:gravity="center|center_vertical"
             android:text="t"
-            android:textColor="#4F4F4F"
-            android:textSize="100dip"
+            android:textColor="#604B71"
+            android:textSize="80dip"
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="1.5"
+            android:layout_weight="1"
             foo:customFont="InterparkGothicBold.ttf"/>
         <LinearLayout
             android:layout_width="0px"
@@ -71,7 +74,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="1"
+        android:layout_weight="0.5"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="0px"
@@ -82,8 +85,8 @@
         <layout.api.TextViewPlus
             android:gravity="center|center_vertical"
             android:text="Beacon Store"
-            android:textColor="#4F4F4F"
-            android:textSize="35dip"
+            android:textColor="#604B71"
+            android:textSize="28dip"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="6"
@@ -98,12 +101,12 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="0.5"
+        android:layout_weight="1"
         android:orientation="horizontal"></LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="1"
+        android:layout_weight="0.5"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="0px"
@@ -113,8 +116,8 @@
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
             android:text="ID"
-            android:textColor="#750061"
-            android:textSize="18dip"
+            android:textColor="#74406C"
+            android:textSize="12dip"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="2.5"
@@ -126,8 +129,7 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="3"
-            android:background="#000000"
+            android:layout_weight="5"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
 
@@ -140,7 +142,6 @@
                 android:layout_marginBottom="1dp"
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
-                android:background="#ffffff"
                 foo:customFont="InterparkGothicBold.ttf"/>
         </LinearLayout>
 
@@ -154,7 +155,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="1"
+        android:layout_weight="0.5"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="0px"
@@ -164,8 +165,8 @@
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
             android:text="PASSWORD"
-            android:textColor="#750061"
-            android:textSize="16dip"
+            android:textColor="#74406C"
+            android:textSize="12dip"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="2.5"
@@ -178,8 +179,7 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="3"
-            android:background="#000000"
+            android:layout_weight="5"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
@@ -191,7 +191,6 @@
                 android:layout_marginBottom="1dp"
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
-                android:background="#ffffff"
                 foo:customFont="InterparkGothicBold.ttf"/>
         </LinearLayout>
         <LinearLayout
@@ -204,13 +203,13 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="0.5"
+        android:layout_weight="1"
         android:orientation="horizontal"></LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="1"
+        android:layout_weight="0.6"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="0px"
@@ -218,29 +217,31 @@
             android:layout_weight="2"
             android:orientation="vertical"></LinearLayout>
         <layout.api.ButtonPlus
+            android:id="@+id/main_signin"
             android:gravity="center|center_vertical"
             android:text="Sign in"
             android:textColor="#ffffff"
-            android:background="#750061"
+            android:background="#74406C"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="2.5"
             foo:customFont="InterparkGothicBold.ttf"/>
+
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="1"></LinearLayout>
+            android:layout_weight="0.3"></LinearLayout>
 
         <layout.api.ButtonPlus
-            android:id="@+id/countid"
+            android:id="@+id/main_signup"
             android:gravity="center|center_vertical"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="2.5"
             android:text="Sign up"
-            android:background="#750061"
+            android:background="#74406C"
             android:textColor="#ffffff"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
@@ -255,6 +256,6 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:orientation="horizontal"></LinearLayout>
 </LinearLayout>
