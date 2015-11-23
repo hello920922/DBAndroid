@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <android.support.design.widget.AppBarLayout android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_width="match_parent" android:theme="@style/AppTheme.AppBarOverlay"/>
 
         <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
@@ -21,5 +22,15 @@
         android:layout_gravity="bottom|end" android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_dialog_email"
         android:onClick="Test"/>
+=======
+        android:layout_width="match_parent">
+
+        <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
+            android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+            />
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/main"/>
+>>>>>>> be7dfa67e10615764d407446f1eba68264d6899f
 
 </android.support.design.widget.CoordinatorLayout>
