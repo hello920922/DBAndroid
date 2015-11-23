@@ -41,7 +41,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/signid"
+                android:id="@+id/sign_id"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -91,7 +91,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/signpasswd"
+                android:id="@+id/sign_password"
                 android:gravity="center_vertical"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
@@ -140,7 +140,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/signname"
+                android:id="@+id/sign_name"
                 android:gravity="center_vertical"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
@@ -187,7 +187,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/signperson_h"
+                android:id="@+id/sign_person_h"
                 android:gravity="center_vertical"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
@@ -217,7 +217,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/signperson_t"
+                android:id="@+id/sign_person_t"
                 android:gravity="center_vertical"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
@@ -256,12 +256,12 @@
             android:layout_weight="0.5"></LinearLayout>
 
         <RadioGroup
+            android:id="@+id/sign_gender"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="7"
             android:orientation="horizontal">
             <layout.api.RadioPlus
-                android:id="@+id/signradio1"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="3"
@@ -271,7 +271,6 @@
                 android:textColor="#750061"/>
 
             <layout.api.RadioPlus
-                android:id="@+id/signradio2"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="3"
@@ -312,7 +311,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/signphone_h"
+                android:id="@+id/sign_phone_h"
                 android:gravity="center_vertical"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
@@ -342,7 +341,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/signphone_m"
+                android:id="@+id/sign_phone_m"
                 android:gravity="center_vertical"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
@@ -372,7 +371,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/signperson_t"
+                android:id="@+id/sign_phone_t"
                 android:gravity="center_vertical"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
@@ -419,7 +418,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/signemail_h"
+                android:id="@+id/sign_email_h"
                 android:gravity="center_vertical"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
@@ -449,7 +448,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <Spinner
-                android:id="@+id/signemail"
+                android:id="@+id/sign_email_t"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="#ffffff"></Spinner>
@@ -474,7 +473,7 @@
         </LinearLayout>
 
         <layout.api.ButtonPlus
-            android:id="@+id/btnsignup"
+            android:id="@+id/sign_signup"
             android:text="SIGN UP"
             android:layout_width="0px"
             android:layout_height="fill_parent"
