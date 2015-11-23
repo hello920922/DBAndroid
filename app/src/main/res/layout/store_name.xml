@@ -67,92 +67,63 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:orientation="horizontal"></LinearLayout>
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="18"
+            android:layout_weight="13"
             android:orientation="vertical">
-            <LinearLayout
+            <TableLayout
                 android:layout_width="fill_parent"
-                android:layout_height="0px"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_width="0px"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-                    <layout.api.TextViewPlus
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:background="#fcc9f4">
+                <TableRow>
+                    <TextView
+                        android:layout_weight="1"
                         android:text="Grade"
-                        android:textSize="15dip"
-                        android:textColor="#fefefe"
-                        android:gravity="center|center_vertical"
-                        android:background="#750061"
-                        android:layout_marginRight="1dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0px"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="2"
-                    android:orientation="horizontal">
-                    <layout.api.TextViewPlus
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:textSize="17dp"
+                        android:gravity="center|center_horizontal"
+                        android:textColor="#FFFFFF"
+                        android:background="#750061"/>
+                    <TextView
+                        android:layout_weight="0.1"
+                        android:background="#ffffff"/>
+                    <TextView
+                        android:layout_weight="1"
                         android:text="Review"
-                        android:textSize="15dip"
-                        android:textColor="#FFFEFEFE"
-                        android:gravity="center|center_vertical"
-                        android:background="#750061"
-                        android:layout_marginLeft="1dp"
-                        android:layout_marginRight="1dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0px"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-                    <layout.api.TextViewPlus
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:textSize="17dp"
+                        android:gravity="center|center_horizontal"
+                        android:textColor="#FFFFFF"
+                        android:background="#750061"/>
+                    <TextView
+                        android:layout_weight="0.1"
+                        android:background="#ffffff"/>
+                    <TextView
+                        android:layout_weight="1"
                         android:text="Writer"
-                        android:textSize="15dip"
-                        android:textColor="#FFFEFEFE"
-                        android:gravity="center|center_vertical"
-                        android:background="#750061"
-                        android:layout_marginLeft="1dp"
-                        android:layout_marginRight="1dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0px"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-                    <layout.api.TextViewPlus
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:textSize="17dp"
+                        android:gravity="center|center_horizontal"
+                        android:textColor="#FFFFFF"
+                        android:background="#750061"/>
+                    <TextView
+                        android:layout_weight="0.1"
+                        android:background="#ffffff"/>
+                    <TextView
+                        android:layout_weight="1"
                         android:text="Date"
-                        android:textSize="15dip"
-                        android:textColor="#FFFEFEFE"
-                        android:gravity="center|center_vertical"
-                        android:background="#750061"
-                        android:layout_marginLeft="1dp"/>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="0px"
-                android:layout_weight="17"
-                android:background="#ffb7ee"
-                android:orientation="vertical"></LinearLayout>
+                        android:textSize="17dp"
+                        android:gravity="center|center_horizontal"
+                        android:textColor="#FFFFFF"
+                        android:background="#750061"/>
+                </TableRow>
+            </TableLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:orientation="horizontal"></LinearLayout>
     </LinearLayout>
 
