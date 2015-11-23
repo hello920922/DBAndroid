@@ -42,7 +42,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/countid"
+                android:id="@+id/count_id"
                 android:gravity="center_vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -93,7 +93,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/countpasswd"
+                android:id="@+id/count_passwd"
                 android:gravity="center_vertical"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
@@ -143,7 +143,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/countname"
+                android:id="@+id/count_name"
                 android:gravity="center_vertical"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
@@ -191,7 +191,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/countperson_h"
+                android:id="@+id/count_person_h"
                 android:gravity="center_vertical"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
@@ -221,7 +221,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/countperson_t"
+                android:id="@+id/count_person_t"
                 android:gravity="center_vertical"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
@@ -266,6 +266,7 @@
             android:layout_weight="7"
             android:orientation="horizontal">
             <layout.api.RadioPlus
+                android:id="@+id/count_radio_h"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="3"
@@ -275,6 +276,7 @@
                 foo:customFont="InterparkGothicBold.ttf"/>
 
             <layout.api.RadioPlus
+                android:id="@+id/count_radio_t"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="3"
@@ -315,7 +317,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/countphone_h"
+                android:id="@+id/count_phone_h"
                 android:gravity="center_vertical"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
@@ -346,7 +348,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/countphone_m"
+                android:id="@+id/count_phone_m"
                 android:gravity="center_vertical"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
@@ -377,7 +379,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/countperson_t"
+                android:id="@+id/count_person_t"
                 android:gravity="center_vertical"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
@@ -425,7 +427,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <layout.api.EditTextPlus
-                android:id="@+id/countemail_h"
+                android:id="@+id/count_email_h"
                 android:gravity="center_vertical"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
@@ -483,7 +485,7 @@
         </LinearLayout>
 
         <layout.api.ButtonPlus
-            android:id="@+id/btnchanges"
+            android:id="@+id/count_btnchanges"
             android:text="Save Changes"
             android:layout_width="0px"
             android:layout_height="fill_parent"
@@ -517,7 +519,7 @@
         </LinearLayout>
 
         <layout.api.ButtonPlus
-            android:id="@+id/btncountup"
+            android:id="@+id/count_btncountup"
             android:text="Delete Account"
             android:layout_width="0px"
             android:layout_height="fill_parent"
