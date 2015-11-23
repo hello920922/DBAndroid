@@ -143,6 +143,7 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
                 android:editable="true"
+                android:imeOptions="actionNext"
                 foo:customFont="InterparkGothicBold.ttf"/>
         </LinearLayout>
 
@@ -193,6 +194,7 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
                 android:inputType="textPassword"
+                android:imeOptions="actionNext"
                 foo:customFont="InterparkGothicBold.ttf"/>
         </LinearLayout>
         <LinearLayout
