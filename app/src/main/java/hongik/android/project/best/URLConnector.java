@@ -20,7 +20,7 @@ public class URLConnector extends Thread {
     public URLConnector(String url, String method, String query) {
         this.url = url;
         this.method = method;
-        this.query = query;
+        this.query = query.replace(" ", "%20");
     }
 
     @Override
@@ -61,11 +61,11 @@ public class URLConnector extends Thread {
                     String line = null;
                     while(true){
                         line = reader.readLine();
-                        Log.i("SampleHTTP", "line : " + line);
+                        Log.i("SampleHTTP", "LINE : " + line);
                         if(line == null){
                             break;
                         }
-                        output.append(line + "\n");
+                        output.append(line);
                     }
                     Log.i("SampleHTTP", "OUTPUT : " + output.toString());
 
