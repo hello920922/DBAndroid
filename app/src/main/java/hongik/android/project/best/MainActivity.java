@@ -1,5 +1,6 @@
 package hongik.android.project.best;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -7,14 +8,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RatingBar;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import layout.api.EditTextPlus;
+
 public class MainActivity extends AppCompatActivity {
+    private BackPressCloseHandler backHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +24,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Spinner spinner_count =(Spinner)findViewById(R.id.countemail);
-
-        /*ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.array,android.
-                R.layout.simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner_count.setAdapter(adapter);*/
-
+        backHandler = new BackPressCloseHandler(this);
     }
 
     @Override
@@ -57,49 +50,40 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        if(view.getId() == R.id.btnsubmit){
-            // Setting URL
-            String url = "http://hello0922.iptime.org/Database/android.php";
-
-            // Setting Method
-            String method = "";
-            RadioButton radget = (RadioButton)findViewById(R.id.radget);
-            RadioButton radpost = (RadioButton)findViewById(R.id.radpost);
-
-            if(radget.isChecked())
-                method = "GET";
-            else if(radpost.isChecked())
-                method = "POST";
-            else{
-                Toast.makeText(this, "Please check method.", Toast.LENGTH_LONG).show();
-                return;
-            }
-
-            // Setting Query
-            String query = "";
-            CharSequence txtid = ((EditText)findViewById(R.id.txtid)).getText().toString();
-            CharSequence txtpasswd = ((EditText)findViewById(R.id.txtpasswd)).getText().toString();
-            query = "id=" + txtid + "&passwd=" + txtpasswd;
-
-            // Show Toast Log
-            Toast.makeText(this, "Send to Server id: " + txtid + " password: " + txtpasswd, Toast.LENGTH_LONG).show();
-
-            // Run URLConnector
-            URLConnector test = new URLConnector(url, method, query);
-            test.start();
-
-            // Waiting for Thread
-            try{
-                test.join();
-                Log.i("SampleHTTP","Waiting for result....");
-            }catch(InterruptedException e){}
-
-            // Take Result
-            CharSequence result = test.getResult();
-
-            // Set TextView
-            TextView txtTest = (TextView)findViewById(R.id.txtResult);
-            txtTest.setText(result);
+        if(view.getId() == R.id.main_signin){
+            Signin();
         }
+    }
+    public void Signin(){
+        EditTextPlus viewId = (EditTextPlus)findViewById(R.id.main_id);
+        EditTextPlus viewpasswd = (EditTextPlus)findViewById(R.id.main_passwd);
+
+        String query = "query=select * from CUSTOMER where CID='" + viewId.getText().toString() + "'and PASSWORD='" + viewpasswd.getText().toString() + "'";
+        //Toast.makeText(this, query, Toast.LENGTH_LONG).show();
+        URLConnector conn = new URLConnector(Constant.SERVER + "signin.php", "POST", query);
+        conn.start();
+
+        try{
+            conn.join();
+        }catch(InterruptedException ex){
+            Log.e("Signin","InterruptedException");
+            return;
+        }
+
+        String result = conn.getResult();
+        if(result.equals("ERROR")){
+            Toast.makeText(this, "Login Failure",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Toast.makeText(this, "Nice to meet you " + result, Toast.LENGTH_SHORT).show();
+
+        Intent historyIntent = new Intent(this, HistoryActivity.class);
+        historyIntent.putExtra("CID", viewId.getText().toString());
+        startActivity(historyIntent);
+    }
+
+    @Override
+    public void onBackPressed(){
+        backHandler.onBackPressed();
     }
 }
