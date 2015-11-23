@@ -7,7 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+/**
+ * Created by Mingyu Park on 2015-11-23.
+ */
 public class HistoryActivity extends AppCompatActivity {
+    private BackPressCloseHandler backHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +19,8 @@ public class HistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        backHandler = new BackPressCloseHandler(this);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -26,4 +32,8 @@ public class HistoryActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed(){
+        backHandler.onBackPressed();
+    }
 }
