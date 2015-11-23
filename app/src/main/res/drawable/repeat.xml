@@ -6,6 +6,7 @@
     android:tileMode="repeat"
     android:src="@drawable/bg"
     android:adjustViewBounds="true"
+    android:scaleType="fitXY"
     ></bitmap>
 
 

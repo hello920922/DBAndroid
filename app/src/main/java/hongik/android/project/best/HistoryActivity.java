@@ -2,13 +2,9 @@ package hongik.android.project.best;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.Toast;
@@ -25,21 +21,11 @@ public class HistoryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         backHandler = new BackPressCloseHandler(this);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         Intent intent = new Intent(this.getIntent());
         id = intent.getStringExtra("CID");
@@ -68,6 +54,12 @@ public class HistoryActivity extends AppCompatActivity {
                 String [] elements = row.split(",");
                 int colnums = elements.length;
 
+                TableRow marginrow = new TableRow(this);
+                marginrow.addView(new TextViewPlus(this));
+                marginrow.addView(new TextViewPlus(this));
+                marginrow.addView(new TextViewPlus(this));
+                marginrow.addView(new TextViewPlus(this));
+
                 TableRow tbrow = new TableRow(this);
                 TextViewPlus[] tbcols = new TextViewPlus[colnums];
 
@@ -81,6 +73,7 @@ public class HistoryActivity extends AppCompatActivity {
 
                     tbrow.addView(tbcols[i]);
                 }
+                historyTable.addView(marginrow);
                 historyTable.addView(tbrow);
             }
         } catch (InterruptedException e) {
