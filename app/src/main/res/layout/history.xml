@@ -9,11 +9,20 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/repeat">
     </LinearLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+    </ScrollView>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
@@ -30,6 +39,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"></LinearLayout>
         <layout.api.TextViewPlus
+            android:id="@+id/history_qrcode"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1.5"
@@ -37,12 +47,14 @@
             android:textSize="14dip"
             android:gravity="center"
             android:textColor="#885480"
+            android:onClick="historyClick"
             foo:customFont="InterparkGothicBold.ttf"/>
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="0.3"></LinearLayout>
         <layout.api.TextViewPlus
+            android:id="@+id/history_user"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1.5"
@@ -50,6 +62,7 @@
             android:textSize="14dip"
             android:gravity="center"
             android:textColor="#885480"
+            android:onClick="historyClick"
             foo:customFont="InterparkGothicBold.ttf"/>
         <LinearLayout
             android:layout_width="0px"
