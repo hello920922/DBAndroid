@@ -31,4 +31,5 @@
     <string name="title_activity_store">StoreActivity</string>
     <string name="title_activity_review">ReviewActivity</string>
     <string name="title_activity_sing_up">Sing_upActivity</string>
+    <string name="title_activity_store_review">Store_reviewActivity</string>
 </resources>
