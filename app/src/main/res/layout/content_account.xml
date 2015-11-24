@@ -16,8 +16,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Account"
+            android:textColor="@color/myColor"
             android:textSize="40dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            foo:customFont="InterparkGothicBold.ttf"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,67 +32,66 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"></LinearLayout>
+            android:layout_weight="1"></LinearLayout>
         <LinearLayout
-            android:layout_width="0px"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="3"
             android:orientation="vertical">
             <layout.api.TextViewPlus
                 android:layout_width="match_parent"
-                android:layout_height="50sp"
+                android:layout_height="45sp"
                 android:text="ID"
                 android:gravity="right|center_vertical"
-                android:textSize="18dp"
-                android:textColor="#74406C"
+                android:textSize="13sp"
+                android:textColor="@color/myColor"
                 foo:customFont="InterparkGothicBold.ttf"/>
             <layout.api.TextViewPlus
                 android:layout_width="match_parent"
-                android:layout_height="50sp"
+                android:layout_height="45sp"
                 android:text="Password"
                 android:gravity="right|center_vertical"
-                android:textSize="18dp"
-                android:textColor="#74406C"
+                android:textSize="13sp"
+                android:textColor="@color/myColor"
                 foo:customFont="InterparkGothicBold.ttf"/>
             <layout.api.TextViewPlus
                 android:layout_width="match_parent"
-                android:layout_height="50sp"
+                android:layout_height="45sp"
                 android:text="Name"
                 android:gravity="right|center_vertical"
-                android:textSize="18dp"
-                android:textColor="#74406C"
+                android:textSize="13sp"
+                android:textColor="@color/myColor"
                 foo:customFont="InterparkGothicBold.ttf"/>
             <layout.api.TextViewPlus
                 android:layout_width="match_parent"
-                android:layout_height="50sp"
-                android:text="Personal Number"
+                android:layout_height="45sp"
+                android:text="Personal\nNumber"
                 android:gravity="right|center_vertical"
-                android:textSize="18dp"
-                android:textColor="#74406C"
+                android:textSize="13sp"
+                android:textColor="@color/myColor"
                 foo:customFont="InterparkGothicBold.ttf"/>
             <layout.api.TextViewPlus
                 android:layout_width="match_parent"
-                android:layout_height="50sp"
+                android:layout_height="45sp"
                 android:text="Gender"
                 android:gravity="right|center_vertical"
-                android:textSize="18dp"
-                android:textColor="#74406C"
+                android:textSize="13sp"
+                android:textColor="@color/myColor"
                 foo:customFont="InterparkGothicBold.ttf"/>
             <layout.api.TextViewPlus
                 android:layout_width="match_parent"
-                android:layout_height="50sp"
+                android:layout_height="45sp"
                 android:text="Phone"
                 android:gravity="right|center_vertical"
-                android:textSize="18dp"
-                android:textColor="#74406C"
+                android:textSize="13sp"
+                android:textColor="@color/myColor"
                 foo:customFont="InterparkGothicBold.ttf"/>
             <layout.api.TextViewPlus
                 android:layout_width="match_parent"
-                android:layout_height="50sp"
+                android:layout_height="45sp"
                 android:text="Email"
                 android:gravity="right|center_vertical"
-                android:textSize="18dp"
-                android:textColor="#74406C"
+                android:textSize="13sp"
+                android:textColor="@color/myColor"
                 foo:customFont="InterparkGothicBold.ttf"/>
 
         </LinearLayout>
@@ -101,38 +102,41 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="match_parent"
-            android:layout_weight="5.5"
+            android:layout_weight="5"
             android:orientation="vertical">
             <layout.api.EditTextPlus
-                android:layout_width="match_parent"
-                android:layout_height="50sp"
+                android:layout_width="145sp"
+                android:layout_height="45sp"
                 android:gravity="top"
                 android:id="@+id/account_id"
                 android:editable="true"
                 android:inputType="text"
                 android:imeOptions="actionNext"
+                android:textSize="16sp"
                 foo:customFont="InterparkGothicBold.ttf"/>
             <layout.api.EditTextPlus
-                android:layout_width="match_parent"
-                android:layout_height="50sp"
+                android:layout_width="145sp"
+                android:layout_height="45sp"
                 android:gravity="top"
                 android:id="@+id/account_passwd"
                 android:editable="true"
                 android:inputType="text"
                 android:imeOptions="actionNext"
+                android:textSize="16sp"
                 foo:customFont="InterparkGothicBold.ttf"/>
             <layout.api.EditTextPlus
-                android:layout_width="match_parent"
-                android:layout_height="50sp"
+                android:layout_width="145sp"
+                android:layout_height="45sp"
                 android:gravity="top"
                 android:id="@+id/account_name"
                 android:editable="true"
                 android:inputType="text"
                 android:imeOptions="actionNext"
+                android:textSize="16sp"
                 foo:customFont="InterparkGothicBold.ttf"/>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50sp"
+                android:layout_height="45sp"
                 android:gravity="top"
                 android:orientation="horizontal">
                 <layout.api.EditTextPlus
@@ -143,15 +147,15 @@
                     android:editable="true"
                     android:inputType="text"
                     android:imeOptions="actionNext"
+                    android:textSize="16sp"
                     foo:customFont="InterparkGothicBold.ttf"/>
                 <layout.api.TextViewPlus
-                    android:layout_width="0px"
+                    android:layout_width="20sp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.3"
                     android:text="-"
                     android:gravity="center"
-                    android:textSize="40dp"
-                    android:textColor="#74406C"
+                    android:textSize="20sp"
+                    android:textColor="@color/myColor"
                     foo:customFont="InterparkGothicBold.ttf"/>
                 <layout.api.EditTextPlus
                     android:id="@+id/account_person_t"
@@ -161,11 +165,12 @@
                     android:editable="true"
                     android:inputType="text"
                     android:imeOptions="actionNext"
+                    android:textSize="16sp"
                     foo:customFont="InterparkGothicBold.ttf"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50sp"
+                android:layout_height="45sp"
                 android:gravity="top">
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -177,7 +182,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:text="MALE"
-                        android:textSize="15dp"
+                        android:textSize="11sp"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.RadioPlus
                         android:id="@+id/account_radio_t"
@@ -185,14 +190,14 @@
                         android:layout_height="fill_parent"
                         android:layout_weight="3"
                         android:text="FEMALE"
-                        android:textSize="15dp"
+                        android:textSize="11sp"
                         foo:customFont="InterparkGothicBold.ttf"/>
 
                 </RadioGroup>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50sp"
+                android:layout_height="45sp"
                 android:gravity="top">
                 <layout.api.EditTextPlus
                     android:id="@+id/account_phone_h"
@@ -202,15 +207,15 @@
                     android:editable="true"
                     android:inputType="text"
                     android:imeOptions="actionNext"
+                    android:textSize="16sp"
                     foo:customFont="InterparkGothicBold.ttf"/>
                 <layout.api.TextViewPlus
-                    android:layout_width="0px"
+                    android:layout_width="20sp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.3"
                     android:text="-"
                     android:gravity="center"
-                    android:textSize="40dp"
-                    android:textColor="#74406C"
+                    android:textSize="20sp"
+                    android:textColor="@color/myColor"
                     foo:customFont="InterparkGothicBold.ttf"/>
                 <layout.api.EditTextPlus
                     android:id="@+id/account_phone_m"
@@ -220,15 +225,15 @@
                     android:editable="true"
                     android:inputType="text"
                     android:imeOptions="actionNext"
+                    android:textSize="16sp"
                     foo:customFont="InterparkGothicBold.ttf"/>
                 <layout.api.TextViewPlus
-                    android:layout_width="0px"
+                    android:layout_width="20sp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.3"
                     android:text="-"
                     android:gravity="center"
-                    android:textSize="40dp"
-                    android:textColor="#74406C"
+                    android:textSize="20sp"
+                    android:textColor="@color/myColor"
                     foo:customFont="InterparkGothicBold.ttf"/>
                 <layout.api.EditTextPlus
                     android:id="@+id/account_phone_t"
@@ -238,11 +243,12 @@
                     android:editable="true"
                     android:inputType="text"
                     android:imeOptions="actionNext"
+                    android:textSize="16sp"
                     foo:customFont="InterparkGothicBold.ttf"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50sp"
+                android:layout_height="45sp"
                 android:gravity="top">
                 <layout.api.EditTextPlus
                     android:id="@+id/account_email_h"
@@ -252,10 +258,12 @@
                     android:editable="true"
                     android:inputType="text"
                     android:imeOptions="actionNext"
+                    android:textSize="16sp"
                     foo:customFont="InterparkGothicBold.ttf"/>
                 <layout.api.TextViewPlus
                     android:text=" @ "
-                    android:textSize="20dip"
+                    android:gravity="center"
+                    android:textSize="13sp"
                     android:layout_width="0px"
                     android:layout_height="match_parent"
                     android:layout_weight="0.5"
@@ -272,46 +280,40 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"></LinearLayout>
+            android:layout_weight="1"></LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30sp"></LinearLayout>
+        android:layout_height="50sp"></LinearLayout>
+
+    <layout.api.ButtonPlus
+        android:id="@+id/account_btnchanges"
+        android:text="Save Changes"
+        android:layout_width="180sp"
+        android:layout_height="45sp"
+        android:onClick="onClick"
+        foo:customFont="InterparkGothicBold.ttf"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:background="@color/myColor"
+        android:textColor="#ffffff"/>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-        <layout.api.ButtonPlus
-            android:id="@+id/account_btnchanges"
-            android:text="Save Changes"
-            android:layout_width="180sp"
-            android:layout_height="45sp"
-            android:onClick="onClick"
-            foo:customFont="InterparkGothicBold.ttf"
-            android:gravity="center"
-            android:background="#74406C"
-            android:textColor="#ffffff"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="30sp"></LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-        <layout.api.ButtonPlus
-            android:id="@+id/account_btncountup"
-            android:text="Save Changes"
-            android:layout_width="180sp"
-            android:layout_height="45sp"
-            android:onClick="onClick"
-            foo:customFont="InterparkGothicBold.ttf"
-            android:gravity="center"
-            android:background="#74406C"
-            android:textColor="#ffffff"
-            />
-    </LinearLayout>
+        android:layout_height="10sp"></LinearLayout>
+
+    <layout.api.ButtonPlus
+        android:id="@+id/account_btncountup"
+        android:text="Save Changes"
+        android:layout_width="180sp"
+        android:layout_height="45sp"
+        android:onClick="onClick"
+        foo:customFont="InterparkGothicBold.ttf"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:background="@color/myColor"
+        android:textColor="#ffffff"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30sp"></LinearLayout>
