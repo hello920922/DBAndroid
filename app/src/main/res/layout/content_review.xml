@@ -42,7 +42,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="20sp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
@@ -51,23 +51,27 @@
             android:layout_weight="3"
             android:text="Grade"
             foo:customFont="InterparkGothicBold.ttf"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textColor="@color/myColor">
         </layout.api.TextViewPlus>
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="match_parent"
             android:layout_weight="0.5"></LinearLayout>
+        <RatingBar
+            style="?android:attr/ratingBarStyleIndicator"
+            android:id="@+id/review_grade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="2.5"
+            android:stepSize="0.5"
+            android:isIndicator="false"/>
+        
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="match_parent"
-            android:layout_weight="7">
-            <RatingBar
-                android:id="@+id/review_grade"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:numStars="5"
-                android:stepSize="0.5"/></LinearLayout>
+            android:layout_weight="2"></LinearLayout>
     </LinearLayout>
     
     <LinearLayout
@@ -93,20 +97,20 @@
 
             <layout.api.TextViewPlus
                 android:text="Review"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textColor="@color/myColor"
                 android:layout_width="match_parent"
                 android:layout_height="30sp"
                 foo:customFont="InterparkGothicBold.ttf"/>
 
-            <layout.api.TextViewPlus
+            <layout.api.EditTextPlus
                 android:id="@+id/review_text"
                 android:gravity="left|center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="200sp"
                 android:background="#FFFFFF"
                 foo:customFont="InterparkGothicBold.ttf"
-                android:textSize="15dp"/>
+                android:textSize="16dp"/>
 
         </LinearLayout>
 
@@ -131,6 +135,6 @@
         android:textColor="#ffffff"
         android:background="@color/myColor"
         android:layout_width="180sp"
-        android:layout_height="45sp"
+        android:layout_height="30sp"
         foo:customFont="InterparkGothicBold.ttf"/>
 </LinearLayout>

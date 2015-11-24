@@ -7,11 +7,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import layout.api.EditTextPlus;
-import layout.api.SpinnerAdapter;
 
 public class MainActivity extends AppCompatActivity {
     private BackPressCloseHandler backHandler;
@@ -19,15 +17,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_account);
+        setContentView(R.layout.activity_review);
 
         backHandler = new BackPressCloseHandler(this);
 
         String [] array = {"gmail.com", "naver.com", "hanmail.net", "hongik.ac.kr"};
-
-        SpinnerAdapter spinadapter = new SpinnerAdapter(this, R.layout.content_account, array);
-        Spinner spin = (Spinner)findViewById(R.id.account_email_t);
-        spin.setAdapter(spinadapter);
     }
 
     @Override

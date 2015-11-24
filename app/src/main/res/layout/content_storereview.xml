@@ -10,17 +10,16 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/repeat"
-        ></LinearLayout>
+        android:layout_height="50sp"></LinearLayout>
 
     <layout.api.TextViewPlus
+        android:id="@+id/storereview_storename"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:text="Store name"
         android:textSize="40dp"
         android:gravity="center"
-        android:textColor="#885480"
+        android:textColor="@color/myColor"
         foo:customFont="InterparkGothicBold.ttf"/>
 
 
@@ -46,7 +45,7 @@
                 android:text="Review"
                 android:textSize="18dip"
                 android:gravity="left|center_vertical"
-                android:textColor="#885480"
+                android:textColor="@color/myColor"
                 foo:customFont="InterparkGothicBold.ttf"/>
         </LinearLayout>
         <LinearLayout
@@ -74,7 +73,7 @@
             android:layout_weight="13"
             android:orientation="vertical">
             <TableLayout
-                android:id="@+id/Store_review"
+                android:id="@+id/storereview_table"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -85,7 +84,7 @@
                         android:textSize="15dp"
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
-                        android:background="#750061"
+                        android:background="@color/myColor"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.TextViewPlus
                         android:layout_weight="1"
@@ -93,7 +92,7 @@
                         android:textSize="15dp"
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
-                        android:background="#750061"
+                        android:background="@color/myColor"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.TextViewPlus
                         android:layout_weight="1"
@@ -101,7 +100,7 @@
                         android:textSize="15dp"
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
-                        android:background="#750061"
+                        android:background="@color/myColor"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.TextViewPlus
                         android:layout_weight="1"
@@ -109,7 +108,7 @@
                         android:textSize="15dp"
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
-                        android:background="#750061"
+                        android:background="@color/myColor"
                         foo:customFont="InterparkGothicBold.ttf"/>
                 </TableRow>
             </TableLayout>

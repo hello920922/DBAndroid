@@ -39,7 +39,6 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"></LinearLayout>
         <layout.api.TextViewPlus
-            android:id="@+id/history_qrcode"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1.5"
@@ -54,7 +53,6 @@
             android:layout_height="fill_parent"
             android:layout_weight="0.3"></LinearLayout>
         <layout.api.TextViewPlus
-            android:id="@+id/history_user"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1.5"
