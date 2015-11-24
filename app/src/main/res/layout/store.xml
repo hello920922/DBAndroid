@@ -9,13 +9,9 @@
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="0px"
-        android:layout_weight="0.5"
-        android:background="@drawable/repeat"
-        android:orientation="horizontal"
-        ></LinearLayout>
-=======
->>>>>>> 39455e007c121d6445ed24037b04c664660b669b
+        android:layout_height="wrap_content"
+        android:background="@drawable/repeat">
+    </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
@@ -113,7 +109,7 @@
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="13"
-                    android:background="#fcc9f4">
+                    android:background="#FFFFFF">
                     <TableRow>
                         <layout.api.TextViewPlus
                             android:id="@+id/table_id_h"
@@ -125,11 +121,6 @@
                             android:gravity="center"
                             foo:customFont="InterparkGothicBold.ttf"/>
                         <layout.api.TextViewPlus
-                            android:layout_height="fill_parent"
-                            android:layout_width="fill_parent"
-                            android:layout_weight="0.1"
-                            android:background="#ffffff"></layout.api.TextViewPlus>
-                        <layout.api.TextViewPlus
                             android:id="@+id/table_id_m"
                             android:layout_weight="1"
                             android:text="Item"
@@ -138,11 +129,6 @@
                             android:textColor="#ffffff"
                             android:gravity="center"
                             foo:customFont="InterparkGothicBold.ttf"/>
-                        <layout.api.TextViewPlus
-                            android:layout_height="fill_parent"
-                            android:layout_width="fill_parent"
-                            android:layout_weight="0.1"
-                            android:background="#ffffff"></layout.api.TextViewPlus>
                         <layout.api.TextViewPlus
                             android:id="@+id/table_id_t"
                             android:layout_weight="1"
@@ -208,7 +194,7 @@
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="13"
-                    android:background="#fcc9f4">
+                    android:background="#FFFFFF">
                     <TableRow>
                         <layout.api.TextViewPlus
                             android:id="@+id/table_review_1"
@@ -220,11 +206,6 @@
                             android:gravity="center"
                             foo:customFont="InterparkGothicBold.ttf"/>
                         <layout.api.TextViewPlus
-                            android:layout_height="fill_parent"
-                            android:layout_width="fill_parent"
-                            android:layout_weight="0.1"
-                            android:background="#ffffff"></layout.api.TextViewPlus>
-                        <layout.api.TextViewPlus
                             android:id="@+id/table_id_2"
                             android:layout_weight="1"
                             android:text="Review"
@@ -234,11 +215,6 @@
                             android:gravity="center"
                             foo:customFont="InterparkGothicBold.ttf"/>
                         <layout.api.TextViewPlus
-                            android:layout_height="fill_parent"
-                            android:layout_width="fill_parent"
-                            android:layout_weight="0.1"
-                            android:background="#ffffff"></layout.api.TextViewPlus>
-                        <layout.api.TextViewPlus
                             android:id="@+id/table_id_3"
                             android:layout_weight="1"
                             android:text="Writer"
@@ -247,11 +223,6 @@
                             android:textColor="#ffffff"
                             android:gravity="center"
                             foo:customFont="InterparkGothicBold.ttf"/>
-                        <layout.api.TextViewPlus
-                            android:layout_height="fill_parent"
-                            android:layout_width="fill_parent"
-                            android:layout_weight="0.1"
-                            android:background="#ffffff"></layout.api.TextViewPlus>
                         <layout.api.TextViewPlus
                             android:id="@+id/table_id_4"
                             android:layout_weight="1"

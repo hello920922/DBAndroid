@@ -29,4 +29,6 @@
     <string name="title_activity_history">History</string>
     <string name="title_activity_account">AccountActivity</string>
     <string name="title_activity_store">StoreActivity</string>
+    <string name="title_activity_review">ReviewActivity</string>
+    <string name="title_activity_sing_up">Sing_upActivity</string>
 </resources>
