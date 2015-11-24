@@ -1,10 +1,12 @@
 package hongik.android.project.best;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.Toast;
@@ -17,7 +19,7 @@ import layout.api.TextViewPlus;
 public class HistoryActivity extends AppCompatActivity {
     private BackPressCloseHandler backHandler;
     private TableLayout historyTable;
-    private String id;
+    private String cid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +30,14 @@ public class HistoryActivity extends AppCompatActivity {
         backHandler = new BackPressCloseHandler(this);
 
         Intent intent = new Intent(this.getIntent());
-        id = intent.getStringExtra("CID");
+        cid = intent.getStringExtra("CID");
         historyTable = (TableLayout)findViewById(R.id.history_table);
 
         drawHistory();
     }
 
     public void drawHistory(){
-        String query = "func=history&cid=" + id;
+        String query = "func=history&cid=" + cid;
         URLConnector conn = new URLConnector(Constant.SERVER, "POST",query);
         conn.start();
 
@@ -68,6 +70,16 @@ public class HistoryActivity extends AppCompatActivity {
                     tbcols[i].setText(elements[i]);
                     tbcols[i].setLayoutParams(motive.getChildAt(i).getLayoutParams());
                     tbcols[i].setGravity(Gravity.CENTER);
+                    tbcols[i].setTypeface(Typeface.createFromAsset(tbcols[i].getContext().getAssets(), "InterparkGothicBold.ttf"));
+                    final HistoryActivity originActivity = this;
+                    tbcols[i].setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent storeIntent = new Intent(originActivity, StoreActivity.class);
+                            storeIntent.putExtra("CID", cid);
+                            startActivity(storeIntent);
+                        }
+                    });
 
                     Log.i("History", "COL" + i + ":" + elements[i]);
 
