@@ -14,8 +14,5 @@ public class ReviewActivity extends AppCompatActivity {
 
     public void reviewClick(View view) {
         int viewId = view.getId();
-        if(viewId == R.id.review_submit){
-
-        }
     }
 }
