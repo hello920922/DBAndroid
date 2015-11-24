@@ -157,8 +157,8 @@
             android:layout_height="match_parent"
             android:layout_weight="5"
             android:editable="true"
-            android:inputType="text"
-            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:imeOptions="actionDone"
             foo:customFont="InterparkGothicBold.ttf"/>
 
         <LinearLayout
