@@ -82,7 +82,7 @@
                     <layout.api.TextViewPlus
                         android:layout_weight="1"
                         android:text="Grade"
-                        android:textSize="17dp"
+                        android:textSize="15dp"
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
                         android:background="#750061"
@@ -90,7 +90,7 @@
                     <layout.api.TextViewPlus
                         android:layout_weight="1"
                         android:text="Review"
-                        android:textSize="17dp"
+                        android:textSize="15dp"
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
                         android:background="#750061"
@@ -98,7 +98,7 @@
                     <layout.api.TextViewPlus
                         android:layout_weight="1"
                         android:text="Writer"
-                        android:textSize="17dp"
+                        android:textSize="15dp"
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
                         android:background="#750061"
@@ -106,7 +106,7 @@
                     <layout.api.TextViewPlus
                         android:layout_weight="1"
                         android:text="Date"
-                        android:textSize="17dp"
+                        android:textSize="15dp"
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
                         android:background="#750061"
