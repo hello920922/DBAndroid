@@ -1,10 +1,7 @@
 package hongik.android.project.best;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 public class ReviewActivity extends AppCompatActivity {
@@ -15,4 +12,10 @@ public class ReviewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_review);
     }
 
+    public void reviewClick(View view) {
+        int viewId = view.getId();
+        if(viewId == R.id.review_submit){
+
+        }
+    }
 }

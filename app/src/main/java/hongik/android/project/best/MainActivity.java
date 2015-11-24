@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onClick(View view) {
+    public void mainClick(View view) {
         if(view.getId() == R.id.main_signin){
             Signin();
         }
