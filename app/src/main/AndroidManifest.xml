@@ -45,6 +45,10 @@
         <activity
             android:name=".Sign_upActivity"
             android:label="@string/title_activity_sing_up"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Store_reviewActivity"
+            android:label="@string/title_activity_store_review"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
