@@ -6,6 +6,6 @@
     android:layout_height="match_parent" android:fitsSystemWindows="true"
     tools:context="hongik.android.project.best.StoreActivity">
 
-    <include layout="@layout/store" />
+    <include layout="@layout/store"/>
 
 </android.support.design.widget.CoordinatorLayout>

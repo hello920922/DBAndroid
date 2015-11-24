@@ -6,6 +6,6 @@
     android:layout_height="match_parent" android:fitsSystemWindows="true"
     tools:context="hongik.android.project.best.HistoryActivity">
 
-    <include layout="@layout/history" />
+    <include layout="@layout/history"/>
 
 </android.support.design.widget.CoordinatorLayout>

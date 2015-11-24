@@ -6,6 +6,6 @@
     android:layout_height="match_parent" android:fitsSystemWindows="true"
     tools:context="hongik.android.project.best.AccountActivity">
 
-    <include layout="@layout/account" />
+    <include layout="@layout/account"/>
 
 </android.support.design.widget.CoordinatorLayout>
