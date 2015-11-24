@@ -2,17 +2,13 @@ package hongik.android.project.best;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
-public class ReviewActivity extends AppCompatActivity {
+public class StoreReviewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_review);
+        setContentView(R.layout.activity_storereview);
     }
 
-    public void reviewClick(View view) {
-        int viewId = view.getId();
-    }
 }

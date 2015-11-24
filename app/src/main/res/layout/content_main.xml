@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:foo="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100sp"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75sp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal|bottom">
+
+        <layout.api.TextViewPlus
+            android:text="B"
+            android:textSize="80sp"
+            android:textColor="@color/myColor"
+            android:gravity="center_horizontal|bottom"
+            android:layout_width="45sp"
+            android:layout_height="match_parent"
+            foo:customFont="InterparkGothicBold.ttf"/>
+
+        <layout.api.TextViewPlus
+            android:text="e"
+            android:textSize="80sp"
+            android:textColor="@color/myColor"
+            android:gravity="center_horizontal|bottom"
+            android:layout_width="45sp"
+            android:layout_height="match_parent"
+            foo:customFont="InterparkGothicBold.ttf"/>
+
+        <layout.api.TextViewPlus
+            android:text="S"
+            android:textSize="80sp"
+            android:textColor="@color/myColor"
+            android:gravity="center_horizontal|bottom"
+            android:layout_width="45sp"
+            android:layout_height="match_parent"
+            foo:customFont="InterparkGothicBold.ttf"/>
+
+        <layout.api.TextViewPlus
+            android:text="t"
+            android:textSize="80sp"
+            android:textColor="@color/myColor"
+            android:gravity="center_horizontal|bottom"
+            android:layout_width="45sp"
+            android:layout_height="match_parent"
+            foo:customFont="InterparkGothicBold.ttf"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal|top">
+
+        <layout.api.TextViewPlus
+            android:text="Beacon Store"
+            android:textSize="28sp"
+            android:textColor="@color/subColor"
+            android:gravity="center_horizontal|bottom"
+            android:layout_width="180sp"
+            android:layout_height="30sp"
+            foo:customFont="InterparkGothicBold.ttf"/>
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:orientation="horizontal"></LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45sp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal|bottom">
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"></LinearLayout>
+
+        <layout.api.TextViewPlus
+            android:gravity="right|center_vertical"
+            android:text="ID"
+            android:textColor="@color/myColor"
+            android:textSize="18sp"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            foo:customFont="InterparkGothicBold.ttf"/>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"></LinearLayout>
+
+        <layout.api.EditTextPlus
+            android:id="@+id/main_id"
+            android:gravity="top"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:editable="true"
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            foo:customFont="InterparkGothicBold.ttf"/>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical"></LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45sp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal|top">
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"></LinearLayout>
+
+        <layout.api.TextViewPlus
+            android:gravity="right|center_vertical"
+            android:text="PASSWORD"
+            android:textColor="@color/myColor"
+            android:textSize="18sp"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            foo:customFont="InterparkGothicBold.ttf"/>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"></LinearLayout>
+
+        <layout.api.EditTextPlus
+            android:id="@+id/main_passwd"
+            android:gravity="top"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:editable="true"
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            foo:customFont="InterparkGothicBold.ttf"/>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical"></LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:orientation="horizontal"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical"></LinearLayout>
+
+        <layout.api.ButtonPlus
+            android:id="@+id/main_signin"
+            android:gravity="center|center_vertical"
+            android:text="Sign in"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:background="@color/myColor"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:onClick="mainClick"
+            foo:customFont="InterparkGothicBold.ttf"/>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"></LinearLayout>
+
+        <layout.api.ButtonPlus
+            android:id="@+id/main_signup"
+            android:gravity="center|center_vertical"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:text="Sign up"
+            android:background="@color/myColor"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            foo:customFont="InterparkGothicBold.ttf"/>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical"></LinearLayout>
+    </LinearLayout>
+</LinearLayout>
