@@ -7,6 +7,6 @@
     android:fitsSystemWindows="true"
     tools:context="hongik.android.project.best.ReviewActivity">
 
-    <include layout="@layout/content_review" />
+    <include layout="@layout/review" />
 
 </ScrollView>
