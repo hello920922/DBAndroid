@@ -14,6 +14,10 @@
         android:background="@drawable/repeat">
     </LinearLayout>
 
-    <include layout="@layout/content_review" />
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <include layout="@layout/content_review" />
+    </ScrollView>
 
 </LinearLayout>
