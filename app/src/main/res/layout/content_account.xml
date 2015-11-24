@@ -298,10 +298,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30sp"></LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
+
         <layout.api.ButtonPlus
             android:id="@+id/account_btncountup"
             android:text="Save Changes"
@@ -309,11 +306,11 @@
             android:layout_height="45sp"
             android:onClick="onClick"
             foo:customFont="InterparkGothicBold.ttf"
+            android:layout_gravity="center"
             android:gravity="center"
             android:background="#74406C"
             android:textColor="#ffffff"
             />
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30sp"></LinearLayout>
