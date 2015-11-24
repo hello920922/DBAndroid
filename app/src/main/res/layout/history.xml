@@ -15,7 +15,7 @@
         <layout.api.TextViewPlus
             android:text="hello"
             android:textSize="40dip"
-            android:textColor="@color/myFontColor"
+            android:textColor="#885480"
             android:gravity="center_horizontal|top"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
