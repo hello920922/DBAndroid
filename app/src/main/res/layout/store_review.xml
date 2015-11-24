@@ -7,6 +7,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/repeat">
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -80,7 +85,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:orientation="vertical"
-                android:background="#fcc9f4">
+                android:background="#FFFFFF">
                 <TableRow>
                     <layout.api.TextViewPlus
                         android:layout_weight="1"
@@ -91,9 +96,6 @@
                         android:background="#750061"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.TextViewPlus
-                        android:layout_weight="0.1"
-                        android:background="#ffffff"/>
-                    <layout.api.TextViewPlus
                         android:layout_weight="1"
                         android:text="Review"
                         android:textSize="17dp"
@@ -102,9 +104,6 @@
                         android:background="#750061"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.TextViewPlus
-                        android:layout_weight="0.1"
-                        android:background="#ffffff"/>
-                    <layout.api.TextViewPlus
                         android:layout_weight="1"
                         android:text="Writer"
                         android:textSize="17dp"
@@ -112,9 +111,6 @@
                         android:textColor="#FFFFFF"
                         android:background="#750061"
                         foo:customFont="InterparkGothicBold.ttf"/>
-                    <layout.api.TextViewPlus
-                        android:layout_weight="0.1"
-                        android:background="#ffffff"/>
                     <layout.api.TextViewPlus
                         android:layout_weight="1"
                         android:text="Date"

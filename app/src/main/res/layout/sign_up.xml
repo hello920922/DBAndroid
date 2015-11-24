@@ -8,6 +8,11 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
     <LinearLayout
         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/repeat">
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="0px"
         android:layout_weight="1"
         android:orientation="horizontal"></LinearLayout>
@@ -21,7 +26,7 @@
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
             android:text="ID"
-            android:textSize="16dip"
+            android:textSize="13dip"
             foo:customFont="InterparkGothicBold.ttf"
             android:textColor="#750061"
             android:layout_width="0px"
@@ -67,7 +72,7 @@
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
             android:text="PASSWORD"
-            android:textSize="16dip"
+            android:textSize="13dip"
             foo:customFont="InterparkGothicBold.ttf"
             android:textColor="#750061"
             android:layout_width="0px"
@@ -111,7 +116,7 @@
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
             android:text="NAME"
-            android:textSize="16dip"
+            android:textSize="13dip"
             foo:customFont="InterparkGothicBold.ttf"
             android:textColor="#750061"
             android:layout_width="0px"
@@ -154,7 +159,7 @@
             android:gravity="right|center_vertical"
             android:text="PERSONAL NUMBER"
             android:layout_width="0px"
-            android:textSize="16dip"
+            android:textSize="13dip"
             foo:customFont="InterparkGothicBold.ttf"
             android:textColor="#750061"
             android:layout_height="fill_parent"
@@ -221,7 +226,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="3"
             android:text="GENDER"
-            android:textSize="16dip"
+            android:textSize="13dip"
             foo:customFont="InterparkGothicBold.ttf"
             android:textColor="#750061"
             android:gravity="right|center_vertical"/>
@@ -242,7 +247,7 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="3"
                 android:text="MALE"
-                android:textSize="16dip"
+                android:textSize="13dip"
                 foo:customFont="InterparkGothicBold.ttf"
                 android:textColor="#750061"/>
 
@@ -251,7 +256,7 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="3"
                 android:text="FEMALE"
-                android:textSize="16dip"
+                android:textSize="13dip"
                 foo:customFont="InterparkGothicBold.ttf"
                 android:textColor="#750061"/>
 
@@ -267,7 +272,7 @@
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
             android:text="PHONE"
-            android:textSize="16dip"
+            android:textSize="13dip"
             foo:customFont="InterparkGothicBold.ttf"
             android:textColor="#750061"
             android:layout_width="0px"
@@ -359,7 +364,7 @@
         <layout.api.TextViewPlus
             android:gravity="right|center_vertical"
             android:text="EMAIL"
-            android:textSize="16dip"
+            android:textSize="13dip"
             foo:customFont="InterparkGothicBold.ttf"
             android:textColor="#750061"
             android:layout_width="0px"
@@ -451,7 +456,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="3"
+        android:layout_weight="3.5"
         android:orientation="horizontal">
 
     </LinearLayout>
