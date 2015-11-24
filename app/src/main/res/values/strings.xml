@@ -28,4 +28,5 @@
     </string>
     <string name="title_activity_history">History</string>
     <string name="title_activity_account">AccountActivity</string>
+    <string name="title_activity_store">StoreActivity</string>
 </resources>
