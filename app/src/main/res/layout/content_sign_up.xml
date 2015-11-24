@@ -15,7 +15,7 @@
         <layout.api.TextViewPlus
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Account"
+            android:text="Sign_up"
             android:textColor="@color/myColor"
             android:textSize="40dp"
             android:gravity="center"
@@ -108,7 +108,7 @@
                 android:layout_width="145sp"
                 android:layout_height="45sp"
                 android:gravity="top"
-                android:id="@+id/account_id"
+                android:id="@+id/sign_id"
                 android:editable="true"
                 android:inputType="text"
                 android:imeOptions="actionNext"
@@ -118,7 +118,7 @@
                 android:layout_width="145sp"
                 android:layout_height="45sp"
                 android:gravity="top"
-                android:id="@+id/account_passwd"
+                android:id="@+id/sign_passwd"
                 android:editable="true"
                 android:inputType="text"
                 android:imeOptions="actionNext"
@@ -128,7 +128,7 @@
                 android:layout_width="145sp"
                 android:layout_height="45sp"
                 android:gravity="top"
-                android:id="@+id/account_name"
+                android:id="@+id/sign_name"
                 android:editable="true"
                 android:inputType="text"
                 android:imeOptions="actionNext"
@@ -140,7 +140,7 @@
                 android:gravity="top"
                 android:orientation="horizontal">
                 <layout.api.EditTextPlus
-                    android:id="@+id/account_person_h"
+                    android:id="@+id/sign_person_h"
                     android:layout_width="0px"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -158,7 +158,7 @@
                     android:textColor="@color/myColor"
                     foo:customFont="InterparkGothicBold.ttf"/>
                 <layout.api.EditTextPlus
-                    android:id="@+id/account_person_t"
+                    android:id="@+id/sign_person_t"
                     android:layout_width="0px"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -177,7 +177,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
                     <layout.api.RadioPlus
-                        android:id="@+id/account_radio_h"
+                        android:id="@+id/sign_radio_h"
                         android:layout_width="0px"
                         android:layout_height="match_parent"
                         android:layout_weight="3"
@@ -185,7 +185,7 @@
                         android:textSize="11sp"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.RadioPlus
-                        android:id="@+id/account_radio_t"
+                        android:id="@+id/sign_radio_t"
                         android:layout_width="0px"
                         android:layout_height="fill_parent"
                         android:layout_weight="3"
@@ -200,7 +200,7 @@
                 android:layout_height="45sp"
                 android:gravity="top">
                 <layout.api.EditTextPlus
-                    android:id="@+id/account_phone_h"
+                    android:id="@+id/sign_phone_h"
                     android:layout_width="0px"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
@@ -218,7 +218,7 @@
                     android:textColor="@color/myColor"
                     foo:customFont="InterparkGothicBold.ttf"/>
                 <layout.api.EditTextPlus
-                    android:id="@+id/account_phone_m"
+                    android:id="@+id/sign_phone_m"
                     android:layout_width="0px"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
@@ -236,7 +236,7 @@
                     android:textColor="@color/myColor"
                     foo:customFont="InterparkGothicBold.ttf"/>
                 <layout.api.EditTextPlus
-                    android:id="@+id/account_phone_t"
+                    android:id="@+id/sign_phone_t"
                     android:layout_width="0px"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
@@ -251,7 +251,7 @@
                 android:layout_height="45sp"
                 android:gravity="top">
                 <layout.api.EditTextPlus
-                    android:id="@+id/account_email_h"
+                    android:id="@+id/sign_email_h"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="2.5"
@@ -269,7 +269,7 @@
                     android:layout_weight="0.5"
                     foo:customFont="InterparkGothicBold.ttf"/>
                 <Spinner
-                    android:id="@+id/account_email_t"
+                    android:id="@+id/sign_email_t"
                     android:layout_width="0px"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
@@ -287,23 +287,7 @@
         android:layout_height="50sp"></LinearLayout>
 
     <layout.api.ButtonPlus
-        android:id="@+id/account_changes"
-        android:text="Save Changes"
-        android:layout_width="180sp"
-        android:layout_height="45sp"
-        android:onClick="onClick"
-        foo:customFont="InterparkGothicBold.ttf"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center"
-        android:background="@color/myColor"
-        android:textColor="#ffffff"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="10sp"></LinearLayout>
-
-    <layout.api.ButtonPlus
-        android:id="@+id/account_countup"
+        android:id="@+id/sign_signup"
         android:text="Save Changes"
         android:layout_width="180sp"
         android:layout_height="45sp"

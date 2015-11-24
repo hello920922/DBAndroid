@@ -59,7 +59,7 @@ public class SpinnerAdapter extends ArrayAdapter<String> {
                 .findViewById(android.R.id.text1);
         tv.setText(items[position]);
         tv.setTypeface(Typeface.createFromAsset(this.context.getAssets(), "InterparkGothicBold.ttf"));
-        tv.setTextSize(16);
+        tv.setTextSize(13);
         return convertView;
     }
 }
