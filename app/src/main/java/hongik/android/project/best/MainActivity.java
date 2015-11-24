@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
         if(view.getId() == R.id.main_signin){
             Signin();
         }
+        else if(view.getId() == R.id.main_signup){
+            Signup();
+        }
     }
 
     public void Signin(){

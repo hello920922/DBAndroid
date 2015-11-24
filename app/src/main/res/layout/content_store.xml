@@ -143,13 +143,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="30sp"/>
 
-            <layout.api.TextViewPlus
-                android:text="Review"
-                android:textSize="18sp"
-                android:textColor="@color/myColor"
-                foo:customFont="InterparkGothicBold.ttf"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
+                <layout.api.TextViewPlus
+                    android:text="Review"
+                    android:textSize="18sp"
+                    android:textColor="@color/myColor"
+                    foo:customFont="InterparkGothicBold.ttf"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+                <layout.api.TextViewPlus
+                    android:gravity="right"
+                    android:text="more"
+                    android:textSize="13sp"
+                    android:textColor="@color/myColor"
+                    foo:customFont="InterparkGothicBold.ttf"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="storeClick"/>
+            </LinearLayout>
 
             <TableLayout
                 android:id="@+id/store_review"

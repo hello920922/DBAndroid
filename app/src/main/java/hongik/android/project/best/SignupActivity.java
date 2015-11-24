@@ -2,6 +2,7 @@ package hongik.android.project.best;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -11,4 +12,6 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
     }
 
+    public void signupClick(View view) {
+    }
 }

@@ -212,6 +212,7 @@
             android:background="@color/myColor"
             android:textColor="#ffffff"
             android:textSize="15sp"
+            android:onClick="mainClick"
             foo:customFont="InterparkGothicBold.ttf"/>
 
         <LinearLayout
