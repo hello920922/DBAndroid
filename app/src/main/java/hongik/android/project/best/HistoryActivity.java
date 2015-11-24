@@ -97,4 +97,7 @@ public class HistoryActivity extends AppCompatActivity {
     public void onBackPressed(){
         backHandler.onBackPressed();
     }
+
+    public void historyClick(View view) {
+    }
 }
