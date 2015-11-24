@@ -7,7 +7,6 @@ import android.widget.Spinner;
 import layout.api.SpinnerAdapter;
 
 public class AccountActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +18,4 @@ public class AccountActivity extends AppCompatActivity {
         Spinner spin = (Spinner)findViewById(R.id.account_email_t);
         spin.setAdapter(spinadapter);
     }
-
-
 }
