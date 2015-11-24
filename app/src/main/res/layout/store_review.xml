@@ -30,7 +30,7 @@
             android:text="Store name"
             android:textSize="20dip"
             android:gravity="center|center_vertical"
-            android:textColor="#750061"
+            android:textColor="#74406C"
             foo:customFont="InterparkGothicBold.ttf"/>
     </LinearLayout>
 
@@ -55,7 +55,7 @@
                 android:text="Review"
                 android:textSize="18dip"
                 android:gravity="left|center_vertical"
-                android:textColor="#750061"
+                android:textColor="#74406C"
                 foo:customFont="InterparkGothicBold.ttf"/>
         </LinearLayout>
         <LinearLayout
@@ -93,7 +93,7 @@
                         android:textSize="17dp"
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
-                        android:background="#750061"
+                        android:background="#74406C"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.TextViewPlus
                         android:layout_weight="1"
@@ -101,7 +101,7 @@
                         android:textSize="17dp"
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
-                        android:background="#750061"
+                        android:background="#74406C"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.TextViewPlus
                         android:layout_weight="1"
@@ -109,7 +109,7 @@
                         android:textSize="17dp"
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
-                        android:background="#750061"
+                        android:background="#74406C"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.TextViewPlus
                         android:layout_weight="1"
@@ -117,7 +117,7 @@
                         android:textSize="17dp"
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
-                        android:background="#750061"
+                        android:background="#74406C"
                         foo:customFont="InterparkGothicBold.ttf"/>
                 </TableRow>
             </TableLayout>

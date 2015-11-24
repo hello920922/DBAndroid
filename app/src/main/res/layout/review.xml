@@ -27,10 +27,10 @@
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="4"
-            android:text="Store Name"
+            android:text="Review"
             foo:customFont="InterparkGothicBold.ttf"
             android:textSize="25dp"
-            android:textColor="#750061"
+            android:textColor="#74406C"
             ></layout.api.TextViewPlus>
         <LinearLayout
             android:layout_width="0px"
@@ -55,7 +55,7 @@
             android:text="Address"
             foo:customFont="InterparkGothicBold.ttf"
             android:textSize="25dp"
-            android:textColor="#750061"
+            android:textColor="#74406C"
             ></layout.api.TextViewPlus>
         <LinearLayout
             android:layout_width="0px"
@@ -75,7 +75,7 @@
             android:text="Grade"
             foo:customFont="InterparkGothicBold.ttf"
             android:textSize="25dp"
-            android:textColor="#750061">
+            android:textColor="#74406C">
         </layout.api.TextViewPlus>
         <LinearLayout
             android:layout_width="0px"
@@ -110,7 +110,7 @@
             android:text="Review"
             foo:customFont="InterparkGothicBold.ttf"
             android:textSize="25dp"
-            android:textColor="#750061"
+            android:textColor="#74406C"
             ></layout.api.TextViewPlus>
         <LinearLayout
             android:layout_width="0px"
@@ -161,7 +161,7 @@
             android:layout_weight="6"
             foo:customFont="InterparkGothicBold.ttf"
             android:textSize="25dp"
-            android:background="#750061"
+            android:background="#74406C"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             ></layout.api.ButtonPlus>

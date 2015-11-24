@@ -6,6 +6,6 @@
     android:layout_height="match_parent" android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <include layout="@layout/main"/>
+    <include layout="@layout/content_account"/>
 
 </android.support.design.widget.CoordinatorLayout>
