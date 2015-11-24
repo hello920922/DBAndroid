@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="hongik.android.project.best.Store_reviewActivity">
+    tools:context="hongik.android.project.best.StoreReviewActivity">
 
-    <include layout="@layout/store_review" />
+    <include layout="@layout/storereview" />
 
 </android.support.design.widget.CoordinatorLayout>
