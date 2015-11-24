@@ -28,7 +28,7 @@
             android:text="ID"
             android:textSize="13dip"
             foo:customFont="InterparkGothicBold.ttf"
-            android:textColor="#750061"
+            android:textColor="#74406C"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="3
@@ -74,7 +74,7 @@
             android:text="PASSWORD"
             android:textSize="13dip"
             foo:customFont="InterparkGothicBold.ttf"
-            android:textColor="#750061"
+            android:textColor="#74406C"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="3"/>
@@ -118,7 +118,7 @@
             android:text="NAME"
             android:textSize="13dip"
             foo:customFont="InterparkGothicBold.ttf"
-            android:textColor="#750061"
+            android:textColor="#74406C"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="3"/>
@@ -161,7 +161,7 @@
             android:layout_width="0px"
             android:textSize="13dip"
             foo:customFont="InterparkGothicBold.ttf"
-            android:textColor="#750061"
+            android:textColor="#74406C"
             android:layout_height="fill_parent"
             android:layout_weight="3"/>
 
@@ -190,7 +190,6 @@
             android:text="-"
             android:textSize="40dip"
             foo:customFont="InterparkGothicBold.ttf"
-            android:textColor="#750061"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="0.5"/>
@@ -228,7 +227,7 @@
             android:text="GENDER"
             android:textSize="13dip"
             foo:customFont="InterparkGothicBold.ttf"
-            android:textColor="#750061"
+            android:textColor="#74406C"
             android:gravity="right|center_vertical"/>
 
         <LinearLayout
@@ -248,8 +247,7 @@
                 android:layout_weight="3"
                 android:text="MALE"
                 android:textSize="13dip"
-                foo:customFont="InterparkGothicBold.ttf"
-                android:textColor="#750061"/>
+                foo:customFont="InterparkGothicBold.ttf" />
 
             <layout.api.RadioPlus
                 android:layout_width="fill_parent"
@@ -257,8 +255,7 @@
                 android:layout_weight="3"
                 android:text="FEMALE"
                 android:textSize="13dip"
-                foo:customFont="InterparkGothicBold.ttf"
-                android:textColor="#750061"/>
+                foo:customFont="InterparkGothicBold.ttf" />
 
         </RadioGroup>
 
@@ -274,7 +271,7 @@
             android:text="PHONE"
             android:textSize="13dip"
             foo:customFont="InterparkGothicBold.ttf"
-            android:textColor="#750061"
+            android:textColor="#74406C"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="3"/>
@@ -304,7 +301,6 @@
             android:text="-"
             android:textSize="40dip"
             foo:customFont="InterparkGothicBold.ttf"
-            android:textColor="#750061"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="0.6"/>
@@ -329,7 +325,6 @@
             android:text="-"
             android:textSize="40dip"
             foo:customFont="InterparkGothicBold.ttf"
-            android:textColor="#750061"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="0.6"/>
@@ -396,7 +391,6 @@
             android:text=" @ "
             android:textSize="20dip"
             foo:customFont="InterparkGothicBold.ttf"
-            android:textColor="#750061"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="0.65"/>
@@ -439,7 +433,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="5"
             android:onClick="onClick"
-            android:background="#750061"
+            android:background="#74406C"
             foo:customFont="InterparkGothicBold.ttf"
             android:textColor="#ffffff"
             android:layout_marginTop="8dp"
