@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 
 /**
  * Created by Administrator on 2015-11-12.
@@ -30,7 +31,7 @@ public class URLConnector extends Thread {
 
             // If Method is GET, Append Query After The URL
             if(method.equals("GET"))
-                url += "?"+query;
+                url += "?"+ URLEncoder.encode(query,"utf-8");
 
             Log.i("SampleHTTP", "URL : " + url);
 

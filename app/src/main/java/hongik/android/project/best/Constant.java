@@ -5,5 +5,4 @@ package hongik.android.project.best;
  */
 public class Constant {
     public static String SERVER = "http://hello0922.iptime.org/Database/function/android.php";
-    public static String XMLPATH = "http://hello0922.iptime.org/Database/xmlfile/";
 }

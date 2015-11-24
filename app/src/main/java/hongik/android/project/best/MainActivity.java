@@ -56,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(historyIntent);
     }
 
+    public void Signup(){
+        Intent historyIntent = new Intent(this, SignupActivity.class);
+        startActivity(historyIntent);
+    }
+
     @Override
     public void onBackPressed(){
         backHandler.onBackPressed();

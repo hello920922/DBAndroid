@@ -12,7 +12,7 @@ public class AccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
-        String [] array = {"gmail.com", "naver.com", "hanmail.net", "hongik.ac.kr"};
+        String [] array = {"Choose Email", "naver.com", "hanmail.net", "gmail.com", "nate.com", "dreamwiz.com", "korea.com", "outlook.com", "hongik.ac.kr"};
 
         SpinnerAdapter spinadapter = new SpinnerAdapter(this, R.layout.content_account, array);
         Spinner spin = (Spinner)findViewById(R.id.account_email_t);
