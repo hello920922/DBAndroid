@@ -15,7 +15,7 @@ public class AccountActivity extends AppCompatActivity {
 
         String [] array = {"gmail.com", "naver.com", "hanmail.net", "hongik.ac.kr"};
 
-        SpinnerAdapter spinadapter = new SpinnerAdapter(this, R.layout.account, array);
+        SpinnerAdapter spinadapter = new SpinnerAdapter(this, R.layout.content_account, array);
         Spinner spin = (Spinner)findViewById(R.id.account_email_t);
         spin.setAdapter(spinadapter);
     }

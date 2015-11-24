@@ -110,7 +110,7 @@
                 android:layout_height="200sp"
                 android:background="#FFFFFF"
                 foo:customFont="InterparkGothicBold.ttf"
-                android:textSize="16dp"/>
+                android:textSize="16sp"/>
 
         </LinearLayout>
 
@@ -124,7 +124,7 @@
     
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="20dp"></LinearLayout>
+        android:layout_height="20sp"></LinearLayout>
 
     <layout.api.ButtonPlus
         android:id="@+id/review_submit"

@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:text="Account"
             android:textColor="@color/myColor"
-            android:textSize="40dp"
+            android:textSize="40sp"
             android:gravity="center"
             foo:customFont="InterparkGothicBold.ttf"/>
     </LinearLayout>
@@ -177,7 +177,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
                     <layout.api.RadioPlus
-                        android:id="@+id/account_radio_h"
+                        android:id="@+id/account_radio_m"
                         android:layout_width="0px"
                         android:layout_height="match_parent"
                         android:layout_weight="3"
@@ -185,9 +185,9 @@
                         android:textSize="11sp"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.RadioPlus
-                        android:id="@+id/account_radio_t"
+                        android:id="@+id/account_radio_f"
                         android:layout_width="0px"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:text="FEMALE"
                         android:textSize="11sp"
@@ -253,7 +253,7 @@
                 <layout.api.EditTextPlus
                     android:id="@+id/account_email_h"
                     android:layout_width="0px"
-                    android:layout_height="fill_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="2.5"
                     android:editable="true"
                     android:inputType="text"
@@ -303,7 +303,7 @@
         android:layout_height="10sp"></LinearLayout>
 
     <layout.api.ButtonPlus
-        android:id="@+id/account_countup"
+        android:id="@+id/account_delete"
         android:text="Save Changes"
         android:layout_width="180sp"
         android:layout_height="45sp"
