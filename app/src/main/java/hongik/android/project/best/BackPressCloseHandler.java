@@ -24,7 +24,10 @@ public class BackPressCloseHandler {
             return;
         }
         if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+            activity.moveTaskToBack(true);
             activity.finish();
+            android.os.Process.killProcess(android.os.Process.myPid());
+
             toast.cancel();
         }
     }

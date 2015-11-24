@@ -3,12 +3,10 @@ package hongik.android.project.best;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.RatingBar;
 import android.widget.Toast;
 
 import layout.api.EditTextPlus;
@@ -20,9 +18,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final RatingBar ratingbar = (RatingBar)findViewById(R.id.review_grade);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         backHandler = new BackPressCloseHandler(this);
     }
@@ -54,13 +49,13 @@ public class MainActivity extends AppCompatActivity {
             Signin();
         }
     }
+
     public void Signin(){
         EditTextPlus viewId = (EditTextPlus)findViewById(R.id.main_id);
         EditTextPlus viewpasswd = (EditTextPlus)findViewById(R.id.main_passwd);
 
         String query = "func=signin&cid=" + viewId.getText().toString() + "&passwd=" + viewpasswd.getText().toString();
-        //Toast.makeText(this, query, Toast.LENGTH_LONG).show();
-        URLConnector conn = new URLConnector(Constant.SERVER + "android.php", "POST", query);
+        URLConnector conn = new URLConnector(Constant.SERVER, "POST", query);
         conn.start();
 
         try{

@@ -10,8 +10,14 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/repeat">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="0px"
-        android:layout_weight="0.5"
+        android:layout_weight="1"
         android:orientation="horizontal"></LinearLayout>
 
     <LinearLayout
@@ -22,13 +28,13 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="0.4"></LinearLayout>
+            android:layout_weight="1"></LinearLayout>
         <layout.api.ButtonPlus
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:text="QR code"
-            android:textSize="20dip"
+            android:textSize="10dip"
             android:gravity="center"
             android:textColor="#fb05d3"
             android:background="#FFFFFF"
@@ -40,9 +46,9 @@
         <layout.api.ButtonPlus
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:text="User Info"
-            android:textSize="20dip"
+            android:textSize="10dip"
             android:gravity="center"
             android:textColor="#fb05d3"
             android:background="#FFFFFF"
@@ -50,8 +56,14 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="0.4"></LinearLayout>
+            android:layout_weight="1"></LinearLayout>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        ></LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -103,50 +115,40 @@
                 android:id="@+id/history_table"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:orientation="vertical"
-                android:background="#fcc9f4">
+                android:orientation="vertical">
                 <TableRow>
                     <layout.api.TextViewPlus
                         android:id="@+id/history_table_store"
                         android:layout_weight="2"
                         android:text="Store"
-                        android:textSize="17dp"
+                        android:textSize="13dp"
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
                         android:background="#750061"
                         foo:customFont="InterparkGothicBold.ttf"/>
-                    <layout.api.TextViewPlus
-                        android:layout_weight="0.1"
-                        android:background="#ffffff"/>
                     <layout.api.TextViewPlus
                         android:id="@+id/history_table_grade"
                         android:layout_weight="1"
                         android:text="Grade"
-                        android:textSize="17dp"
+                        android:textSize="13dp"
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
                         android:background="#750061"
                         foo:customFont="InterparkGothicBold.ttf"/>
-                    <layout.api.TextViewPlus
-                        android:layout_weight="0.1"
-                        android:background="#ffffff"/>
                     <layout.api.TextViewPlus
                         android:id="@+id/history_table_review"
                         android:layout_weight="2"
                         android:text="Review"
-                        android:textSize="17dp"
+                        android:textSize="13dp"
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
                         android:background="#750061"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.TextViewPlus
-                        android:layout_weight="0.1"
-                        android:background="#ffffff"/>
-                    <layout.api.TextViewPlus
                         android:id="@+id/history_table_date"
                         android:layout_weight="1"
                         android:text="Date"
-                        android:textSize="17dp"
+                        android:textSize="13dp"
                         android:gravity="center|center_horizontal"
                         android:textColor="#FFFFFF"
                         android:background="#750061"

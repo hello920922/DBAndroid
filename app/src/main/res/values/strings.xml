@@ -27,4 +27,5 @@
         completions."
     </string>
     <string name="title_activity_history">History</string>
+    <string name="title_activity_account">AccountActivity</string>
 </resources>
