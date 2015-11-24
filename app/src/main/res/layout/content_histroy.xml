@@ -11,128 +11,111 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/repeat">
-        <layout.api.TextViewPlus
-            android:text="hello"
-            android:textSize="40dip"
-            android:textColor="#885480"
-            android:gravity="center_horizontal|top"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </LinearLayout>
-    </ScrollView>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0px"
-        android:layout_weight="1"
-        android:orientation="horizontal"></LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0px"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-        <LinearLayout
-            android:layout_width="0px"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"></LinearLayout>
-        <layout.api.TextViewPlus
-            android:id="@+id/history_qrcode"
-            android:layout_width="0px"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.5"
-            android:text="QR code"
-            android:textSize="14dip"
-            android:gravity="center"
-            android:textColor="#885480"
-            android:onClick="historyClick"
-            foo:customFont="InterparkGothicBold.ttf"/>
-        <LinearLayout
-            android:layout_width="0px"
-            android:layout_height="fill_parent"
-            android:layout_weight="0.3"></LinearLayout>
-        <layout.api.TextViewPlus
-            android:id="@+id/history_user"
-            android:layout_width="0px"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.5"
-            android:text="User INFO"
-            android:textSize="14dip"
-            android:gravity="center"
-            android:textColor="#885480"
-            android:onClick="historyClick"
-            foo:customFont="InterparkGothicBold.ttf"/>
-        <LinearLayout
-            android:layout_width="0px"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"></LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0px"
-        android:layout_weight="1"
+        android:background="@drawable/repeat"
         ></LinearLayout>
 
+    <layout.api.TextViewPlus
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:text="Histroy"
+        android:textSize="40dp"
+        android:gravity="center"
+        android:textColor="#885480"
+        foo:customFont="InterparkGothicBold.ttf"/>
+
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0px"
-        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="35sp"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
         <LinearLayout
-            android:layout_width="0px"
-            android:layout_height="fill_parent"
-            android:layout_weight="2"
-            android:orientation="horizontal"></LinearLayout>
-        <LinearLayout
-            android:layout_width="0px"
-            android:layout_height="fill_parent"
-            android:layout_weight="23"
-            android:orientation="horizontal">
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
             <layout.api.TextViewPlus
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="History"
-                android:textSize="18dip"
-                android:gravity="left|center_vertical"
-                android:textColor="#74406C"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="QR code"
+                android:textSize="15dip"
+                android:gravity="right|center_vertical"
+                android:textColor="#885480"
                 foo:customFont="InterparkGothicBold.ttf"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="0px"
-            android:layout_height="fill_parent"
-            android:layout_weight="2"
-            android:orientation="horizontal"></LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"></LinearLayout>
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <layout.api.TextViewPlus
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="User INFO"
+                android:textSize="15dip"
+                android:gravity="left|center_vertical"
+                android:textColor="#885480"
+                foo:customFont="InterparkGothicBold.ttf"/>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0px"
-        android:layout_weight="10"
+        android:layout_width="match_parent"
+        android:layout_height="35sp"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="0px"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"></LinearLayout>
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="13">
+            <layout.api.TextViewPlus
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="History"
+                android:textSize="18dip"
+                android:gravity="left|center_vertical"
+                android:textColor="#885480"
+                foo:customFont="InterparkGothicBold.ttf"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"></LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="7sp"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="horizontal"></LinearLayout>
         <LinearLayout
             android:layout_width="0px"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:layout_weight="13"
             android:orientation="vertical">
             <TableLayout
                 android:id="@+id/history_table"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
                 <TableRow>
                     <layout.api.TextViewPlus
@@ -172,15 +155,9 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="0px"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="horizontal"></LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0px"
-        android:layout_weight="2"
-        android:orientation="horizontal"></LinearLayout>
 
 </LinearLayout>
