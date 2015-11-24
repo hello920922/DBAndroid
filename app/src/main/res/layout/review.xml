@@ -47,7 +47,7 @@
             android:layout_weight="4"
             android:text="Address"
             foo:customFont="InterparkGothicBold.ttf"
-            android:textSize="25dp"
+            android:textSize="18dp"
             android:textColor="#74406C"
             ></layout.api.TextViewPlus>
         <LinearLayout
@@ -67,7 +67,7 @@
             android:layout_weight="3"
             android:text="Grade"
             foo:customFont="InterparkGothicBold.ttf"
-            android:textSize="25dp"
+            android:textSize="18sp"
             android:textColor="#74406C">
         </layout.api.TextViewPlus>
         <LinearLayout
