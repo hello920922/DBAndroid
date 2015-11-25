@@ -49,7 +49,7 @@
             <layout.api.TextViewPlus
                 android:id="@+id/store_address"
                 android:text="Address"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textColor="@color/myColor"
                 foo:customFont="InterparkGothicBold.ttf"
                 android:layout_width="match_parent"
