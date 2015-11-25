@@ -76,6 +76,7 @@ public class SignupActivity extends AppCompatActivity {
                 Toast.makeText(this, "Signup Failure", Toast.LENGTH_SHORT).show();
                 return;
             }
+            Toast.makeText(this, "Success Signup", Toast.LENGTH_SHORT).show();
             this.finish();
         }
     }
