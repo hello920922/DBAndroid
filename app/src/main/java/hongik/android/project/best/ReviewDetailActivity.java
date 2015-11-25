@@ -22,7 +22,7 @@ public class ReviewDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reviewdetail);
 
         Intent intent = getIntent();
-        String access = intent.getStringExtra("ACCESS");
+        access = intent.getStringExtra("ACCESS");
         cid = intent.getStringExtra("CID");
         license = intent.getStringExtra("LICENSE");
 
@@ -60,7 +60,12 @@ public class ReviewDetailActivity extends AppCompatActivity {
     public void reviewdetailClick(View view) {
         if(view.getId()==R.id.reviewdetail_button){
             if(access.equals("STORE")){
-                finish();
+                this.finish();
+            }
+            else if(access.equals("HISTORY")){
+                Intent storeIntent = new Intent(this, StoreActivity.class);
+                storeIntent.putExtra("LICENSE", license);
+                startActivity(storeIntent);
             }
         }
     }
