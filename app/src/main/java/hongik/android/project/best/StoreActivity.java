@@ -145,7 +145,9 @@ public class StoreActivity extends AppCompatActivity implements OnMapReadyCallba
             TableRow motive = (TableRow) reviewTable.getChildAt(1);
 
             String[] review_rows = review.split("/");
+            int rowCnt = 0;
             for(String review_row : review_rows){
+                if(rowCnt == 5) break;
                 final String [] elements = review_row.split(",");
                 int colnums = elements.length;
 
