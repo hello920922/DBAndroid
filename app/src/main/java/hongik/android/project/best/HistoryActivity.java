@@ -58,7 +58,6 @@ public class HistoryActivity extends AppCompatActivity {
             }
             historyTable.addView(blankrow);
 
-
             TableRow motive = (TableRow)historyTable.getChildAt(0);
 
             String [] rows = result.split("/");
