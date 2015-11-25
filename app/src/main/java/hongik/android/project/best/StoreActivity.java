@@ -62,7 +62,7 @@ public class StoreActivity extends AppCompatActivity implements OnMapReadyCallba
 
         String[] results = result.split("/nextResult/");
 
-        String store = results[0];
+        final String store = results[0];
         String menu = results[1];
         String review = results[2];
 
@@ -160,9 +160,12 @@ public class StoreActivity extends AppCompatActivity implements OnMapReadyCallba
                     tbcols[i].setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent storeIntent = new Intent(originActivity, MenuActivity.class);
-                            storeIntent.putExtra("LICENSE", license);
-                            startActivity(storeIntent);
+                            Intent reviewIntent = new Intent(originActivity, ReviewDetailActivity.class);
+                            reviewIntent.putExtra("ACCESS", "STORE");
+                            reviewIntent.putExtra("CID", elements[2]);
+                            reviewIntent.putExtra("LICENSE", license);
+                            Log.i("StoreReview", "StartActivity");
+                            startActivity(reviewIntent);
                         }
                     });
 
@@ -194,6 +197,6 @@ public class StoreActivity extends AppCompatActivity implements OnMapReadyCallba
         // Add a marker in Sydney and move the camera
         LatLng myPosition = new LatLng(Lat, Lng);
         mMap.addMarker(new MarkerOptions().position(myPosition).title(sname));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myPosition,16));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myPosition, 16));
     }
 }

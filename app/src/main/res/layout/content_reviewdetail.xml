@@ -38,20 +38,6 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="20sp"></LinearLayout>
-
-    <layout.api.TextViewPlus
-        android:id="@+id/reviewdetail_author"
-        android:text="Address"
-        android:textSize="23sp"
-        android:textColor="@color/myColor"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        foo:customFont="InterparkGothicBold.ttf"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="35sp"></LinearLayout>
 
     <LinearLayout
@@ -80,7 +66,7 @@
             android:numStars="5"
             android:rating="2.5"
             android:stepSize="0.5"
-            android:isIndicator="true"/>
+            android:isIndicator="false"/>
 
         <LinearLayout
             android:layout_width="0px"
@@ -126,8 +112,7 @@
                 android:scrollHorizontally="true"
                 android:imeOptions="actionDone"
                 foo:customFont="InterparkGothicBold.ttf"
-                android:textSize="16sp"
-                android:editable="false"/>
+                android:textSize="16sp"/>
 
         </LinearLayout>
 
@@ -144,7 +129,7 @@
         android:layout_height="20sp"></LinearLayout>
 
     <layout.api.ButtonPlus
-        android:id="@+id/reviewdetail_action"
+        android:id="@+id/reviewdetail_submit"
         android:text="Submit"
         android:textSize="25sp"
         android:gravity="center"
