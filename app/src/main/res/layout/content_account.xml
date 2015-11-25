@@ -257,7 +257,7 @@
                     android:layout_weight="2.5"
                     android:editable="true"
                     android:inputType="text"
-                    android:imeOptions="actionNext"
+                    android:imeOptions="actionDone"
                     android:textSize="16sp"
                     foo:customFont="InterparkGothicBold.ttf"/>
                 <layout.api.TextViewPlus

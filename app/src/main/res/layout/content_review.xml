@@ -105,10 +105,12 @@
 
             <layout.api.EditTextPlus
                 android:id="@+id/review_text"
-                android:gravity="left|center_vertical"
+                android:gravity="left|top"
                 android:layout_width="match_parent"
                 android:layout_height="200sp"
                 android:background="#FFFFFF"
+                android:scrollHorizontally="true"
+                android:imeOptions="actionDone"
                 foo:customFont="InterparkGothicBold.ttf"
                 android:textSize="16sp"/>
 
