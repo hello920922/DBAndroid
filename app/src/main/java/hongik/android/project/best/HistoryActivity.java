@@ -39,7 +39,7 @@ public class HistoryActivity extends AppCompatActivity {
 
     public void drawHistory(){
         String query = "func=history&cid=" + cid;
-        URLConnector conn = new URLConnector(Constant.SERVER, "POST",query);
+        URLConnector conn = new URLConnector(Constant.QueryURL, "POST",query);
         conn.start();
 
         try {

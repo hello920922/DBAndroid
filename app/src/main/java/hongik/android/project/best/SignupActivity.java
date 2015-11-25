@@ -62,7 +62,7 @@ public class SignupActivity extends AppCompatActivity {
             String query = "func=signup" + "&id=" + id + "&passwd=" + passwd + "&name=" + name + "&birth=" + birth + "&personNo=" + personNo + "&gender=" + gender + "&phone=" + phone + "&email=" + email;
             Log.i("Signup", "Success making query : " + query);
 
-            URLConnector conn = new URLConnector(Constant.SERVER, "POST",query);
+            URLConnector conn = new URLConnector(Constant.QueryURL, "POST",query);
             conn.start();
             Log.i("Signup", "Success send query to server");
 
