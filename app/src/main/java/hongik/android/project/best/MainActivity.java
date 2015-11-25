@@ -57,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Signup(){
-        Intent historyIntent = new Intent(this, SignupActivity.class);
-        startActivity(historyIntent);
+        Intent signupIntent = new Intent(this, SignupActivity.class);
+        startActivity(signupIntent);
     }
 
     @Override

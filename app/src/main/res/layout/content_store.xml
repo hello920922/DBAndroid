@@ -155,6 +155,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
                 <layout.api.TextViewPlus
+                    android:id="@+id/store_more"
                     android:gravity="right"
                     android:text="more"
                     android:textSize="13sp"
