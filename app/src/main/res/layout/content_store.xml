@@ -47,10 +47,12 @@
                 android:layout_height="10sp"/>
 
             <layout.api.TextViewPlus
+                android:height="80sp"
                 android:id="@+id/store_address"
                 android:text="Address"
                 android:textSize="15sp"
                 android:textColor="@color/myColor"
+                android:gravity="center_vertical"
                 foo:customFont="InterparkGothicBold.ttf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -65,7 +67,8 @@
         <ImageView
             android:id="@+id/store_image"
             android:layout_width="120sp"
-            android:layout_height="120sp" />
+            android:layout_height="120sp"
+            android:scaleType="fitXY"/>
 
         <LinearLayout
             android:layout_width="0px"
@@ -76,6 +79,9 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30sp"/>
 
     <fragment
         android:id="@+id/store_map"
@@ -157,7 +163,7 @@
                         android:gravity="center"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.TextViewPlus
-                        android:layout_weight="2"
+                        android:layout_weight="1"
                         android:layout_height="match_parent"
                         android:textSize="13sp"
                         android:gravity="center"

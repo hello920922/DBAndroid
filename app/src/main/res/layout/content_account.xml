@@ -316,7 +316,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30sp"></LinearLayout>
+        android:layout_height="100sp"/>
 
 
 </LinearLayout>

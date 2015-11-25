@@ -140,4 +140,8 @@
         android:layout_height="30sp"
         android:onClick="reviewClick"
         foo:customFont="InterparkGothicBold.ttf"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100sp"/>
 </LinearLayout>
