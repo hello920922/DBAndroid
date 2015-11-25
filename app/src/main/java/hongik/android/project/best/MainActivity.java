@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         EditTextPlus viewpasswd = (EditTextPlus)findViewById(R.id.main_passwd);
 
         String query = "func=signin&cid=" + viewId.getText().toString() + "&passwd=" + viewpasswd.getText().toString();
-        URLConnector conn = new URLConnector(Constant.SERVER, "POST", query);
+        URLConnector conn = new URLConnector(Constant.QueryURL, "POST", query);
         conn.start();
 
         try{
@@ -57,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Signup(){
-        Intent historyIntent = new Intent(this, SignupActivity.class);
-        startActivity(historyIntent);
+        Intent signupIntent = new Intent(this, SignupActivity.class);
+        startActivity(signupIntent);
     }
 
     @Override

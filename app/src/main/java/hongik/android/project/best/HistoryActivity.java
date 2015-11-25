@@ -39,7 +39,7 @@ public class HistoryActivity extends AppCompatActivity {
 
     public void drawHistory(){
         String query = "func=history&cid=" + cid;
-        URLConnector conn = new URLConnector(Constant.SERVER, "POST",query);
+        URLConnector conn = new URLConnector(Constant.QueryURL, "POST",query);
         conn.start();
 
         try {
@@ -58,13 +58,12 @@ public class HistoryActivity extends AppCompatActivity {
             }
             historyTable.addView(blankrow);
 
-
             TableRow motive = (TableRow)historyTable.getChildAt(0);
 
             String [] rows = result.split("/");
             for(String row : rows){
-                String [] elements = row.split(",");
-                int colnums = elements.length;
+                final String [] elements = row.split(",");
+                int colnums = elements.length-1;
 
                 TableRow marginrow = new TableRow(this);
                 for(int i=0; i<colnums; i++) {
@@ -74,10 +73,12 @@ public class HistoryActivity extends AppCompatActivity {
                 }
 
                 TableRow tbrow = new TableRow(this);
-                TextViewPlus[] tbcols = new TextViewPlus[colnums];
+                final TextViewPlus[] tbcols = new TextViewPlus[colnums];
 
                 for(int i=0; i<colnums; i++){
                     tbcols[i] = new TextViewPlus(this);
+                    if(i==2 && elements[i].length()>14)
+                        elements[i] = elements[i].substring(0, 14) + "...";
                     tbcols[i].setText(elements[i]);
                     tbcols[i].setLayoutParams(motive.getChildAt(i).getLayoutParams());
                     tbcols[i].setGravity(Gravity.CENTER);
@@ -87,7 +88,7 @@ public class HistoryActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             Intent storeIntent = new Intent(originActivity, StoreActivity.class);
-                            storeIntent.putExtra("CID", cid);
+                            storeIntent.putExtra("LICENSE", elements[elements.length-1] );
                             startActivity(storeIntent);
                         }
                     });
