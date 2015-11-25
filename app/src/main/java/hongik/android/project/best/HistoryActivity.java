@@ -74,9 +74,11 @@ public class HistoryActivity extends AppCompatActivity {
                     tbcols[i].setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent storeIntent = new Intent(originActivity, StoreActivity.class);
-                            storeIntent.putExtra("LICENSE", elements[elements.length-1] );
-                            startActivity(storeIntent);
+                            Intent reviewIntent = new Intent(originActivity, ReviewDetailActivity.class);
+                            reviewIntent.putExtra("ACCESS", "HISTORY");
+                            reviewIntent.putExtra("CID", cid);
+                            reviewIntent.putExtra("LICENSE", elements[elements.length - 1]);
+                            startActivity(reviewIntent);
                         }
                     });
 
