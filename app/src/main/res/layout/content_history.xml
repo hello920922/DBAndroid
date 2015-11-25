@@ -122,6 +122,7 @@
                 android:background="#ffffff">
                 <TableRow>
                     <layout.api.TextViewPlus
+                        android:layout_height="18sp"
                         android:layout_weight="2"
                         android:text="Store"
                         android:textSize="13sp"
@@ -130,6 +131,7 @@
                         android:background="@color/myColor"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.TextViewPlus
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="Grade"
                         android:textSize="13sp"
@@ -138,6 +140,7 @@
                         android:background="@color/myColor"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.TextViewPlus
+                        android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:text="Review"
                         android:textSize="13sp"
@@ -146,6 +149,7 @@
                         android:background="@color/myColor"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.TextViewPlus
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="Date"
                         android:textSize="13sp"
