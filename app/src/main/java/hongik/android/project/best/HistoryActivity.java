@@ -59,10 +59,13 @@ public class HistoryActivity extends AppCompatActivity {
                 TableRow tbrow = new TableRow(this);
                 final TextViewPlus[] tbcols = new TextViewPlus[colnums];
 
+                if(elements[2].length()>14)
+                    elements[2] = elements[2].substring(0, 14) + "...";
+                String[] days = elements[3].split("-");
+                elements[3] = days[0].substring(2,4) + "/" + days[1] + "/" + days[2];
+
                 for(int i=0; i<colnums; i++){
                     tbcols[i] = new TextViewPlus(this);
-                    if(i==2 && elements[i].length()>14)
-                        elements[i] = elements[i].substring(0, 14) + "...";
                     tbcols[i].setText(elements[i]);
                     tbcols[i].setLayoutParams(motive.getChildAt(i).getLayoutParams());
                     tbcols[i].setGravity(Gravity.CENTER);

@@ -104,6 +104,7 @@ public class StoreActivity extends AppCompatActivity implements OnMapReadyCallba
                 Bitmap bitmap = imgLoader.getBitmap();
                 img.setImageBitmap(bitmap);
                 img.setLayoutParams(motive.getChildAt(0).getLayoutParams());
+                img.setScaleType(ImageView.ScaleType.FIT_XY);
                 img.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -150,6 +151,11 @@ public class StoreActivity extends AppCompatActivity implements OnMapReadyCallba
 
                 TableRow tbrow = new TableRow(this);
                 TextViewPlus[] tbcols = new TextViewPlus[colnums];
+
+                if(elements[1].length()>14)
+                    elements[1] = elements[1].substring(0, 14) + "...";
+                String[] days = elements[3].split("-");
+                elements[3] = days[0].substring(2,4) + "/" + days[1] + "/" + days[2];
 
                 for(int i=0; i<colnums; i++){
                     tbcols[i] = new TextViewPlus(this);
