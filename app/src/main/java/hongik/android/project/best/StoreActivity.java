@@ -13,12 +13,25 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import layout.api.TextViewPlus;
 
-public class StoreActivity extends AppCompatActivity {
+public class StoreActivity extends AppCompatActivity implements OnMapReadyCallback {
     private String license;
     private TableLayout menuTable;
     private TableLayout reviewTable;
+
+    private GoogleMap mMap;
+    private String sname;
+    private double Lat;
+    private double Lng;
+
     final StoreActivity originActivity = this;
 
     @Override
@@ -67,6 +80,9 @@ public class StoreActivity extends AppCompatActivity {
             Toast.makeText(this, "Can not bring " + license + "store's image", Toast.LENGTH_SHORT).show();
             Log.e("StoreInfo", "Can not bring " + license + "store's image");
         }
+        Lat = Double.parseDouble(store_info[3]);
+        Lng = Double.parseDouble(store_info[4]);
+        sname = store_info[0];
 
         //Draw Menu Table
         if(menu != null){
@@ -157,6 +173,10 @@ public class StoreActivity extends AppCompatActivity {
             }
         }
         reviewTable.removeViewAt(1);
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.store_map);
+        mapFragment.getMapAsync(this);
     }
 
     public void storeClick(View view) {
@@ -165,5 +185,15 @@ public class StoreActivity extends AppCompatActivity {
             storeReviewIntent.putExtra("LICENSE", license);
             startActivity(storeReviewIntent);
         }
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // Add a marker in Sydney and move the camera
+        LatLng myPosition = new LatLng(Lat, Lng);
+        mMap.addMarker(new MarkerOptions().position(myPosition).title(sname));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myPosition,16));
     }
 }
