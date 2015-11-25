@@ -158,6 +158,32 @@
                         android:background="@color/myColor"
                         foo:customFont="InterparkGothicBold.ttf"/>
                 </TableRow>
+                <TableRow>
+                    <layout.api.TextViewPlus
+                        android:layout_height="23sp"
+                        android:layout_weight="2"
+                        android:textSize="13sp"
+                        android:gravity="center"
+                        foo:customFont="InterparkGothicBold.ttf"/>
+                    <layout.api.TextViewPlus
+                        android:layout_height="23sp"
+                        android:layout_weight="1"
+                        android:textSize="13sp"
+                        android:gravity="center"
+                        foo:customFont="InterparkGothicBold.ttf"/>
+                    <layout.api.TextViewPlus
+                        android:layout_height="23sp"
+                        android:layout_weight="3"
+                        android:textSize="13sp"
+                        android:gravity="center"
+                        foo:customFont="InterparkGothicBold.ttf"/>
+                    <layout.api.TextViewPlus
+                        android:layout_height="23sp"
+                        android:layout_weight="1"
+                        android:textSize="13sp"
+                        android:gravity="center"
+                        foo:customFont="InterparkGothicBold.ttf"/>
+                </TableRow>
             </TableLayout>
         </LinearLayout>
         <LinearLayout

@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import layout.api.TextViewPlus;
@@ -20,6 +19,7 @@ public class StoreActivity extends AppCompatActivity {
     private String license;
     private TableLayout menuTable;
     private TableLayout reviewTable;
+    final StoreActivity originActivity = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +53,7 @@ public class StoreActivity extends AppCompatActivity {
         String menu = results[1];
         String review = results[2];
 
+        //Draw Store Information
         String[] store_info = store.split(",");
         ((TextViewPlus)findViewById(R.id.store_storename)).setText(store_info[0]);
         ((TextViewPlus)findViewById(R.id.store_address)).setText(store_info[1]);
@@ -67,59 +68,95 @@ public class StoreActivity extends AppCompatActivity {
             Log.e("StoreInfo", "Can not bring " + license + "store's image");
         }
 
+        //Draw Menu Table
         if(menu != null){
-
-            TableRow blankrow = new TableRow(this);
-            for(int i=0; i<4; i++) {
-                TextView tv = new TextViewPlus(this);
-                tv.setHeight(15);
-                blankrow.addView(tv);
-            }
-            menuTable.addView(blankrow);
-
-            TableRow motive = (TableRow) menuTable.getChildAt(0);
+            TableRow motive = (TableRow) menuTable.getChildAt(1);
 
             String[] menu_rows = menu.split("/");
             for(String menu_row : menu_rows){
                 final String [] elements = menu_row.split(",");
-                int colnums = elements.length-1;
-
-                TableRow marginrow = new TableRow(this);
-                for(int i=0; i<colnums; i++) {
-                    TextView tv = new TextViewPlus(this);
-                    tv.setHeight(15);
-                    marginrow.addView(tv);
-                }
+                int colnums = elements.length;
 
                 TableRow tbrow = new TableRow(this);
-                final TextViewPlus[] tbcols = new TextViewPlus[colnums];
+                TextViewPlus[] tbcols = new TextViewPlus[colnums];
 
-                for(int i=0; i<colnums; i++){
+                imgLoader = new ImageLoader(elements[0]);
+                imgLoader.start();
+                imgLoader.join();
+
+                ImageView img = new ImageView(this);
+                Bitmap bitmap = imgLoader.getBitmap();
+                img.setImageBitmap(bitmap);
+                img.setLayoutParams(motive.getChildAt(0).getLayoutParams());
+                img.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent storeIntent = new Intent(originActivity, MenuActivity.class);
+                        storeIntent.putExtra("LICENSE", license);
+                        storeIntent.putExtra("MENU", elements[1]);
+                        startActivity(storeIntent);
+                    }
+                });
+
+                tbrow.addView(img);
+                for(int i=1; i<colnums; i++){
                     tbcols[i] = new TextViewPlus(this);
-                    if(i==2 && elements[i].length()>14)
-                        elements[i] = elements[i].substring(0, 14) + "...";
                     tbcols[i].setText(elements[i]);
                     tbcols[i].setLayoutParams(motive.getChildAt(i).getLayoutParams());
                     tbcols[i].setGravity(Gravity.CENTER);
                     tbcols[i].setTypeface(Typeface.createFromAsset(tbcols[i].getContext().getAssets(), "InterparkGothicBold.ttf"));
-                    final StoreActivity originActivity = this;
                     tbcols[i].setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Intent storeIntent = new Intent(originActivity, MenuActivity.class);
-                            storeIntent.putExtra("LICENSE", elements[elements.length-1] );
+                            storeIntent.putExtra("LICENSE", license);
+                            storeIntent.putExtra("MENU", elements[1] );
                             startActivity(storeIntent);
                         }
                     });
 
-                    Log.i("History", "COL" + i + ":" + elements[i]);
-
+                    Log.i("StoreMenu", "COL" + i + ":" + elements[i]);
                     tbrow.addView(tbcols[i]);
                 }
                 menuTable.addView(tbrow);
-                menuTable.addView(marginrow);
             }
         }
+        menuTable.removeViewAt(1);
+
+        //Draw Review Table
+        if(review != null){
+            TableRow motive = (TableRow) reviewTable.getChildAt(1);
+
+            String[] review_rows = review.split("/");
+            for(String review_row : review_rows){
+                final String [] elements = review_row.split(",");
+                int colnums = elements.length;
+
+                TableRow tbrow = new TableRow(this);
+                TextViewPlus[] tbcols = new TextViewPlus[colnums];
+
+                for(int i=0; i<colnums; i++){
+                    tbcols[i] = new TextViewPlus(this);
+                    tbcols[i].setText(elements[i]);
+                    tbcols[i].setLayoutParams(motive.getChildAt(i).getLayoutParams());
+                    tbcols[i].setGravity(Gravity.CENTER);
+                    tbcols[i].setTypeface(Typeface.createFromAsset(tbcols[i].getContext().getAssets(), "InterparkGothicBold.ttf"));
+                    tbcols[i].setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent storeIntent = new Intent(originActivity, MenuActivity.class);
+                            storeIntent.putExtra("LICENSE", license);
+                            startActivity(storeIntent);
+                        }
+                    });
+
+                    Log.i("StoreMenu", "COL" + i + ":" + elements[i]);
+                    tbrow.addView(tbcols[i]);
+                }
+                reviewTable.addView(tbrow);
+            }
+        }
+        reviewTable.removeViewAt(1);
     }
 
     public void storeClick(View view) {

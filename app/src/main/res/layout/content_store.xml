@@ -137,6 +137,25 @@
                         foo:customFont="InterparkGothicBold.ttf"/>
                 </TableRow>
 
+                <TableRow>
+                    <ImageView
+                        android:layout_width="100sp"
+                        android:layout_height="100sp"
+                        android:gravity="center"/>
+                    <layout.api.TextViewPlus
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:textSize="13sp"
+                        android:gravity="center"
+                        foo:customFont="InterparkGothicBold.ttf"/>
+                    <layout.api.TextViewPlus
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:textSize="13sp"
+                        android:gravity="center"
+                        foo:customFont="InterparkGothicBold.ttf"/>
+                </TableRow>
+
             </TableLayout>
             
             <LinearLayout
@@ -204,6 +223,34 @@
                         android:textSize="13sp"
                         android:background="@color/myColor"
                         android:textColor="#ffffff"
+                        android:gravity="center"
+                        foo:customFont="InterparkGothicBold.ttf"/>
+                </TableRow>
+
+
+                <TableRow>
+                    <layout.api.TextViewPlus
+                        android:layout_weight="1"
+                        android:layout_height="23sp"
+                        android:textSize="13sp"
+                        android:gravity="center"
+                        foo:customFont="InterparkGothicBold.ttf"/>
+                    <layout.api.TextViewPlus
+                        android:layout_weight="3"
+                        android:layout_height="23sp"
+                        android:textSize="13sp"
+                        android:gravity="center"
+                        foo:customFont="InterparkGothicBold.ttf"/>
+                    <layout.api.TextViewPlus
+                        android:layout_weight="1"
+                        android:layout_height="23sp"
+                        android:textSize="13sp"
+                        android:gravity="center"
+                        foo:customFont="InterparkGothicBold.ttf"/>
+                    <layout.api.TextViewPlus
+                        android:layout_weight="1"
+                        android:layout_height="23sp"
+                        android:textSize="13sp"
                         android:gravity="center"
                         foo:customFont="InterparkGothicBold.ttf"/>
                 </TableRow>

@@ -9,7 +9,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import layout.api.TextViewPlus;
@@ -50,27 +49,12 @@ public class HistoryActivity extends AppCompatActivity {
                 return;
             }
 
-            TableRow blankrow = new TableRow(this);
-            for(int i=0; i<4; i++) {
-                TextView tv = new TextViewPlus(this);
-                tv.setHeight(15);
-                blankrow.addView(tv);
-            }
-            historyTable.addView(blankrow);
-
-            TableRow motive = (TableRow)historyTable.getChildAt(0);
+            TableRow motive = (TableRow)historyTable.getChildAt(1);
 
             String [] rows = result.split("/");
             for(String row : rows){
                 final String [] elements = row.split(",");
                 int colnums = elements.length-1;
-
-                TableRow marginrow = new TableRow(this);
-                for(int i=0; i<colnums; i++) {
-                    TextView tv = new TextViewPlus(this);
-                    tv.setHeight(15);
-                    marginrow.addView(tv);
-                }
 
                 TableRow tbrow = new TableRow(this);
                 final TextViewPlus[] tbcols = new TextViewPlus[colnums];
@@ -98,8 +82,8 @@ public class HistoryActivity extends AppCompatActivity {
                     tbrow.addView(tbcols[i]);
                 }
                 historyTable.addView(tbrow);
-                historyTable.addView(marginrow);
             }
+            historyTable.removeViewAt(1);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
