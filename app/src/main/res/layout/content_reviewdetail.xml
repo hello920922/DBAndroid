@@ -42,7 +42,7 @@
 
     <layout.api.TextViewPlus
         android:id="@+id/reviewdetail_author"
-        android:text="Address"
+        android:text="Author"
         android:textSize="23sp"
         android:textColor="@color/myColor"
         android:gravity="center"
@@ -65,7 +65,7 @@
             android:layout_weight="3"
             android:text="Grade"
             foo:customFont="InterparkGothicBold.ttf"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:textColor="@color/myColor">
         </layout.api.TextViewPlus>
         <LinearLayout
@@ -110,6 +110,7 @@
             android:orientation="vertical">
 
             <layout.api.TextViewPlus
+                android:id="@+id/reviewdetail_date"
                 android:text="Review"
                 android:textSize="18sp"
                 android:textColor="@color/myColor"
@@ -124,10 +125,9 @@
                 android:layout_height="200sp"
                 android:background="#FFFFFF"
                 android:scrollHorizontally="true"
-                android:imeOptions="actionDone"
+                android:editable="false"
                 foo:customFont="InterparkGothicBold.ttf"
-                android:textSize="16sp"
-                android:editable="false"/>
+                android:textSize="16sp"/>
 
         </LinearLayout>
 
@@ -144,7 +144,7 @@
         android:layout_height="20sp"></LinearLayout>
 
     <layout.api.ButtonPlus
-        android:id="@+id/reviewdetail_action"
+        android:id="@+id/reviewdetail_button"
         android:text="Submit"
         android:textSize="25sp"
         android:gravity="center"
@@ -155,4 +155,8 @@
         android:layout_height="30sp"
         android:onClick="reviewdetailClick"
         foo:customFont="InterparkGothicBold.ttf"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100sp"/>
 </LinearLayout>
