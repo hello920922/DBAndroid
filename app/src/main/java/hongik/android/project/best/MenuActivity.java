@@ -1,9 +1,13 @@
 package hongik.android.project.best;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import layout.api.TextViewPlus;
 
 public class MenuActivity extends AppCompatActivity {
     private String license;
@@ -38,9 +42,27 @@ public class MenuActivity extends AppCompatActivity {
             String[] data = result.split(",");
             String store_same = data[0];
             String item_price= data[1];
-            String menu_item = data[2];
+            String menu_img = data[2];
 
-            Toast.makeText(this, store_same + "/" + menu_item + "/" + item_price, Toast.LENGTH_LONG).show();
+            ImageView imageView = (ImageView)findViewById(R.id.menudetail_image);
+            TextViewPlus tvItem = (TextViewPlus)findViewById(R.id.menudetail_item);
+            TextViewPlus tvStore = (TextViewPlus)findViewById(R.id.menudetail_name);
+            TextViewPlus tvPrice = (TextViewPlus)findViewById(R.id.menudetail_price);
+
+            tvItem.setText(item);
+            tvStore.setText(store_same);
+            tvPrice.setText(item_price);
+
+            ImageLoader imageLoader = new ImageLoader(menu_img);
+            imageLoader.start();
+            try {
+                imageLoader.join();
+                Bitmap bitmap = imageLoader.getBitmap();
+
+                imageView.setImageBitmap(bitmap);
+            }catch (Exception ex){};
+
+            Toast.makeText(this, store_same + "/" + menu_img + "/" + item_price, Toast.LENGTH_LONG).show();
         }
 
     }
