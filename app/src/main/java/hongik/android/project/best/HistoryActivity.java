@@ -11,6 +11,9 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.Toast;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
 import layout.api.TextViewPlus;
 
 /**
@@ -99,19 +102,39 @@ public class HistoryActivity extends AppCompatActivity {
         backHandler.onBackPressed();
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
-        if(requestCode==1){
-            if(resultCode==1)
-                finish();
-        }
-    }
-
     public void historyClick(View view) {
         if(view.getId() == R.id.history_user){
             Intent userIntent = new Intent(this, AccountActivity.class);
             userIntent.putExtra("CID",cid);
             startActivityForResult(userIntent, 1);
+        }
+        else if(view.getId() == R.id.history_qrcode){
+            IntentIntegrator.initiateScan(this);
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if(result != null) {
+            if(result.getContents() == null) {
+                Log.d("MainActivity", "Cancelled scan");
+                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+            } else {
+                Log.d("MainActivity", "Scanned");
+                String license = result.getContents();
+                Intent storeIntent = new Intent(this, StoreActivity.class);
+                storeIntent.putExtra("LICENSE",license);
+                startActivity(storeIntent);
+            }
+        } else {
+            Log.d("MainActivity", "Weird");
+            // This is important, otherwise the result will not be passed to the fragment
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+        if(requestCode==1){
+            if(resultCode==1)
+                finish();
         }
     }
 }
