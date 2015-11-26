@@ -21,6 +21,22 @@
             android:gravity="center"
             foo:customFont="InterparkGothicBold.ttf"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40sp">
+        <layout.api.TextViewPlus
+            android:id="@+id/menudetail_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Store Name"
+            android:textColor="@color/myColor"
+            android:textSize="30sp"
+            android:gravity="center"
+            foo:customFont="InterparkGothicBold.ttf"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

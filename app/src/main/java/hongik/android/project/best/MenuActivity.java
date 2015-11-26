@@ -14,18 +14,30 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menudetail);
 
-        Intent intent = this.getIntent();
+        Intent intent = getIntent();
         license = intent.getStringExtra("LICENSE");
-        item = intent.getStringExtra("MENU");
+        item = intent.getStringExtra("ITEM");
 
-        drawMenu();
+        drawintent();
     }
+    public void drawintent(){
+        String query =("func=menudetail&license"+license+"&item"+item);
+        URLConnector conn = new URLConnector(Constant.QueryURL,"post",query);
 
+        conn.start();
 
-    public void drawMenu(){
-        String query = "func=menudetail&license=" + license + "&item=" + item;
-        URLConnector conn = new URLConnector(Constant.QueryURL, "POST", query);
+        String result = null;
 
-        Toast.makeText(this, query, Toast.LENGTH_LONG).show();
+        try{
+            conn.join();
+            result = conn.getResult();
+            }catch(InterruptedException e){
+            e.printStackTrace();
+        }
+        if(result !=null){
+            Toast.makeText(this,"result",Toast.LENGTH_LONG).show();
+        }
+
     }
 }
+
