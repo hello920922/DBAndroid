@@ -30,7 +30,7 @@ public class HistoryActivity extends AppCompatActivity {
         backHandler = new BackPressCloseHandler(this);
 
         Intent intent = new Intent(this.getIntent());
-        cid = intent.getStringExtra("CID");
+        cid = intent.getStringExtra("CID");     // 인텐트 객체에 담긴 데이터 읽어오기
         historyTable = (TableLayout)findViewById(R.id.history_table);
 
         drawHistory();
@@ -49,7 +49,7 @@ public class HistoryActivity extends AppCompatActivity {
                 return;
             }
 
-            TableRow motive = (TableRow)historyTable.getChildAt(1);
+            TableRow motive = (TableRow)historyTable.getChildAt(1);     // 자식객체에 숫자인덱스로 접근해서 제어
 
             String [] rows = result.split("/");
             for(String row : rows){
