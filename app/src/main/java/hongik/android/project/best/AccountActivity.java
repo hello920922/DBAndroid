@@ -2,7 +2,10 @@ package hongik.android.project.best;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import layout.api.EditTextPlus;
 import layout.api.RadioPlus;
@@ -28,6 +31,19 @@ public class AccountActivity extends AppCompatActivity {
         try {
             drawInfo();
         }catch(Exception e){};
+    }
+
+
+    public void accountClick(View view) {
+        int id = view.getId();
+        if(id == R.id.account_changes){
+            try{
+                changeAccount();
+            }catch (Exception ex){
+                ex.printStackTrace();
+                Log.e("Account", ex.getMessage());
+            }
+        }
     }
 
     public void drawInfo() throws Exception{
@@ -70,5 +86,56 @@ public class AccountActivity extends AppCompatActivity {
 
         ((EditTextPlus)findViewById(R.id.account_email_h)).setText(email_h);
         ((Spinner) findViewById(R.id.account_email_t)).setSelection(spinnerAdapter.getPosition(email_t));
+    }
+
+    public void changeAccount() throws Exception{
+        String newpasswd = ((EditTextPlus)findViewById(R.id.account_newpasswd)).getText().toString();
+        String repeat = ((EditTextPlus)findViewById(R.id.account_repeat)).getText().toString();
+
+        if(!newpasswd.equals(repeat)){
+            Toast.makeText(this, "Repeat Password does not match", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String passwd = ((EditTextPlus)findViewById(R.id.account_passwd)).getText().toString();
+        String name = ((EditTextPlus)findViewById(R.id.account_name)).getText().toString();
+        String birth = ((EditTextPlus)findViewById(R.id.account_person_h)).getText().toString();
+        String phone_h = ((EditTextPlus)findViewById(R.id.account_phone_h)).getText().toString();
+        String phone_m = ((EditTextPlus)findViewById(R.id.account_phone_m)).getText().toString();
+        String phone_t = ((EditTextPlus)findViewById(R.id.account_phone_t)).getText().toString();
+        String email_h = ((EditTextPlus)findViewById(R.id.account_email_h)).getText().toString();
+        int email_t = ((Spinner)findViewById(R.id.account_email_t)).getSelectedItemPosition();
+
+        if(passwd.equals("") || name.equals("") || birth.equals("") || phone_h.equals("") || phone_m.equals("") || phone_t.equals("") || email_h.equals("") || email_t==0){
+            Toast.makeText(this,"Please fill in all forms", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String query = "func=changeacc" + "&cid=" + cid + "&passwd=" + passwd + "&name=" + name +
+                "&birth=" + birth + "&phone=" + phone_h + phone_m + phone_t +
+                "&email=" + email_h + "@" + ((Spinner)findViewById(R.id.account_email_t)).getItemAtPosition(email_t).toString();
+
+        if(!newpasswd.equals("")){
+            query += "&newpasswd=" + newpasswd;
+        }
+
+        URLConnector conn = new URLConnector(Constant.QueryURL, "POST", query);
+        conn.start();
+        conn.join();
+
+        String result = conn.getResult();
+
+        if(result.equals("WRONG")) {
+            Toast.makeText(this, "Wrong password", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else if(result.equals("ERROR")){
+            Toast.makeText(this, "Change Failure", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else if(result.equals("SUCCESS")){
+            Toast.makeText(this, "Success Change", Toast.LENGTH_SHORT).show();
+            this.finish();
+        }
     }
 }
