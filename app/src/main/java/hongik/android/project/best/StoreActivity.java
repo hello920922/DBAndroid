@@ -13,12 +13,25 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import layout.api.TextViewPlus;
 
-public class StoreActivity extends AppCompatActivity {
+public class StoreActivity extends AppCompatActivity implements OnMapReadyCallback {
     private String license;
     private TableLayout menuTable;
     private TableLayout reviewTable;
+
+    private GoogleMap mMap;
+    private String sname;
+    private double Lat;
+    private double Lng;
+
     final StoreActivity originActivity = this;
 
     @Override
@@ -49,7 +62,7 @@ public class StoreActivity extends AppCompatActivity {
 
         String[] results = result.split("/nextResult/");
 
-        String store = results[0];
+        final String store = results[0];
         String menu = results[1];
         String review = results[2];
 
@@ -67,6 +80,9 @@ public class StoreActivity extends AppCompatActivity {
             Toast.makeText(this, "Can not bring " + license + "store's image", Toast.LENGTH_SHORT).show();
             Log.e("StoreInfo", "Can not bring " + license + "store's image");
         }
+        Lat = Double.parseDouble(store_info[3]);
+        Lng = Double.parseDouble(store_info[4]);
+        sname = store_info[0];
 
         //Draw Menu Table
         if(menu != null){
@@ -88,6 +104,7 @@ public class StoreActivity extends AppCompatActivity {
                 Bitmap bitmap = imgLoader.getBitmap();
                 img.setImageBitmap(bitmap);
                 img.setLayoutParams(motive.getChildAt(0).getLayoutParams());
+                img.setScaleType(ImageView.ScaleType.FIT_XY);
                 img.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -128,12 +145,19 @@ public class StoreActivity extends AppCompatActivity {
             TableRow motive = (TableRow) reviewTable.getChildAt(1);
 
             String[] review_rows = review.split("/");
+            int rowCnt = 0;
             for(String review_row : review_rows){
+                if(rowCnt == 5) break;
                 final String [] elements = review_row.split(",");
                 int colnums = elements.length;
 
                 TableRow tbrow = new TableRow(this);
                 TextViewPlus[] tbcols = new TextViewPlus[colnums];
+
+                if(elements[1].length()>14)
+                    elements[1] = elements[1].substring(0, 14) + "...";
+                String[] days = elements[3].split("-");
+                elements[3] = days[0].substring(2,4) + "/" + days[1] + "/" + days[2];
 
                 for(int i=0; i<colnums; i++){
                     tbcols[i] = new TextViewPlus(this);
@@ -144,9 +168,12 @@ public class StoreActivity extends AppCompatActivity {
                     tbcols[i].setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent storeIntent = new Intent(originActivity, MenuActivity.class);
-                            storeIntent.putExtra("LICENSE", license);
-                            startActivity(storeIntent);
+                            Intent reviewIntent = new Intent(originActivity, ReviewDetailActivity.class);
+                            reviewIntent.putExtra("ACCESS", "STORE");
+                            reviewIntent.putExtra("CID", elements[2]);
+                            reviewIntent.putExtra("LICENSE", license);
+                            Log.i("StoreReview", "StartActivity");
+                            startActivity(reviewIntent);
                         }
                     });
 
@@ -157,6 +184,10 @@ public class StoreActivity extends AppCompatActivity {
             }
         }
         reviewTable.removeViewAt(1);
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.store_map);
+        mapFragment.getMapAsync(this);
     }
 
     public void storeClick(View view) {
@@ -165,5 +196,15 @@ public class StoreActivity extends AppCompatActivity {
             storeReviewIntent.putExtra("LICENSE", license);
             startActivity(storeReviewIntent);
         }
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // Add a marker in Sydney and move the camera
+        LatLng myPosition = new LatLng(Lat, Lng);
+        mMap.addMarker(new MarkerOptions().position(myPosition).title(sname));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myPosition, 16));
     }
 }
