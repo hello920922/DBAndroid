@@ -1,5 +1,6 @@
 package hongik.android.project.best;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -39,6 +40,14 @@ public class AccountActivity extends AppCompatActivity {
         if(id == R.id.account_changes){
             try{
                 changeAccount();
+            }catch (Exception ex){
+                ex.printStackTrace();
+                Log.e("Account", ex.getMessage());
+            }
+        }
+        else if(id == R.id.account_delete){
+            try{
+                deleteAccount();
             }catch (Exception ex){
                 ex.printStackTrace();
                 Log.e("Account", ex.getMessage());
@@ -136,6 +145,36 @@ public class AccountActivity extends AppCompatActivity {
         else if(result.equals("SUCCESS")){
             Toast.makeText(this, "Success Change", Toast.LENGTH_SHORT).show();
             this.finish();
+        }
+    }
+
+    public void deleteAccount() throws Exception{
+        String passwd = ((EditTextPlus)findViewById(R.id.account_passwd)).getText().toString();
+        if(passwd.equals("")){
+            Toast.makeText(this,"Please input password", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String query = "func=deleteacc" + "&cid=" + cid + "&passwd=" + passwd;
+
+        URLConnector conn = new URLConnector(Constant.QueryURL, "POST", query);
+        conn.start();
+        conn.join();
+
+        String result = conn.getResult();
+
+        if(result.equals("WRONG")) {
+            Toast.makeText(this, "Wrong password", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else if(result.equals("ERROR")){
+            Toast.makeText(this, "Delete Failure", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else if(result.equals("SUCCESS")){
+            Toast.makeText(this, "Success Delete", Toast.LENGTH_SHORT).show();
+            setResult(1, new Intent());
+            finish();
         }
     }
 }
