@@ -100,5 +100,10 @@ public class HistoryActivity extends AppCompatActivity {
     }
 
     public void historyClick(View view) {
+        if(view.getId() == R.id.history_user){
+            Intent userIntent = new Intent(this, AccountActivity.class);
+            userIntent.putExtra("CID",cid);
+            startActivity(userIntent);
+        }
     }
 }
