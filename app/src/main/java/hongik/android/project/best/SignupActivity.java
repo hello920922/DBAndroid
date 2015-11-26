@@ -29,6 +29,7 @@ public class SignupActivity extends AppCompatActivity {
         if(view.getId() == R.id.sign_signup){
             String id = ((EditTextPlus)findViewById(R.id.sign_id)).getText().toString();
             String passwd = ((EditTextPlus)findViewById(R.id.sign_passwd)).getText().toString();
+            String repeat = ((EditTextPlus)findViewById(R.id.sign_repeat)).getText().toString();
             String name = ((EditTextPlus)findViewById(R.id.sign_name)).getText().toString();
             String birth = ((EditTextPlus)findViewById(R.id.sign_person_h)).getText().toString();
             String personNo = ((EditTextPlus)findViewById(R.id.sign_person_t)).getText().toString();
@@ -42,6 +43,11 @@ public class SignupActivity extends AppCompatActivity {
                 gender = "F";
             }
             Log.i("Signup", "success fetching gender");
+
+            if(!passwd.equals(repeat)){
+                Toast.makeText(this, "Repeat Password does not match", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             String phone_h = ((EditTextPlus)findViewById(R.id.sign_phone_h)).getText().toString();
             String phone_m = ((EditTextPlus)findViewById(R.id.sign_phone_m)).getText().toString();
