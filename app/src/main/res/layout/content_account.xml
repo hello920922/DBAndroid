@@ -340,10 +340,10 @@
 
     <layout.api.ButtonPlus
         android:id="@+id/account_delete"
-        android:text="Save Changes"
+        android:text="Delete Account"
         android:layout_width="180sp"
         android:layout_height="45sp"
-        android:onClick="accoutClick"
+        android:onClick="accountClick"
         foo:customFont="InterparkGothicBold.ttf"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
