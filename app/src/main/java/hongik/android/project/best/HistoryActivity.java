@@ -99,11 +99,19 @@ public class HistoryActivity extends AppCompatActivity {
         backHandler.onBackPressed();
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        if(requestCode==1){
+            if(resultCode==1)
+                finish();
+        }
+    }
+
     public void historyClick(View view) {
         if(view.getId() == R.id.history_user){
             Intent userIntent = new Intent(this, AccountActivity.class);
             userIntent.putExtra("CID",cid);
-            startActivity(userIntent);
+            startActivityForResult(userIntent, 1);
         }
     }
 }
