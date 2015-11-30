@@ -32,7 +32,7 @@ public class BackPressCloseHandler {
         }
     }
     private void showGuide() {
-        toast = Toast.makeText(activity, "If you want to exit program, press back button again.",
+        toast = Toast.makeText(activity, "Press 'back' button once more to exit.",
                 Toast.LENGTH_SHORT);
         toast.show();
     }

@@ -32,7 +32,7 @@ public class BackPressGotoMainHandler {
         }
     }
     private void showGuide() {
-        toast = Toast.makeText(activity, "If you want to go to main page, press back button again.",
+        toast = Toast.makeText(activity, "press back button once more to move main page.",
                 Toast.LENGTH_SHORT);
         toast.show();
     }

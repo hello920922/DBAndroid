@@ -13,9 +13,11 @@
         android:layout_height="50sp"></LinearLayout>
 
     <layout.api.TextViewPlus
+        android:id="@+id/testHistory"
+        android:onClick="historyClick"
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:text="Histroy"
+        android:text="History"
         android:textSize="40sp"
         android:gravity="center"
         android:textColor="#885480"
