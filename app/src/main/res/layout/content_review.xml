@@ -15,7 +15,6 @@
         android:layout_height="50sp"></LinearLayout>
 
     <layout.api.TextViewPlus
-        android:id="@+id/review_title"
         android:text="Review"
         android:textSize="40sp"
         android:textColor="@color/myColor"
@@ -23,7 +22,21 @@
         android:layout_width="match_parent"
         android:layout_height="50sp"
         foo:customFont="InterparkGothicBold.ttf"/>
-    
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20sp"></LinearLayout>
+
+    <layout.api.TextViewPlus
+        android:id="@+id/review_title"
+        android:text="Review"
+        android:textSize="30sp"
+        android:textColor="@color/myColor"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        foo:customFont="InterparkGothicBold.ttf"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="20sp"></LinearLayout>
