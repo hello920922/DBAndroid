@@ -51,7 +51,7 @@ public class StoreReviewActivity extends AppCompatActivity {
         if(review != null){
             TableRow motive = (TableRow) reviewTable.getChildAt(1);
 
-            String[] review_rows = review.split("/");
+            String[] review_rows = review.split("/nextline");
             for(String review_row : review_rows){
                 final String [] elements = review_row.split(",");
                 int colnums = elements.length;
@@ -61,8 +61,8 @@ public class StoreReviewActivity extends AppCompatActivity {
 
                 if(elements[1].length()>14)
                     elements[1] = elements[1].substring(0, 14) + "...";
-                String[] days = elements[3].split("-");
-                elements[3] = days[0].substring(2,4) + "/" + days[1] + "/" + days[2];
+                //String[] days = elements[3].split("-");
+                //elements[3] = days[0].substring(2,4) + "/" + days[1] + "/" + days[2];
 
                 for(int i=0; i<colnums; i++){
                     tbcols[i] = new TextViewPlus(this);
