@@ -34,7 +34,6 @@ public class HistoryActivity extends AppCompatActivity {
     private Peripheral nowPeripheral;
     private long timeStamp;
     private long recent;
-    private TableRow motive;
 
     private TableLayout historyTable;
     private String cid;
@@ -50,7 +49,6 @@ public class HistoryActivity extends AppCompatActivity {
         Intent intent = new Intent(this.getIntent());
         cid = intent.getStringExtra("CID");
         historyTable = (TableLayout)findViewById(R.id.history_table);
-        motive = (TableRow)historyTable.getChildAt(1);
 
         setCentralManager();
         drawHistory();
@@ -70,6 +68,7 @@ public class HistoryActivity extends AppCompatActivity {
     }
 
     public void drawHistory(){
+        int rowcnt = historyTable.getChildCount();
         String query = "func=history&cid=" + cid;
         URLConnector conn = new URLConnector(Constant.QueryURL, "POST",query);
         conn.start();
@@ -81,6 +80,8 @@ public class HistoryActivity extends AppCompatActivity {
                 Toast.makeText(this, "Can not bring data", Toast.LENGTH_SHORT).show();
                 return;
             }
+
+            TableRow motive = (TableRow)historyTable.getChildAt(1);
 
             String [] rows = result.split("/nextline");
             for(String row : rows){
@@ -120,7 +121,9 @@ public class HistoryActivity extends AppCompatActivity {
                 }
                 historyTable.addView(tbrow);
             }
-            historyTable.removeViewAt(1);
+            for(int i=1; i<rowcnt; i++) {
+                historyTable.removeViewAt(i);
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
