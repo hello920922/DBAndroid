@@ -70,7 +70,11 @@ public class ReviewActivity extends AppCompatActivity {
             String note = ((EditTextPlus)findViewById(R.id.review_text)).getText().toString();
             float grade = ((RatingBar)findViewById(R.id.review_grade)).getRating();
 
-            String query = "func=submitreview&license=" + license + "&cid=" + cid + "&note=" + note + "&grade=" + grade;
+            String query = "func=submitreview" +
+                    "&license=" + license +
+                    "&cid=" + cid +
+                    "&note=" + note +
+                    "&grade=" + grade;
             URLConnector conn = new URLConnector(Constant.QueryURL, "POST", query);
             conn.start();
 
@@ -79,9 +83,13 @@ public class ReviewActivity extends AppCompatActivity {
                 String result = conn.getResult();
                 if(result.equals("ERROR")){
                     Toast.makeText(this, "Submit Error", Toast.LENGTH_SHORT).show();
+                    setResult(0, new Intent());
+                    finish();
                     return;
                 }
                 Toast.makeText(this, "Thank you for your opinion", Toast.LENGTH_SHORT).show();
+                setResult(1, new Intent());
+                finish();
             } catch (InterruptedException e) {}
         }
     }

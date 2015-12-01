@@ -53,5 +53,4 @@ public class RadioPlus extends RadioButton {
         setTypeface(tf);
         return true;
     }
-
 }

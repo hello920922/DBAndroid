@@ -34,6 +34,7 @@ public class HistoryActivity extends AppCompatActivity {
     private Peripheral nowPeripheral;
     private long timeStamp;
     private long recent;
+    private TableRow motive;
 
     private TableLayout historyTable;
     private String cid;
@@ -49,6 +50,7 @@ public class HistoryActivity extends AppCompatActivity {
         Intent intent = new Intent(this.getIntent());
         cid = intent.getStringExtra("CID");
         historyTable = (TableLayout)findViewById(R.id.history_table);
+        motive = (TableRow)historyTable.getChildAt(1);
 
         setCentralManager();
         drawHistory();
@@ -79,8 +81,6 @@ public class HistoryActivity extends AppCompatActivity {
                 Toast.makeText(this, "Can not bring data", Toast.LENGTH_SHORT).show();
                 return;
             }
-
-            TableRow motive = (TableRow)historyTable.getChildAt(1);     // 자식객체에 숫자인덱스로 접근해서 제어
 
             String [] rows = result.split("/nextline");
             for(String row : rows){
@@ -147,6 +147,12 @@ public class HistoryActivity extends AppCompatActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
+        if(requestCode==2){
+            if(resultCode==1){
+                Toast.makeText(this, "Request Code 2", Toast.LENGTH_SHORT).show();
+                drawHistory();
+            }
+        }
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(result != null) {
             if(result.getContents() == null) {
@@ -230,6 +236,6 @@ public class HistoryActivity extends AppCompatActivity {
         Intent reviewIntent = new Intent(this, ReviewActivity.class);
         reviewIntent.putExtra("BUID", nowPeripheral.getBDAddress().replace(":", ""));
         reviewIntent.putExtra("CID", cid);
-        startActivity(reviewIntent);
+        startActivityForResult(reviewIntent, 2);
     }
 }

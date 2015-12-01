@@ -49,5 +49,4 @@ public class TextViewPlus extends TextView {
         setTypeface(tf);
         return true;
     }
-
 }

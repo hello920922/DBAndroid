@@ -49,5 +49,4 @@ public class ButtonPlus extends Button {
         setTypeface(tf);
         return true;
     }
-
 }

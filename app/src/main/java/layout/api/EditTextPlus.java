@@ -49,5 +49,4 @@ public class EditTextPlus extends EditText {
         setTypeface(tf);
         return true;
     }
-
 }
