@@ -191,7 +191,7 @@ public class HistoryActivity extends AppCompatActivity {
             if (nowPeripheral == null) {
                 nowPeripheral = peripheral;
             } else if ((!nowPeripheral.getBDAddress().equals(peripheral.getBDAddress())) && nowPeripheral.getRssi() < peripheral.getRssi()
-                    //&& System.currentTimeMillis() - timeStamp > 60000
+                    && System.currentTimeMillis() - timeStamp > 60000
                     ) {
                 publishProgress();
 
@@ -218,7 +218,9 @@ public class HistoryActivity extends AppCompatActivity {
                 try {
                     Thread.sleep(10000);
                 } catch (InterruptedException e) {}
-                if(System.currentTimeMillis() - recent > 10000) {
+                if(System.currentTimeMillis() - recent > 10000
+                        && System.currentTimeMillis() - timeStamp > 60000
+                        ) {
                     publishProgress();
                 }
             }
