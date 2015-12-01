@@ -229,6 +229,7 @@ public class HistoryActivity extends AppCompatActivity {
 
         Intent reviewIntent = new Intent(this, ReviewActivity.class);
         reviewIntent.putExtra("BUID", nowPeripheral.getBDAddress().replace(":", ""));
+        reviewIntent.putExtra("CID", cid);
         startActivity(reviewIntent);
     }
 }
