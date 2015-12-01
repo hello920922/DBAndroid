@@ -1,8 +1,11 @@
 package hongik.android.project.best;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
@@ -13,7 +16,10 @@ import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.wizturn.sdk.central.Central;
+import com.wizturn.sdk.central.CentralManager;
 import com.wizturn.sdk.peripheral.Peripheral;
+import com.wizturn.sdk.peripheral.PeripheralScanListener;
 
 import layout.api.TextViewPlus;
 
@@ -22,8 +28,13 @@ import layout.api.TextViewPlus;
  */
 public class HistoryActivity extends AppCompatActivity {
     private BackPressCloseHandler backHandler;
-    private Thread beaconThread;
-    private BeaconScanner beaconScanner;
+
+    //For Beacon Scanner
+    private CentralManager centralManager;
+    private Peripheral nowPeripheral;
+    private long timeStamp;
+    private long recent;
+
     private TableLayout historyTable;
     private String cid;
 
@@ -39,11 +50,21 @@ public class HistoryActivity extends AppCompatActivity {
         cid = intent.getStringExtra("CID");
         historyTable = (TableLayout)findViewById(R.id.history_table);
 
-        beaconScanner = new BeaconScanner(this.getApplicationContext());
-        beaconThread = new Thread(beaconScanner);
-        beaconThread.start();
-
+        setCentralManager();
         drawHistory();
+    }
+
+    public void setCentralManager(){
+        centralManager = CentralManager.getInstance();
+        centralManager.init(getApplicationContext());
+        centralManager.setPeripheralScanListener(new PeripheralScanListener() {
+            @Override
+            public void onPeripheralScan(Central central, Peripheral peripheral) {
+                UpdateTask updateTask = new UpdateTask(peripheral);
+                updateTask.execute();
+            }
+        });
+        centralManager.startScanning();
     }
 
     public void drawHistory(){
@@ -61,9 +82,10 @@ public class HistoryActivity extends AppCompatActivity {
 
             TableRow motive = (TableRow)historyTable.getChildAt(1);     // 자식객체에 숫자인덱스로 접근해서 제어
 
-            String [] rows = result.split("/");
+            String [] rows = result.split("/nextline");
             for(String row : rows){
                 final String [] elements = row.split(",");
+                Log.i("History", elements.toString());
                 int colnums = elements.length-1;
 
                 TableRow tbrow = new TableRow(this);
@@ -71,8 +93,8 @@ public class HistoryActivity extends AppCompatActivity {
 
                 if(elements[2].length()>14)
                     elements[2] = elements[2].substring(0, 14) + "...";
-                String[] days = elements[3].split("-");
-                elements[3] = days[0].substring(2,4) + "/" + days[1] + "/" + days[2];
+                //String[] days = elements[3].split("-");
+                //elements[3] = days[0].substring(2,4) + "/" + days[1] + "/" + days[2];
 
                 for(int i=0; i<colnums; i++){
                     tbcols[i] = new TextViewPlus(this);
@@ -119,8 +141,7 @@ public class HistoryActivity extends AppCompatActivity {
             IntentIntegrator.initiateScan(this);
         }
         else if(view.getId() == R.id.testHistory){
-            Peripheral peripheral = beaconScanner.getPeripheral();
-            Toast.makeText(this, "BD Address : " + peripheral.getBDAddress(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "BD Address : " + nowPeripheral.getBDAddress(), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -147,5 +168,67 @@ public class HistoryActivity extends AppCompatActivity {
             if(resultCode==1)
                 finish();
         }
+    }
+
+    class UpdateTask extends AsyncTask<Void, Void, Void> {
+        private Peripheral peripheral;
+
+        public UpdateTask(Peripheral peripheral){
+            this.peripheral = peripheral;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            if (nowPeripheral == null) {
+                nowPeripheral = peripheral;
+            } else if ((!nowPeripheral.getBDAddress().equals(peripheral.getBDAddress())) && nowPeripheral.getRssi() < peripheral.getRssi()
+                    //&& System.currentTimeMillis() - timeStamp > 60000
+                    ) {
+                publishProgress();
+
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {}
+                nowPeripheral = peripheral;
+                timeStamp = System.currentTimeMillis();
+            }
+            recent = System.currentTimeMillis();
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... value){
+            recommendReview();
+        }
+    }
+
+    class TimeTask extends AsyncTask<Void, Void, Void>{
+        @Override
+        protected Void doInBackground(Void... params) {
+            while(true) {
+                try {
+                    Thread.sleep(10000);
+                } catch (InterruptedException e) {}
+                if(System.currentTimeMillis() - recent > 10000) {
+                    publishProgress();
+                }
+            }
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... value){
+            recommendReview();
+        }
+    }
+
+    public void recommendReview() {
+        Toast.makeText(this, nowPeripheral.getBDAddress(), Toast.LENGTH_SHORT).show();
+
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        vibrator.vibrate(500);
+
+        Intent reviewIntent = new Intent(this, ReviewActivity.class);
+        reviewIntent.putExtra("BUID", nowPeripheral.getBDAddress().replace(":", ""));
+        startActivity(reviewIntent);
     }
 }
