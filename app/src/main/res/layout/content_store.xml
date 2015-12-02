@@ -134,7 +134,7 @@
                         android:gravity="center"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.TextViewPlus
-                        android:layout_weight="2"
+                        android:layout_width="150sp"
                         android:text="Item"
                         android:textSize="13sp"
                         android:background="@color/myColor"
@@ -142,7 +142,7 @@
                         android:gravity="center"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.TextViewPlus
-                        android:layout_weight="1"
+                        android:layout_width="70sp"
                         android:text="Price"
                         android:textSize="13sp"
                         android:background="@color/myColor"
@@ -157,13 +157,13 @@
                         android:layout_height="100sp"
                         android:gravity="center"/>
                     <layout.api.TextViewPlus
-                        android:layout_weight="2"
+                        android:layout_width="150sp"
                         android:layout_height="match_parent"
                         android:textSize="13sp"
                         android:gravity="center"
                         foo:customFont="InterparkGothicBold.ttf"/>
                     <layout.api.TextViewPlus
-                        android:layout_weight="1"
+                        android:layout_width="70sp"
                         android:layout_height="match_parent"
                         android:textSize="13sp"
                         android:gravity="center"
