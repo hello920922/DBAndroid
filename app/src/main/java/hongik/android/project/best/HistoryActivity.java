@@ -1,5 +1,6 @@
 package hongik.android.project.best;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -12,7 +13,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
-import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -50,6 +50,9 @@ public class HistoryActivity extends AppCompatActivity {
         cid = intent.getStringExtra("CID");
         historyTable = (TableLayout)findViewById(R.id.history_table);
 
+        Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+        startActivity(enableBtIntent);
+
         setCentralManager();
         drawHistory();
     }
@@ -77,7 +80,6 @@ public class HistoryActivity extends AppCompatActivity {
             conn.join();
             String result = conn.getResult();
             if(result.equals("ERROR")){
-                Toast.makeText(this, "Can not bring data", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -143,16 +145,12 @@ public class HistoryActivity extends AppCompatActivity {
         else if(view.getId() == R.id.history_qrcode){
             IntentIntegrator.initiateScan(this);
         }
-        else if(view.getId() == R.id.testHistory){
-            Toast.makeText(this, "BD Address : " + nowPeripheral.getBDAddress(), Toast.LENGTH_LONG).show();
-        }
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         if(requestCode==2){
             if(resultCode==1){
-                Toast.makeText(this, "Request Code 2", Toast.LENGTH_SHORT).show();
                 drawHistory();
             }
         }
@@ -160,7 +158,6 @@ public class HistoryActivity extends AppCompatActivity {
         if(result != null) {
             if(result.getContents() == null) {
                 Log.d("MainActivity", "Cancelled scan");
-                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
             } else {
                 Log.d("MainActivity", "Scanned");
                 String license = result.getContents();
@@ -170,7 +167,6 @@ public class HistoryActivity extends AppCompatActivity {
             }
         } else {
             Log.d("MainActivity", "Weird");
-            // This is important, otherwise the result will not be passed to the fragment
             super.onActivityResult(requestCode, resultCode, data);
         }
         if(requestCode==1){
@@ -233,7 +229,6 @@ public class HistoryActivity extends AppCompatActivity {
     }
 
     public void recommendReview() {
-        Toast.makeText(this, nowPeripheral.getBDAddress(), Toast.LENGTH_SHORT).show();
 
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         vibrator.vibrate(500);

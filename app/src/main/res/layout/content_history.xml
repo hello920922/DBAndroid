@@ -14,7 +14,6 @@
 
     <layout.api.TextViewPlus
         android:id="@+id/testHistory"
-        android:onClick="historyClick"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:text="History"

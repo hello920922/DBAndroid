@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import layout.api.TextViewPlus;
 
@@ -61,8 +60,6 @@ public class MenuActivity extends AppCompatActivity {
 
                 imageView.setImageBitmap(bitmap);
             }catch (Exception ex){};
-
-            Toast.makeText(this, store_same + "/" + menu_img + "/" + item_price, Toast.LENGTH_LONG).show();
         }
 
     }
