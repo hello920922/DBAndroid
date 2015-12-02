@@ -43,7 +43,9 @@ public class StoreReviewActivity extends AppCompatActivity {
 
         String[] results = result.split("/nextResult/");
         String storeName = results[0];
-        String review = results[1];
+        String review = null;
+        if(results.length > 1)
+            review = results[1];
 
         ((TextViewPlus)findViewById(R.id.storereview_storename)).setText(storeName);
 

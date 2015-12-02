@@ -64,7 +64,9 @@ public class StoreActivity extends AppCompatActivity implements OnMapReadyCallba
 
         final String store = results[0];
         String menu = results[1];
-        String review = results[2];
+        String review = null;
+        if(results.length > 2)
+            review = results[2];
 
         //Draw Store Information
         String[] store_info = store.split(",");
