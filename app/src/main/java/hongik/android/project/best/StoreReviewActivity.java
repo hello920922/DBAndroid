@@ -64,7 +64,7 @@ public class StoreReviewActivity extends AppCompatActivity {
             for(int i=0; i<review.length(); i++){
                 JSONObject json = review.getJSONObject(i);
                 final String [] elements = new String[4];
-                elements[0] = json.getString("GRADE");
+                elements[0] = Double.parseDouble(json.getString("GRADE")) + "";
                 elements[1] = json.getString("NOTE");
                 elements[2] = json.getString("CID#");
                 elements[3] = json.getString("DAY");
@@ -74,8 +74,6 @@ public class StoreReviewActivity extends AppCompatActivity {
 
                 if(elements[1].length()>14)
                     elements[1] = elements[1].substring(0, 14) + "...";
-                //String[] days = elements[3].split("-");
-                //elements[3] = days[0].substring(2,4) + "/" + days[1] + "/" + days[2];
 
                 for(int j=0; j<4; j++){
                     tbCols[j] = new TextViewPlus(this);

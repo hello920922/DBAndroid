@@ -164,7 +164,7 @@ public class StoreActivity extends AppCompatActivity implements OnMapReadyCallba
                 JSONObject json = review.getJSONObject(i);
 
                 final String[] elements = new String[4];
-                elements[0] = json.getString("GRADE");
+                elements[0] = Double.parseDouble(json.getString("GRADE"))+"";
                 elements[1] = json.getString("NOTE");
                 elements[2] = json.getString("CID#");
                 elements[3] = json.getString("DAY");

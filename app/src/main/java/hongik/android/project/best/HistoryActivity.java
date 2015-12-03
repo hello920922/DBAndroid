@@ -75,6 +75,7 @@ public class HistoryActivity extends AppCompatActivity {
 
     public void drawHistory(){
         int rowCnt = historyTable.getChildCount();
+        Log.i("ROWCOUNT", rowCnt+"");
         String query = "func=history&cid=" + cid;
         DBConnector conn = new DBConnector(query);
         conn.start();
@@ -97,7 +98,7 @@ public class HistoryActivity extends AppCompatActivity {
                 String[] elements = new String[4];
 
                 elements[0] = json.getString("SNAME");
-                elements[1] = json.getString("GRADE");
+                elements[1] = Double.parseDouble(json.getString("GRADE")) + "";
                 elements[2] = json.getString("NOTE");
                 elements[3] = json.getString("DAY");
                 final String license = json.getString("LICENSE#");
@@ -130,7 +131,7 @@ public class HistoryActivity extends AppCompatActivity {
                 historyTable.addView(tbRow);
             }
             for(int i=1; i<rowCnt; i++) {
-                historyTable.removeViewAt(i);
+                historyTable.removeViewAt(1);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -235,13 +236,13 @@ public class HistoryActivity extends AppCompatActivity {
     }
 
     public void recommendReview() {
-
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         vibrator.vibrate(500);
 
         Intent reviewIntent = new Intent(this, ReviewActivity.class);
         reviewIntent.putExtra("BUID", nowPeripheral.getBDAddress().replace(":", ""));
         reviewIntent.putExtra("CID", cid);
+        nowPeripheral = null;
         startActivityForResult(reviewIntent, 2);
     }
 }
