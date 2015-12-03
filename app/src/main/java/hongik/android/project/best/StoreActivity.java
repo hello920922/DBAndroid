@@ -132,7 +132,7 @@ public class StoreActivity extends AppCompatActivity implements OnMapReadyCallba
                 for (int j = 0; j < 2; j++) {
                     tbCols[j] = new TextViewPlus(this);
                     tbCols[j].setText(elements[j]);
-                    tbCols[j].setLayoutParams(motive.getChildAt(j).getLayoutParams());
+                    tbCols[j].setLayoutParams(motive.getChildAt(j+1).getLayoutParams());
                     tbCols[j].setGravity(Gravity.CENTER);
                     tbCols[j].setTypeface(Typeface.createFromAsset(tbCols[j].getContext().getAssets(), "InterparkGothicBold.ttf"));
                     tbCols[j].setOnClickListener(new View.OnClickListener() {
