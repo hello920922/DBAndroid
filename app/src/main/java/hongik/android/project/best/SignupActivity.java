@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import layout.api.EditTextPlus;
 import layout.api.RadioPlus;
 import layout.api.SpinnerAdapter;
@@ -36,12 +39,10 @@ public class SignupActivity extends AppCompatActivity {
             String gender = "";
             Log.i("Signup", "success fetching each string");
 
-            if(((RadioPlus)findViewById(R.id.sign_radio_m)).isChecked()){
+            if(((RadioPlus)findViewById(R.id.sign_radio_m)).isChecked())
                 gender = "M";
-            }
-            else if(((RadioPlus)findViewById(R.id.sign_radio_f)).isChecked()){
+            else if(((RadioPlus)findViewById(R.id.sign_radio_f)).isChecked())
                 gender = "F";
-            }
             Log.i("Signup", "success fetching gender");
 
             if(!passwd.equals(repeat)){
@@ -65,25 +66,33 @@ public class SignupActivity extends AppCompatActivity {
             String phone = phone_h + phone_m + phone_t;
             String email = email_h + "@" + ((Spinner)findViewById(R.id.sign_email_t)).getItemAtPosition(email_t).toString();
 
-            String query = "func=signup" + "&id=" + id + "&passwd=" + passwd + "&name=" + name + "&birth=" + birth + "&personNo=" + personNo + "&gender=" + gender + "&phone=" + phone + "&email=" + email;
+            String query = "func=signup" + "&id=" + id + "&passwd=" + passwd + "&name=" + name +
+                    "&birth=" + birth + "&personNo=" + personNo +
+                    "&gender=" + gender + "&phone=" + phone + "&email=" + email;
             Log.i("Signup", "Success making query : " + query);
 
-            URLConnector conn = new URLConnector(Constant.QueryURL, "POST",query);
+            DBConnector conn = new DBConnector(query);
             conn.start();
             Log.i("Signup", "Success send query to server");
 
             try{
                 conn.join();
             }catch(InterruptedException ex){Log.e("Signup",ex.toString());return;};
-            String result = conn.getResult();
-            Log.i("Signup", "Fetching php result : " + result);
+            JSONObject jsonResult = conn.getResult();
+            Log.i("Signup", "Fetching php result : " + jsonResult.toString());
 
-            if(result.equals("ERROR")){
-                Toast.makeText(this, "Signup Failure", Toast.LENGTH_SHORT).show();
-                return;
+            try {
+                boolean result = (boolean)jsonResult.get("result");
+
+                if(!result){
+                    Toast.makeText(this, "Signup Failure", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                Toast.makeText(this, "Success Signup", Toast.LENGTH_SHORT).show();
+                this.finish();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            Toast.makeText(this, "Success Signup", Toast.LENGTH_SHORT).show();
-            this.finish();
         }
     }
 }

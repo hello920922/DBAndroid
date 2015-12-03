@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 import layout.api.ButtonPlus;
 import layout.api.EditTextPlus;
 import layout.api.TextViewPlus;
@@ -36,23 +38,27 @@ public class ReviewDetailActivity extends AppCompatActivity {
 
     public void drawReview(){
         String query = "func=reviewdetail" + "&cid=" + cid + "&license=" + license;
-        URLConnector conn = new URLConnector(Constant.QueryURL, "POST", query);
+        DBConnector conn = new DBConnector(query);
 
         conn.start();
         try {
             conn.join();
-            String result = conn.getResult();
-            if(result.equals("ERROR")){
+            JSONObject jsonResult = conn.getResult();
+            boolean result = jsonResult.getBoolean("result");
+
+            if(!result){
                 Toast.makeText(this,"Can not bring data",Toast.LENGTH_SHORT).show();
                 return;
             }
-            String[] results = result.split(",");
-            ((TextViewPlus)findViewById(R.id.reviewdetail_title)).setText(results[0]);
-            ((TextViewPlus)findViewById(R.id.reviewdetail_address)).setText(results[1]);
+
+            JSONObject json = jsonResult.getJSONArray("values").getJSONObject(0);
+
+            ((TextViewPlus)findViewById(R.id.reviewdetail_title)).setText(json.getString("SNAME"));
+            ((TextViewPlus)findViewById(R.id.reviewdetail_address)).setText(json.getString("ADDR"));
             ((TextViewPlus)findViewById(R.id.reviewdetail_author)).setText(cid);
-            ((RatingBar)findViewById(R.id.reviewdetail_grade)).setRating(Float.parseFloat(results[2]));
-            ((EditTextPlus)findViewById(R.id.reviewdetail_text)).setText(results[3]);
-            ((TextViewPlus)findViewById(R.id.reviewdetail_date)).setText(results[4]);
+            ((RatingBar)findViewById(R.id.reviewdetail_grade)).setRating(Float.parseFloat(json.getString("GRADE")));
+            ((EditTextPlus)findViewById(R.id.reviewdetail_text)).setText(json.getString("NOTE"));
+            ((TextViewPlus)findViewById(R.id.reviewdetail_date)).setText(json.getString("DAY"));
 
         }catch (Exception ex){}
     }

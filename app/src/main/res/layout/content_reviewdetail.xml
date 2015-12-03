@@ -29,7 +29,7 @@
     <layout.api.TextViewPlus
         android:id="@+id/reviewdetail_address"
         android:text="Address"
-        android:textSize="23sp"
+        android:textSize="16sp"
         android:textColor="@color/myColor"
         android:gravity="center"
         android:layout_width="match_parent"

@@ -21,6 +21,9 @@ import com.wizturn.sdk.central.CentralManager;
 import com.wizturn.sdk.peripheral.Peripheral;
 import com.wizturn.sdk.peripheral.PeripheralScanListener;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import layout.api.TextViewPlus;
 
 /**
@@ -71,62 +74,65 @@ public class HistoryActivity extends AppCompatActivity {
     }
 
     public void drawHistory(){
-        int rowcnt = historyTable.getChildCount();
+        int rowCnt = historyTable.getChildCount();
         String query = "func=history&cid=" + cid;
-        URLConnector conn = new URLConnector(Constant.QueryURL, "POST",query);
+        DBConnector conn = new DBConnector(query);
         conn.start();
 
         try {
             conn.join();
-            String result = conn.getResult();
-            if(result.equals("ERROR")){
+            JSONObject jsonResult = conn.getResult();
+            boolean result = (boolean)jsonResult.get("result");
+
+            if(!result)
                 return;
-            }
 
             TableRow motive = (TableRow)historyTable.getChildAt(1);
+            JSONArray jsonArray = jsonResult.getJSONArray("values");
 
-            String [] rows = result.split("/nextline");
-            for(String row : rows){
-                final String [] elements = row.split(",");
-                Log.i("History", elements.toString());
-                int colnums = elements.length-1;
+            for(int i=0; i< jsonArray.length(); i++){
+                TableRow tbRow = new TableRow(this);
+                final TextViewPlus[] tbCols = new TextViewPlus[4];
+                JSONObject json = jsonArray.getJSONObject(i);
+                String[] elements = new String[4];
 
-                TableRow tbrow = new TableRow(this);
-                final TextViewPlus[] tbcols = new TextViewPlus[colnums];
+                elements[0] = json.getString("SNAME");
+                elements[1] = json.getString("GRADE");
+                elements[2] = json.getString("NOTE");
+                elements[3] = json.getString("DAY");
+                final String license = json.getString("LICENSE#");
 
-                if(elements[2].length()>14)
+                if(elements[2].length() > 14)
                     elements[2] = elements[2].substring(0, 14) + "...";
-                //String[] days = elements[3].split("-");
-                //elements[3] = days[0].substring(2,4) + "/" + days[1] + "/" + days[2];
 
-                for(int i=0; i<colnums; i++){
-                    tbcols[i] = new TextViewPlus(this);
-                    tbcols[i].setText(elements[i]);
-                    tbcols[i].setLayoutParams(motive.getChildAt(i).getLayoutParams());
-                    tbcols[i].setGravity(Gravity.CENTER);
-                    tbcols[i].setTypeface(Typeface.createFromAsset(tbcols[i].getContext().getAssets(), "InterparkGothicBold.ttf"));
+                for(int j=0; j<4; j++){
+                    tbCols[j] = new TextViewPlus(this);
+                    tbCols[j].setText(elements[j]);
+                    tbCols[j].setLayoutParams(motive.getChildAt(j).getLayoutParams());
+                    tbCols[j].setGravity(Gravity.CENTER);
+                    tbCols[j].setTypeface(Typeface.createFromAsset(tbCols[j].getContext().getAssets(), "InterparkGothicBold.ttf"));
                     final HistoryActivity originActivity = this;
-                    tbcols[i].setOnClickListener(new View.OnClickListener() {
+                    tbCols[j].setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Intent reviewIntent = new Intent(originActivity, ReviewDetailActivity.class);
                             reviewIntent.putExtra("ACCESS", "HISTORY");
                             reviewIntent.putExtra("CID", cid);
-                            reviewIntent.putExtra("LICENSE", elements[elements.length - 1]);
+                            reviewIntent.putExtra("LICENSE", license);
                             startActivity(reviewIntent);
                         }
                     });
 
-                    Log.i("History", "COL" + i + ":" + elements[i]);
+                    Log.i("History", "COL" + j + ":" + elements[j]);
 
-                    tbrow.addView(tbcols[i]);
+                    tbRow.addView(tbCols[j]);
                 }
-                historyTable.addView(tbrow);
+                historyTable.addView(tbRow);
             }
-            for(int i=1; i<rowcnt; i++) {
+            for(int i=1; i<rowCnt; i++) {
                 historyTable.removeViewAt(i);
             }
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

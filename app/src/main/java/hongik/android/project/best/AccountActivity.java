@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 import layout.api.EditTextPlus;
 import layout.api.RadioPlus;
 import layout.api.SpinnerAdapter;
@@ -57,19 +59,24 @@ public class AccountActivity extends AppCompatActivity {
 
     public void drawInfo() throws Exception{
         String query = "func=account&cid=" + cid;
-        URLConnector conn = new URLConnector(Constant.QueryURL, "POST", query);
+        DBConnector conn = new DBConnector(query);
         conn.start();
-
         conn.join();
-        String result = conn.getResult();
 
-        String[] results = result.split(",");
+        JSONObject jsonResult = conn.getResult();
+        boolean result = (boolean)jsonResult.getBoolean("result");
 
-        String name = results[0];
-        String birth = results[1];
-        String gender = results[2];
-        String phone = results[3];
-        String[] email = results[4].split("@");
+        if(!result){
+            finish();
+            return;
+        }
+
+        JSONObject json = jsonResult.getJSONArray("values").getJSONObject(0);
+        String name = json.getString("NAME");
+        String birth = json.getString("BIRTH");
+        String gender = json.getString("GENDER");
+        String phone = json.getString("PHONE");
+        String[] email = json.getString("EMAIL").split("@");
 
         String phone_h = phone.substring(0, 3);
         String phone_m = phone.substring(3, 7);
@@ -82,12 +89,11 @@ public class AccountActivity extends AppCompatActivity {
         ((EditTextPlus)findViewById(R.id.account_name)).setText(name);
         ((EditTextPlus)findViewById(R.id.account_person_h)).setText(birth);
         ((EditTextPlus)findViewById(R.id.account_person_t)).setText("1234567");
-        if(gender.equals("M")){
+
+        if(gender.equals("M"))
             ((RadioPlus)findViewById(R.id.account_radio_m)).setChecked(true);
-        }
-        else if(gender.equals("F")){
+        else if(gender.equals("F"))
             ((RadioPlus)findViewById(R.id.account_radio_f)).setChecked(true);
-        }
 
         ((EditTextPlus)findViewById(R.id.account_phone_h)).setText(phone_h);
         ((EditTextPlus)findViewById(R.id.account_phone_m)).setText(phone_m);
@@ -128,23 +134,24 @@ public class AccountActivity extends AppCompatActivity {
             query += "&newpasswd=" + newpasswd;
         }
 
-        URLConnector conn = new URLConnector(Constant.QueryURL, "POST", query);
+        DBConnector conn = new DBConnector(query);
         conn.start();
         conn.join();
 
-        String result = conn.getResult();
+        JSONObject jsonResult = conn.getResult();
+        String result = jsonResult.getString("result");
 
         if(result.equals("WRONG")) {
             Toast.makeText(this, "Wrong password", Toast.LENGTH_SHORT).show();
             return;
         }
-        else if(result.equals("ERROR")){
-            Toast.makeText(this, "Change Failure", Toast.LENGTH_SHORT).show();
-            return;
-        }
         else if(result.equals("SUCCESS")){
             Toast.makeText(this, "Success Change", Toast.LENGTH_SHORT).show();
             this.finish();
+        }
+        else if(result.equals("ERROR")){
+            Toast.makeText(this, "Change Failure", Toast.LENGTH_SHORT).show();
+            return;
         }
     }
 
@@ -157,24 +164,25 @@ public class AccountActivity extends AppCompatActivity {
 
         String query = "func=deleteacc" + "&cid=" + cid + "&passwd=" + passwd;
 
-        URLConnector conn = new URLConnector(Constant.QueryURL, "POST", query);
+        DBConnector conn = new DBConnector(query);
         conn.start();
         conn.join();
 
-        String result = conn.getResult();
+        JSONObject jsonResult = conn.getResult();
+        String result = jsonResult.getString("result");
 
-        if(result.equals("WRONG")) {
+        if(result.equals("WRONG")){
             Toast.makeText(this, "Wrong password", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        else if(result.equals("ERROR")){
-            Toast.makeText(this, "Delete Failure", Toast.LENGTH_SHORT).show();
             return;
         }
         else if(result.equals("SUCCESS")){
             Toast.makeText(this, "Success Delete", Toast.LENGTH_SHORT).show();
             setResult(1, new Intent());
             finish();
+        }
+        else if(result.equals("ERROR")){
+            Toast.makeText(this, "Delete Failure", Toast.LENGTH_SHORT).show();
+            return;
         }
     }
 }

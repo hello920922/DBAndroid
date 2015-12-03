@@ -7,6 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import layout.api.EditTextPlus;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         EditTextPlus viewpasswd = (EditTextPlus)findViewById(R.id.main_passwd);
 
         String query = "func=signin&cid=" + viewId.getText().toString() + "&passwd=" + viewpasswd.getText().toString();
-        URLConnector conn = new URLConnector(Constant.QueryURL, "POST", query);
+        DBConnector conn = new DBConnector(query);
         conn.start();
 
         try{
@@ -44,16 +47,20 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        String result = conn.getResult();
-        if(result.equals("ERROR")){
-            Toast.makeText(this, "Login Failure",Toast.LENGTH_SHORT).show();
-            return;
-        }
-        Toast.makeText(this, "Nice to meet you " + result, Toast.LENGTH_SHORT).show();
+        JSONObject jsonResult = conn.getResult();
+        try {
+            boolean result = (boolean)jsonResult.get("result");
+            if(!result){
+                Toast.makeText(this, "Login Failure",Toast.LENGTH_SHORT).show();
+                return;
+            }
+            String name = (String)((JSONObject)jsonResult.getJSONArray("values").get(0)).get("NAME");
+            Toast.makeText(this, "Nice to meet you " + name, Toast.LENGTH_SHORT).show();
 
-        Intent historyIntent = new Intent(this, HistoryActivity.class);
-        historyIntent.putExtra("CID", viewId.getText().toString());
-        startActivity(historyIntent);
+            Intent historyIntent = new Intent(this, HistoryActivity.class);
+            historyIntent.putExtra("CID", viewId.getText().toString());
+            startActivity(historyIntent);
+        } catch (JSONException e) { }
     }
 
     public void Signup(){

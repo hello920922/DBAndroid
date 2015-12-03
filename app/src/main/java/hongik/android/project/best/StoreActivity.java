@@ -20,6 +20,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import layout.api.TextViewPlus;
 
 public class StoreActivity extends AppCompatActivity implements OnMapReadyCallback {
@@ -51,54 +54,61 @@ public class StoreActivity extends AppCompatActivity implements OnMapReadyCallba
         }
     }
 
-    public void drawPage() throws Exception{
+    public void drawPage() throws Exception {
         String query = "func=storereview" + "&license=" + license;
 
-        URLConnector conn = new URLConnector(Constant.QueryURL, "POST", query);
+        DBConnector conn = new DBConnector(query);
         conn.start();
         conn.join();
 
-        String result = conn.getResult();
+        JSONObject jsonResult = conn.getResult();
+        boolean result = jsonResult.getBoolean("result");
+        if (!result)
+            return;
 
-        String[] results = result.split("/nextResult/");
+        final JSONObject store = jsonResult.getJSONArray("store").getJSONObject(0);
 
-        final String store = results[0];
-        String menu = results[1];
-        String review = null;
-        if(results.length > 2)
-            review = results[2];
+        JSONArray menu = null;
+        if(!jsonResult.isNull("menu"))
+            menu = jsonResult.getJSONArray("menu");
+
+        JSONArray review = null;
+        if(!jsonResult.isNull("review"))
+            review = jsonResult.getJSONArray("review");
 
         //Draw Store Information
-        String[] store_info = store.split(",");
-        ((TextViewPlus)findViewById(R.id.store_storename)).setText(store_info[0]);
-        ((TextViewPlus)findViewById(R.id.store_address)).setText(store_info[1]);
-        ImageLoader imgLoader = new ImageLoader(store_info[2]);
+        Lat = Double.parseDouble(store.getString("LAT"));
+        Lng = Double.parseDouble(store.getString("LNG"));
+        sname = store.getString("SNAME");
+        ((TextViewPlus) findViewById(R.id.store_storename)).setText(sname);
+        ((TextViewPlus) findViewById(R.id.store_address)).setText(store.getString("ADDR"));
+        ImageLoader imgLoader = new ImageLoader(store.getString("IMG"));
         imgLoader.start();
+
         try {
             imgLoader.join();
             Bitmap storeImg = imgLoader.getBitmap();
-            ((ImageView)findViewById(R.id.store_image)).setImageBitmap(storeImg);
+            ((ImageView) findViewById(R.id.store_image)).setImageBitmap(storeImg);
         } catch (InterruptedException e) {
             Toast.makeText(this, "Can not bring " + license + "store's image", Toast.LENGTH_SHORT).show();
             Log.e("StoreInfo", "Can not bring " + license + "store's image");
         }
-        Lat = Double.parseDouble(store_info[3]);
-        Lng = Double.parseDouble(store_info[4]);
-        sname = store_info[0];
 
         //Draw Menu Table
-        if(menu != null){
+        if (menu != null) {
             TableRow motive = (TableRow) menuTable.getChildAt(1);
 
-            String[] menu_rows = menu.split("/");
-            for(String menu_row : menu_rows){
-                final String [] elements = menu_row.split(",");
-                int colnums = elements.length;
+            for (int i = 0; i < menu.length(); i++) {
+                JSONObject json = menu.getJSONObject(i);
 
-                TableRow tbrow = new TableRow(this);
-                TextViewPlus[] tbcols = new TextViewPlus[colnums];
+                TableRow tbRow = new TableRow(this);
+                TextViewPlus[] tbCols = new TextViewPlus[3];
 
-                imgLoader = new ImageLoader(elements[0]);
+                final String[] elements = new String[2];
+                elements[0] = json.getString("ITEM#");
+                elements[1] = json.getString("PRICE");
+
+                imgLoader = new ImageLoader(json.getString("IMG"));
                 imgLoader.start();
                 imgLoader.join();
 
@@ -112,62 +122,66 @@ public class StoreActivity extends AppCompatActivity implements OnMapReadyCallba
                     public void onClick(View v) {
                         Intent storeIntent = new Intent(originActivity, MenuActivity.class);
                         storeIntent.putExtra("LICENSE", license);
-                        storeIntent.putExtra("MENU", elements[1]);
+                        storeIntent.putExtra("MENU", elements[0]);
                         startActivity(storeIntent);
                     }
                 });
 
-                tbrow.addView(img);
-                for(int i=1; i<colnums; i++){
-                    tbcols[i] = new TextViewPlus(this);
-                    tbcols[i].setText(elements[i]);
-                    tbcols[i].setLayoutParams(motive.getChildAt(i).getLayoutParams());
-                    tbcols[i].setGravity(Gravity.CENTER);
-                    tbcols[i].setTypeface(Typeface.createFromAsset(tbcols[i].getContext().getAssets(), "InterparkGothicBold.ttf"));
-                    tbcols[i].setOnClickListener(new View.OnClickListener() {
+                tbRow.addView(img);
+
+                for (int j = 0; j < 2; j++) {
+                    tbCols[j] = new TextViewPlus(this);
+                    tbCols[j].setText(elements[j]);
+                    tbCols[j].setLayoutParams(motive.getChildAt(j).getLayoutParams());
+                    tbCols[j].setGravity(Gravity.CENTER);
+                    tbCols[j].setTypeface(Typeface.createFromAsset(tbCols[j].getContext().getAssets(), "InterparkGothicBold.ttf"));
+                    tbCols[j].setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Intent storeIntent = new Intent(originActivity, MenuActivity.class);
                             storeIntent.putExtra("LICENSE", license);
-                            storeIntent.putExtra("MENU", elements[1] );
+                            storeIntent.putExtra("MENU", elements[0]);
                             startActivity(storeIntent);
                         }
                     });
 
-                    Log.i("StoreMenu", "COL" + i + ":" + elements[i]);
-                    tbrow.addView(tbcols[i]);
+                    Log.i("StoreMenu", "COL" + j + ":" + elements[j]);
+                    tbRow.addView(tbCols[j]);
                 }
-                menuTable.addView(tbrow);
+                menuTable.addView(tbRow);
             }
         }
         menuTable.removeViewAt(1);
 
         //Draw Review Table
-        if(review != null){
+        if (review != null) {
             TableRow motive = (TableRow) reviewTable.getChildAt(1);
 
-            String[] review_rows = review.split("/nextline");
-            int rowCnt = 0;
-            for(String review_row : review_rows){
-                if(rowCnt == 5) break;
-                final String [] elements = review_row.split(",");
-                int colnums = elements.length;
+            int rowCnt = 5;
+            if (review.length() < 5)
+                rowCnt = review.length();
+            for (int i = 0; i < rowCnt; i++) {
+                JSONObject json = review.getJSONObject(i);
 
-                TableRow tbrow = new TableRow(this);
-                TextViewPlus[] tbcols = new TextViewPlus[colnums];
+                final String[] elements = new String[4];
+                elements[0] = json.getString("GRADE");
+                elements[1] = json.getString("NOTE");
+                elements[2] = json.getString("CID#");
+                elements[3] = json.getString("DAY");
 
-                if(elements[1].length()>14)
+                TableRow tbRow = new TableRow(this);
+                TextViewPlus[] tbCols = new TextViewPlus[4];
+
+                if (elements[1].length() > 14)
                     elements[1] = elements[1].substring(0, 14) + "...";
-                //String[] days = elements[3].split("-");
-                //elements[3] = days[0].substring(2,4) + "/" + days[1] + "/" + days[2];
 
-                for(int i=0; i<colnums; i++){
-                    tbcols[i] = new TextViewPlus(this);
-                    tbcols[i].setText(elements[i]);
-                    tbcols[i].setLayoutParams(motive.getChildAt(i).getLayoutParams());
-                    tbcols[i].setGravity(Gravity.CENTER);
-                    tbcols[i].setTypeface(Typeface.createFromAsset(tbcols[i].getContext().getAssets(), "InterparkGothicBold.ttf"));
-                    tbcols[i].setOnClickListener(new View.OnClickListener() {
+                for (int j = 0; j < 4; j++) {
+                    tbCols[j] = new TextViewPlus(this);
+                    tbCols[j].setText(elements[j]);
+                    tbCols[j].setLayoutParams(motive.getChildAt(j).getLayoutParams());
+                    tbCols[j].setGravity(Gravity.CENTER);
+                    tbCols[j].setTypeface(Typeface.createFromAsset(tbCols[j].getContext().getAssets(), "InterparkGothicBold.ttf"));
+                    tbCols[j].setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Intent reviewIntent = new Intent(originActivity, ReviewDetailActivity.class);
@@ -179,10 +193,10 @@ public class StoreActivity extends AppCompatActivity implements OnMapReadyCallba
                         }
                     });
 
-                    Log.i("StoreMenu", "COL" + i + ":" + elements[i]);
-                    tbrow.addView(tbcols[i]);
+                    Log.i("StoreMenu", "COL" + j + ":" + elements[j]);
+                    tbRow.addView(tbCols[j]);
                 }
-                reviewTable.addView(tbrow);
+                reviewTable.addView(tbRow);
             }
         }
         reviewTable.removeViewAt(1);

@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 import layout.api.EditTextPlus;
 import layout.api.TextViewPlus;
 
@@ -27,35 +29,32 @@ public class ReviewActivity extends AppCompatActivity {
         buid = intent.getStringExtra("BUID");
         cid = intent.getStringExtra("CID");
 
-        drawReview();
+        try{drawReview();}catch (Exception ex){}
         showAlertDialog();
     }
 
-    public void drawReview(){
+    public void drawReview() throws Exception {
         String query = "func=beaconreview" + "&buid=" + buid;
-        URLConnector conn = new URLConnector(Constant.QueryURL, "POST", query);
+        DBConnector conn = new DBConnector(query);
         conn.start();
+        conn.join();
+        JSONObject jsonResult = conn.getResult();
+        boolean result = jsonResult.getBoolean("result");
 
-        String result = "";
-        try {
-            conn.join();
-            result = conn.getResult();
+        if (!result) {
+            Toast.makeText(this, "This store is not beacon store", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
 
-            if(result.equals("ERROR")){
-                Toast.makeText(this,"This store is not beacon store",Toast.LENGTH_SHORT).show();
-                finish();
-            }
-            else {
-                String[] results = result.split(",");
+        JSONObject json = jsonResult.getJSONArray("values").getJSONObject(0);
 
-                sname = results[0];
-                addr = results[1];
-                license = results[2];
+        sname = json.getString("SNAME");
+        addr = json.getString("ADDR");
+        license = json.getString("LICENSE#");
 
-                ((TextViewPlus) findViewById(R.id.review_title)).setText(sname);
-                ((TextViewPlus) findViewById(R.id.review_address)).setText(addr);
-            }
-        } catch (InterruptedException e) {}
+        ((TextViewPlus) findViewById(R.id.review_title)).setText(sname);
+        ((TextViewPlus) findViewById(R.id.review_address)).setText(addr);
     }
 
     public void showAlertDialog(){
@@ -75,13 +74,15 @@ public class ReviewActivity extends AppCompatActivity {
                     "&cid=" + cid +
                     "&note=" + note +
                     "&grade=" + grade;
-            URLConnector conn = new URLConnector(Constant.QueryURL, "POST", query);
+            DBConnector conn = new DBConnector(query);
             conn.start();
 
             try {
                 conn.join();
-                String result = conn.getResult();
-                if(result.equals("ERROR")){
+                JSONObject jsonResult = conn.getResult();
+                boolean result = jsonResult.getBoolean("result");
+
+                if(!result){
                     Toast.makeText(this, "Submit Error", Toast.LENGTH_SHORT).show();
                     setResult(0, new Intent());
                     finish();
@@ -90,7 +91,7 @@ public class ReviewActivity extends AppCompatActivity {
                 Toast.makeText(this, "Thank you for your opinion", Toast.LENGTH_SHORT).show();
                 setResult(1, new Intent());
                 finish();
-            } catch (InterruptedException e) {}
+            } catch (Exception e) {}
         }
     }
 }

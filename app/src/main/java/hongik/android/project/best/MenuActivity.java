@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
+import org.json.JSONObject;
+
 import layout.api.TextViewPlus;
 
 public class MenuActivity extends AppCompatActivity {
@@ -21,47 +23,43 @@ public class MenuActivity extends AppCompatActivity {
         license = intent.getStringExtra("LICENSE");
         item = intent.getStringExtra("MENU");
 
-        drawintent();
+        try{drawintent();}
+        catch (Exception ex){}
     }
-    public void drawintent(){
-        String query =("func=menudetail&license="+license+"&item="+item);
-        URLConnector conn = new URLConnector(Constant.QueryURL,"POST",query);
+    public void drawintent() throws Exception {
+        String query = ("func=menudetail&license=" + license + "&item=" + item);
+        DBConnector conn = new DBConnector(query);
 
         conn.start();
+        conn.join();
 
-        String result = null;
+        JSONObject jsonResult = conn.getResult();
+        boolean result = jsonResult.getBoolean("result");
 
-        try{
-            conn.join();
-            result = conn.getResult();
-            }catch(InterruptedException e){
-            e.printStackTrace();
-        }
-        if(result !=null){
-            String[] data = result.split(",");
-            String store_same = data[0];
-            String item_price= data[1];
-            String menu_img = data[2];
+        if (!result)
+            return;
 
-            ImageView imageView = (ImageView)findViewById(R.id.menudetail_image);
-            TextViewPlus tvItem = (TextViewPlus)findViewById(R.id.menudetail_item);
-            TextViewPlus tvStore = (TextViewPlus)findViewById(R.id.menudetail_name);
-            TextViewPlus tvPrice = (TextViewPlus)findViewById(R.id.menudetail_price);
+        JSONObject json = jsonResult.getJSONArray("values").getJSONObject(0);
+        String sname = json.getString("SNAME");
+        String item = json.getString("PRICE");
+        String img = json.getString("IMG");
 
-            tvItem.setText(item);
-            tvStore.setText(store_same);
-            tvPrice.setText(item_price);
+        ImageView imageView = (ImageView) findViewById(R.id.menudetail_image);
+        TextViewPlus tvItem = (TextViewPlus) findViewById(R.id.menudetail_item);
+        TextViewPlus tvStore = (TextViewPlus) findViewById(R.id.menudetail_name);
+        TextViewPlus tvPrice = (TextViewPlus) findViewById(R.id.menudetail_price);
 
-            ImageLoader imageLoader = new ImageLoader(menu_img);
-            imageLoader.start();
-            try {
-                imageLoader.join();
-                Bitmap bitmap = imageLoader.getBitmap();
+        tvItem.setText(this.item);
+        tvStore.setText(sname);
+        tvPrice.setText(item);
 
-                imageView.setImageBitmap(bitmap);
-            }catch (Exception ex){};
-        }
+        ImageLoader imageLoader = new ImageLoader(img);
+        imageLoader.start();
+        imageLoader.join();
 
+        Bitmap bitmap = imageLoader.getBitmap();
+
+        imageView.setImageBitmap(bitmap);
     }
 }
 

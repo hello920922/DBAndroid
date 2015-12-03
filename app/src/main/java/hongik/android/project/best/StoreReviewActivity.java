@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import layout.api.TextViewPlus;
 
 public class StoreReviewActivity extends AppCompatActivity {
@@ -35,44 +38,52 @@ public class StoreReviewActivity extends AppCompatActivity {
 
     public void drawTable() throws Exception{
         String query = "func=morereview" + "&license=" + license;
-        URLConnector conn = new URLConnector(Constant.QueryURL, "POST", query);
+        DBConnector conn = new DBConnector(query);
         conn.start();
 
         conn.join();
-        String result = conn.getResult();
+        JSONObject jsonResult = conn.getResult();
+        boolean result = jsonResult.getBoolean("result");
 
-        String[] results = result.split("/nextResult/");
-        String storeName = results[0];
-        String review = null;
-        if(results.length > 1)
-            review = results[1];
+        if(!result){
+            return;
+        }
 
+        String storeName = jsonResult.getString("sname");
         ((TextViewPlus)findViewById(R.id.storereview_storename)).setText(storeName);
+
+        JSONArray review = null;
+        if(!jsonResult.isNull("review")){
+            review = jsonResult.getJSONArray("review");
+        }
 
         //Draw Review Table
         if(review != null){
             TableRow motive = (TableRow) reviewTable.getChildAt(1);
 
-            String[] review_rows = review.split("/nextline");
-            for(String review_row : review_rows){
-                final String [] elements = review_row.split(",");
-                int colnums = elements.length;
+            for(int i=0; i<review.length(); i++){
+                JSONObject json = review.getJSONObject(i);
+                final String [] elements = new String[4];
+                elements[0] = json.getString("GRADE");
+                elements[1] = json.getString("NOTE");
+                elements[2] = json.getString("CID#");
+                elements[3] = json.getString("DAY");
 
-                TableRow tbrow = new TableRow(this);
-                TextViewPlus[] tbcols = new TextViewPlus[colnums];
+                TableRow tbRow = new TableRow(this);
+                TextViewPlus[] tbCols = new TextViewPlus[4];
 
                 if(elements[1].length()>14)
                     elements[1] = elements[1].substring(0, 14) + "...";
                 //String[] days = elements[3].split("-");
                 //elements[3] = days[0].substring(2,4) + "/" + days[1] + "/" + days[2];
 
-                for(int i=0; i<colnums; i++){
-                    tbcols[i] = new TextViewPlus(this);
-                    tbcols[i].setText(elements[i]);
-                    tbcols[i].setLayoutParams(motive.getChildAt(i).getLayoutParams());
-                    tbcols[i].setGravity(Gravity.CENTER);
-                    tbcols[i].setTypeface(Typeface.createFromAsset(tbcols[i].getContext().getAssets(), "InterparkGothicBold.ttf"));
-                    tbcols[i].setOnClickListener(new View.OnClickListener() {
+                for(int j=0; j<4; j++){
+                    tbCols[j] = new TextViewPlus(this);
+                    tbCols[j].setText(elements[j]);
+                    tbCols[j].setLayoutParams(motive.getChildAt(j).getLayoutParams());
+                    tbCols[j].setGravity(Gravity.CENTER);
+                    tbCols[j].setTypeface(Typeface.createFromAsset(tbCols[j].getContext().getAssets(), "InterparkGothicBold.ttf"));
+                    tbCols[j].setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Intent reviewIntent = new Intent(originActivity, ReviewDetailActivity.class);
@@ -84,10 +95,10 @@ public class StoreReviewActivity extends AppCompatActivity {
                         }
                     });
 
-                    Log.i("StoreMenu", "COL" + i + ":" + elements[i]);
-                    tbrow.addView(tbcols[i]);
+                    Log.i("StoreMenu", "COL" + j + ":" + elements[j]);
+                    tbRow.addView(tbCols[j]);
                 }
-                reviewTable.addView(tbrow);
+                reviewTable.addView(tbRow);
             }
         }
         reviewTable.removeViewAt(1);
