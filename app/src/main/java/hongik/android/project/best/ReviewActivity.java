@@ -42,7 +42,8 @@ public class ReviewActivity extends AppCompatActivity {
         boolean result = jsonResult.getBoolean("result");
 
         if (!result) {
-            Toast.makeText(this, "This store is not beacon store", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "This store is not beacon store",
+                    Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
@@ -59,7 +60,8 @@ public class ReviewActivity extends AppCompatActivity {
 
     public void showAlertDialog(){
         AlertDialog.Builder alert_confirm = new AlertDialog.Builder(this);
-        alert_confirm.setMessage("Please write a review : about " + sname).setCancelable(true);
+        alert_confirm.setMessage("Please write a review : about "
+                + sname).setCancelable(true);
         AlertDialog alert = alert_confirm.create();
         alert.show();
     }

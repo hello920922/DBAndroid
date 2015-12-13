@@ -90,7 +90,8 @@ public class StoreActivity extends AppCompatActivity implements OnMapReadyCallba
             Bitmap storeImg = imgLoader.getBitmap();
             ((ImageView) findViewById(R.id.store_image)).setImageBitmap(storeImg);
         } catch (InterruptedException e) {
-            Toast.makeText(this, "Can not bring " + license + "store's image", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Can not bring " + license + "store's image",
+                    Toast.LENGTH_SHORT).show();
             Log.e("StoreInfo", "Can not bring " + license + "store's image");
         }
 
